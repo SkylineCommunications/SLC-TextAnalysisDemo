@@ -26,7 +26,9 @@ type: Custom Solution
 # If the ID is filled in but does not exist yet, a new Catalog item will be registered with this ID.
 # If the ID is filled in but does exist, properties of the item will be overwritten.
 #   Must be a valid GUID.
+# id: cb4988f9-f3e5-45b7-aade-144f21e9755a
 id: cb4988f9-f3e5-45b7-aade-144f21e9755a
+
 
 # [Required]
 # The human-friendly name of the Catalog item.
@@ -34,7 +36,8 @@ id: cb4988f9-f3e5-45b7-aade-144f21e9755a
 #   Max length: 100 characters.
 #   Cannot contain newlines.
 #   Cannot contain leading or trailing whitespace characters.
-title: SLC-TextAnalysisDemo
+# title: SLC-TextAnalysisDemo
+title: Empower 2025 - Using AI to automate your operations
 
 # [Optional]
 # General information about the Catalog item.
