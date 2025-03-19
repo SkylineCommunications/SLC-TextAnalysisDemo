@@ -1,4 +1,4 @@
-﻿<Project Sdk="Skyline.DataMiner.Sdk">
+<Project Sdk="Skyline.DataMiner.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net48</TargetFramework>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -15,7 +15,7 @@
 		<UserSecretsId>90050037-a1e2-47dd-9f01-f504a472ff16</UserSecretsId>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Skyline.DataMiner.Core.AppPackageInstaller" Version="2.1.0" />
+		<PackageReference Include="Skyline.DataMiner.Core.AppPackageInstaller" Version="2.1.1" />
 		<PackageReference Include="Skyline.DataMiner.Dev.Automation" Version="10.3.0.24" />
 		<PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="1.2.5">
 			<PrivateAssets>all</PrivateAssets>
