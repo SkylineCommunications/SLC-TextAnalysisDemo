@@ -23,6 +23,6 @@
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="SetupContent\DOMImportExport\DOMImportExport\satellitefeeds\DomBehaviorDefinitions\" />
+	  <Folder Include="SetupContent\DOMImportExport\satellitefeeds\DomBehaviorDefinitions\" />
 	</ItemGroup>
 </Project>
