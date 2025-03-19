@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35728.132 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLC-TextAnalysisDemo", "SLC-TextAnalysisDemo\SLC-TextAnalysisDemo.csproj", "{86194FE6-9F75-4522-940D-B46C92AC0CBD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Internal", "Internal", "{162915EB-C869-461D-BE7C-13B8AFF43A09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Analysis", "Code Analysis", "{49B781D6-17C3-46F5-AD8A-899424169C7E}"
+	ProjectSection(SolutionItems) = preProject
+		Internal\Code Analysis\qaction-debug.ruleset = Internal\Code Analysis\qaction-debug.ruleset
+		Internal\Code Analysis\qaction-release.ruleset = Internal\Code Analysis\qaction-release.ruleset
+		Internal\Code Analysis\stylecop.json = Internal\Code Analysis\stylecop.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLC-TextAnalyisDemo_Common", "SLC-TextAnalyisDemo_Common\SLC-TextAnalyisDemo_Common.csproj", "{1372B0BE-040D-4402-88D7-2EB05AB0DB6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLC-TextAnalysis-Upload", "SLC-TextAnalysis-Upload\SLC-TextAnalysis-Upload.csproj", "{DC433685-4D1C-4A17-9240-B7558605D6C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IAS", "IAS", "{B96931D9-2326-4118-9AA8-ECD26D61AD9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLC_TextAnalysis_Script", "SLC_TextAnalysis_Script\SLC_TextAnalysis_Script.csproj", "{DE8875B6-F4E8-4560-B772-6B9F382C53B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86194FE6-9F75-4522-940D-B46C92AC0CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86194FE6-9F75-4522-940D-B46C92AC0CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86194FE6-9F75-4522-940D-B46C92AC0CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86194FE6-9F75-4522-940D-B46C92AC0CBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1372B0BE-040D-4402-88D7-2EB05AB0DB6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1372B0BE-040D-4402-88D7-2EB05AB0DB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1372B0BE-040D-4402-88D7-2EB05AB0DB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1372B0BE-040D-4402-88D7-2EB05AB0DB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC433685-4D1C-4A17-9240-B7558605D6C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC433685-4D1C-4A17-9240-B7558605D6C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC433685-4D1C-4A17-9240-B7558605D6C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC433685-4D1C-4A17-9240-B7558605D6C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8875B6-F4E8-4560-B772-6B9F382C53B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8875B6-F4E8-4560-B772-6B9F382C53B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8875B6-F4E8-4560-B772-6B9F382C53B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8875B6-F4E8-4560-B772-6B9F382C53B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49B781D6-17C3-46F5-AD8A-899424169C7E} = {162915EB-C869-461D-BE7C-13B8AFF43A09}
+		{DC433685-4D1C-4A17-9240-B7558605D6C0} = {B96931D9-2326-4118-9AA8-ECD26D61AD9A}
+	EndGlobalSection
+EndGlobal
