@@ -41,6 +41,8 @@ internal class Script
 			{
 				throw new AggregateException(exceptions);
 			}
+
+			FixDllDependencies(engine);
 		}
         catch (Exception e)
         {
@@ -76,6 +78,13 @@ internal class Script
 		subScript.SelectScriptParam("Action", "Import");
 		subScript.SelectScriptParam("Path", path);
 		subScript.SelectScriptParam("ModuleNames", "-1");
+		subScript.Synchronous = true;
+		subScript.StartScript();
+	}
+
+	private static void FixDllDependencies(IEngine engine)
+	{
+		var subScript = engine.PrepareSubScript("SLC_TextAnalysis_RenameDlls");
 		subScript.Synchronous = true;
 		subScript.StartScript();
 	}
