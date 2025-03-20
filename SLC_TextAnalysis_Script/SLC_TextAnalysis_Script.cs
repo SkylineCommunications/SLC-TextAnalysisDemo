@@ -248,7 +248,7 @@ namespace TextAnalysis
                 You are strictly forbidden from answering in a markdown json block! Please provide a deterministic response with as 
                 minimal randomness in your response as possible.
 				Additional info:
-					When things that are represented in a list such as satellites and auio_channel_pattern are not found, just return an empty json array []
+					When things that are represented in a list such as satellites and auio_channel_pattern are not found, just return an empty json array [] suc as ""audio_channel_pattern"": [] and ""satellites"": []
 				"
 				);
 				IChatCompletionService chatCompletionService = _kernel.GetRequiredService<IChatCompletionService>();
