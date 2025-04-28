@@ -16,7 +16,7 @@
 #   - System Health: If the Catalog item is intended to monitor the health of a system.
 #   - User-Defined API: If the Catalog item is a DataMiner Automation script designed as a user-defined API.
 #   - Visual Overview: If the Catalog item is a Microsoft Visio design.
-type: Learning & Sample
+type: 'Learning & Sample'
 
 # [Required]
 # The ID of the Catalog item.
@@ -26,7 +26,7 @@ type: Learning & Sample
 # If the ID is filled in but does not exist yet, a new Catalog item will be registered with this ID.
 # If the ID is filled in but does exist, properties of the item will be overwritten.
 #   Must be a valid GUID.
-id: cb4988f9-f3e5-45b7-aade-144f21e9755a
+id: 'cb4988f9-f3e5-45b7-aade-144f21e9755a'
 
 
 # [Required]
@@ -35,18 +35,18 @@ id: cb4988f9-f3e5-45b7-aade-144f21e9755a
 #   Max length: 100 characters.
 #   Cannot contain newlines.
 #   Cannot contain leading or trailing whitespace characters.
-title: Empower 2025 - Using AI to automate your operations
+title: 'Empower 2025 - Using AI to automate your operations'
 
 # [Optional]
 # General information about the Catalog item.
 #   Max length: 100,000 characters
-short_description: This is a sample application shown on Empower 2025. Please only install on a new DaaS and not on existing stystem as the package modifies some DLLs.
+short_description: 'This is a sample application shown on Empower 2025. Please only install on a new DaaS and not on existing stystem as the package modifies some DLLs.'
 
 # [Optional]
 # A valid URL that points to the source code.
 #   A valid URL
 #   Max length: 2048 characters
-source_code_url: https://github.com/SkylineCommunications/SLC-TextAnalysisDemo
+source_code_url: 'https://github.com/SkylineCommunications/SLC-TextAnalysisDemo'
 
 # [Optional]
 # A valid URL that points to documentation.
@@ -69,8 +69,8 @@ owners:
 #   Cannot contain newlines.
 #   Cannot contain leading or trailing whitespace characters.
 tags:
-  - Empower
-  - Text Analysis
-  - AI
-  - Satellite
-  - DOM
+  - 'Empower'
+  - 'Text Analysis'
+  - 'AI'
+  - 'Satellite'
+  - 'DOM'
