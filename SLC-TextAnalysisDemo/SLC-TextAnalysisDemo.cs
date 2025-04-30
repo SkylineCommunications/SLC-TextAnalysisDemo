@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Elements;
+using Protocols;
 using Skyline.AppInstaller;
 using Skyline.DataMiner.Automation;
 using Skyline.DataMiner.Net.AppPackages;
@@ -33,7 +35,7 @@ internal class Script
 
 			// Custom installation logic can be added here for each individual install package.
 
-            var exceptions = new List<Exception>();
+			var exceptions = new List<Exception>();
             installer.Log("Importing DOM...");
             exceptions.AddRange(ImportDom(engine));
 
@@ -41,6 +43,12 @@ internal class Script
 			{
 				throw new AggregateException(exceptions);
 			}
+
+			var protocolInstaller = new ProtocolInstaller(Engine.SLNetRaw, context, _setupContentPath, engine.GenerateInformation);
+			protocolInstaller.InstallDefaultContent();
+
+			var elementInstaller = new ElementInstaller(engine);
+			elementInstaller.InstallDefaultContent();
 
 			FixDllDependencies(engine);
 		}

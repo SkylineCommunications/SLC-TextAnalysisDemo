@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+****************************************************************************
+*  Copyright (c) 2018,  Skyline Communications NV  All Rights Reserved.    *
+****************************************************************************
+
+Revision History:
+
+DATE		VERSION		AUTHOR				COMMENTS
+
+20/03/2025	0.0.0.1		WME, Skyline		Initial version
+****************************************************************************
+
+-->
+<Protocol xmlns="http://www.skyline.be/protocol">
+	<Name>Empower - Restart SLAutomation</Name>
+	<Description>Restart the SLAutomation process</Description>
+	<Version>0.0.0.1</Version>
+	<Provider>Skyline Communications</Provider>
+	<ElementType>virtual</ElementType>
+	<Type relativeTimers="true">virtual</Type>
+	<Display defaultPage="General" pageOrder="General" wideColumnPages="General"/>
+	<SNMP includepages="true">auto</SNMP>
+	<Params>
+		<Param id="102">
+			<Name>Restart</Name>
+			<Description>Restart the SLAutomation process</Description>
+			<Type>write</Type>
+			<Information>
+				<Text>Restart</Text>
+				<Subtext>Restart the SLAutomation process.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Restart</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="3" trending="false" save="true">
+			<Name>Restarted</Name>
+			<Description>Restarted?</Description>
+			<Information>
+				<Text>Whether the proccess was restarted</Text>
+				<Subtext>Whether the proccess was restarted. To restart, press the button 'Restart'.</Subtext>
+			</Information>
+			<Type>read</Type>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>No</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+	</Params>
+	<QActions>
+		<QAction id="102" name="Restart" encoding="csharp" triggers="102" dllImport="System.ServiceProcess.dll">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using Skyline.DataMiner.Net.Helper;
+using Skyline.DataMiner.Scripting;
+using System.ServiceProcess;
+
+/// <summary>
+/// QAction to generate data.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public void Run(SLProtocolExt protocol)
+	{
+		var copilotService = ServiceController.GetServices().FirstOrDefault(s => s.ServiceName.Equals("SLAutomation", StringComparison.OrdinalIgnoreCase));
+		protocol.Restarted = "Stopping...";
+        copilotService.Stop();
+        copilotService.WaitForStatus(ServiceControllerStatus.Stopped);
+		protocol.Restarted = "Starting...";
+        copilotService.Start();
+        copilotService.WaitForStatus(ServiceControllerStatus.Running);
+		protocol.Restarted = "Restarted";
+	}
+}
+]]>
+		</QAction>
+	</QActions>
+</Protocol>
