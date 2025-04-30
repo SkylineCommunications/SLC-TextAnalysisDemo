@@ -12,13 +12,14 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Azure.AI.DocumentIntelligence" Version="1.0.0" />
-		<PackageReference Include="Microsoft.SemanticKernel" Version="1.42.0" />
+		<PackageReference Include="Microsoft.SemanticKernel" Version="1.47.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="Skyline.DataMiner.Dev.Automation" Version="10.3.0.24" />
-		<PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="1.2.5">
+		<PackageReference Include="Skyline.DataMiner.Dev.Automation" Version="10.5.5.2" />
+		<PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="2.0.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="System.Text.Json" Version="9.0.4" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\SLC-TextAnalyisDemo_Common\SLC-TextAnalyisDemo_Common.csproj" />
