@@ -35,12 +35,12 @@ id: 'cb4988f9-f3e5-45b7-aade-144f21e9755a'
 #   Max length: 100 characters.
 #   Cannot contain newlines.
 #   Cannot contain leading or trailing whitespace characters.
-title: 'Empower 2025 - Using AI to automate your operations'
+title: Processing PDF documents using AI
 
 # [Optional]
 # General information about the Catalog item.
 #   Max length: 100,000 characters
-short_description: 'This is a sample application shown on Empower 2025. Please only install on a new DaaS and not on existing stystem as the package modifies some DLLs.'
+short_description: This is a sample applications. Also note that it requires additional setup of external cloud AI services. 
 
 # [Optional]
 # A valid URL that points to the source code.
@@ -69,8 +69,7 @@ owners:
 #   Cannot contain newlines.
 #   Cannot contain leading or trailing whitespace characters.
 tags:
-  - 'Empower'
   - 'Text Analysis'
+  - 'LLM'
   - 'AI'
   - 'Satellite'
-  - 'DOM'
