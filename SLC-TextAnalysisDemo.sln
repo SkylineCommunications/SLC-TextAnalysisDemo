@@ -30,6 +30,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SLC_TextAnalysis_RenameDlls
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SLC-Restart-Element", "SLC-Restart-Element\SLC-Restart-Element.csproj", "{19103B42-438E-4A2E-BFDD-C8F93641C25D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLC-TextAnalysis-Configuration", "SLC-TextAnalysis-Configuration\SLC-TextAnalysis-Configuration.csproj", "{00BC0C6C-FAF2-4E9C-AE70-18DBB2384F1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{19103B42-438E-4A2E-BFDD-C8F93641C25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19103B42-438E-4A2E-BFDD-C8F93641C25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19103B42-438E-4A2E-BFDD-C8F93641C25D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00BC0C6C-FAF2-4E9C-AE70-18DBB2384F1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00BC0C6C-FAF2-4E9C-AE70-18DBB2384F1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00BC0C6C-FAF2-4E9C-AE70-18DBB2384F1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00BC0C6C-FAF2-4E9C-AE70-18DBB2384F1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{DC433685-4D1C-4A17-9240-B7558605D6C0} = {B96931D9-2326-4118-9AA8-ECD26D61AD9A}
 		{B4428A30-41A8-4BDA-AED4-C42902F4E0D1} = {B96931D9-2326-4118-9AA8-ECD26D61AD9A}
 		{0D976E4A-2D2C-4272-B372-C841FD78D195} = {0DD80A6F-9157-49D8-BA3F-865743172A5E}
+		{00BC0C6C-FAF2-4E9C-AE70-18DBB2384F1B} = {B96931D9-2326-4118-9AA8-ECD26D61AD9A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1E2125B2-0CD0-4161-BA1D-FC9E564E4A72}

@@ -17,7 +17,7 @@ namespace TextAnalysis
 
         public static AzureSecrets GetUserSecrets()
         {
-            using (StreamReader r = new StreamReader("C:\\Skyline DataMiner\\Documents\\DMA_COMMON_DOCUMENTS\\Text Analysis PoC\\secrets.json"))
+            using (StreamReader r = new StreamReader("C:\\Skyline DataMiner\\AI-sample\\secrets\\secrets.json"))
             {
                 string json = r.ReadToEnd();
                 return JsonConvert.DeserializeObject<AzureSecrets>(json);

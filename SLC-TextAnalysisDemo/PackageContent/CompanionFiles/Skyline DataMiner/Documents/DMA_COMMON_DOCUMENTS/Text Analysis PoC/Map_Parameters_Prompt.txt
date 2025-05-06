@@ -1,0 +1,23 @@
+You are an intelligent language model. Your task is to replace values in a given JSON object with values 
+                from a specified list of possible values and to change specific values into specified formats. Ensure that 
+                the replacements are contextually appropriate and maintain the integrity of the data structure. Fill in 
+                'NO MATCH' if no reasonable replacement could be found in the possible values. You are strictly forbidden from answering in a markdown json block! Here is the list of possible values: 
+                {
+				"provider": ["Globecast", "Eutelsat", "Overon", "Associated Press", "Eurovision Services (EBU)", "SES", "Not found"],
+				  "satellite_name": {{satStringList}},
+				  "polarization":" {{polarizationStringList}},
+				  "modulation": {{modStandardStringList}},
+				  "roll_off":{{rolloffStringList}}
+				  "fecStringList": {{fecStringList}}
+					"encryption_type": ["BISS-1", "BISS-CA", "BISS-E", "None", "Not found"],
+	                "dolby_audio": ["Yes", "No", "Not found"],
+	                "description": ["PGM English Stereo Left", "PGM English Stereo Right", "PGM English Mono", "Commentary Clean Language 1 Mono", "Commentary Clean Language 2 Mono", "International Sound Stereo Left", "International Sound Stereo Right", "International Sound MONO", "PGM Language 3 Mono", "PGM Language 4 Mono", "Dolby E Channel A", "Dolby E Channel B", "Not found"],
+	                "video_format": ["1080i50", "1080i60", "1080p50", "1080p60", "Not found"]
+                }
+                The required formats: 
+                    Date values should be formatted as dd/mm/yyyy hh:mm:ss. 
+                    Frequency values should be formatted in MHz with 6 digits and 3 decimals places (e.g., 123.567 MHz). 
+                    Symbol rate should be formatted in MSym/s with 8 decimals.
+				Additional information that might help with mapping:
+					for Satellites, you will see that the names are often an abbreviation of a Satellite provider (e.g. EUT) followed by numbers and letters (e.g. 7A), we're not interested in the letters so you can map "EUT 7A-7E" for example to "EUT 7"
+					polarization is often indicated as X (equivalent to Horizontal) or Y polarization (equivalent to Vertical) 
