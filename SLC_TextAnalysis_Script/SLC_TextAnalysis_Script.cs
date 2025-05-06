@@ -71,6 +71,8 @@ DATE		VERSION		AUTHOR			COMMENTS
 	using ExtensionsNamespace;
 using DomHelpers.Satellitefeeds;
 using System.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 //---------------------------------
 // TextAnalysis.cs
@@ -85,13 +87,16 @@ namespace TextAnalysis
 		{
 			private static Kernel _kernel;
 
-		private static IEngine _engine;
+			private static IEngine _engine;
 
-			/// <summary>
-			/// The script entry point.
-			/// </summary>
-			/// <param name="engine">Link with SLAutomation process.</param>
-			public void Run(IEngine engine)
+			private static readonly string extract_parameters_prompt = @"c:\Skyline DataMiner\Documents\dma_common_documents\Text Analysis PoC\extract_parameters_prompt.txt";
+			private static readonly string map_parameters_prompt = @"c:\Skyline DataMiner\Documents\dma_common_documents\Text Analysis PoC\map_parameters_prompt.txt";
+
+		/// <summary>
+		/// The script entry point.
+		/// </summary>
+		/// <param name="engine">Link with SLAutomation process.</param>
+		public void Run(IEngine engine)
 			{
 				try
 				{
@@ -135,7 +140,6 @@ namespace TextAnalysis
 
 				var markdown = ExtractFileContentAsMarkdown(filename, secrets);
 				engine.Log("Markdown content: " + markdown);
-
 				var json = ExtractJson(markdown);
 				engine.Log("JSON content: " + json);
 				engine.GenerateInformation("Extracted JSON content: " + json);
@@ -175,6 +179,7 @@ namespace TextAnalysis
 				}
 			}
 
+			// this will convert the uploaded file (pdf or image) to text formatted in markdown
 			private static string ExtractFileContentAsMarkdown(string filePath, AzureSecrets secrets)
 			{
 				using (var stream = new FileStream(filePath, FileMode.Open))
@@ -198,109 +203,62 @@ namespace TextAnalysis
 				}
 			}
 
+			// this method will extract the parameters from the markdown formated text
+			// the prompt used to do is this is consturctued using a text file stored under de documents folder in DataMiner
 			private static string ExtractJson(string markdown)
 			{
-				ChatHistory history = new ChatHistory();
-				history.AddSystemMessage(
-					@"You are an intelligent text analysis tool. You will receive a document converted into Markdown format. 
-                Your task is to extract specific information from the Markdown text and return a JSON object in the format 
-                as the following example:
-                    {
-	                    ""provider"": ""Eutelsat"",
+				var promptString = File.ReadAllText(extract_parameters_prompt);
 
-                        ""event"": {
-		                    ""event_name"": ""Skyline Communications Empower event"",
-		                    ""start_time"": ""2025-03-19T10:00:00Z"",
-		                    ""end_time"": ""2025-03-21T17:30:00Z""
-	                    },
-	                    ""satellites"": [
-		                    {
-			                    ""satellite_name"": ""EUT3B-3E"",
-			                    ""uplink"": {
-				                    ""frequency"": ""13062.5 MHz"",
-				                    ""polarization"": ""Horizontal""
-			                    },
-			                    ""downlink"": {
-				                    ""frequency"": ""11262.5 MHz"",
-				                    ""polarization"": ""Vertical""
-			                    },
-			                    ""parameters"": {
-				                    ""modulation_standard"": ""NS4"",
-				                    ""symbol_rate"": ""35.294118 MSym/s"",
-				                    ""fec"": ""7/8"",
-				                    ""roll_off"": ""2%"",
-				                    ""video_format"": ""1080i50"",
-				                    ""encryption_type"": ""BISS-1"",
-				                    ""dolby_audio"": ""No""
-			                    },
-			                    ""audio_channel_pattern"": [
-				                    { ""channel"": 1, ""description"": ""PGM ENGLISH STEREO LEFT"" },
-				                    { ""channel"": 2, ""description"": ""PGM ENGLISH STEREO RIGHT"" },
-				                    { ""channel"": 3, ""description"": ""INTERNATIONAL SOUND STEREO LEFT"" },
-				                    { ""channel"": 4, ""description"": ""INTERNATIONAL SOUND STEREO RIGHT"" },
-				                    { ""channel"": 8, ""description"": ""OTHER"" }
-			                    ]
-		                    }
-	                    ]
-                    }
-                Ensure the JSON object is formatted correctly, contains all the required information and don't add extra information. 
-                Fill in ""Not found"" if no value could be found in the Markdown text. Return only the JSON object and nothing else.
-                You are strictly forbidden from answering in a markdown json block! Please provide a deterministic response with as 
-                minimal randomness in your response as possible.
-				Additional info:
-					When things that are represented in a list such as satellites and auio_channel_pattern are not found, just return an empty json array [] suc as ""audio_channel_pattern"": [] and ""satellites"": []
-				"
-				);
+				ChatHistory history = new ChatHistory();
+
+				//_engine.GenerateInformation($"Extract paramters prompt: {promptString}");
+
+				history.AddSystemMessage(promptString);
+
 				IChatCompletionService chatCompletionService = _kernel.GetRequiredService<IChatCompletionService>();
 				history.AddUserMessage("Here is the markdown text: " + markdown);
 				var result = chatCompletionService.GetChatMessageContentAsync(history, kernel: _kernel).GetAwaiter().GetResult();
 				return result.Content;
 			}
 
+			// this method will intelligently map values extracted from the document to possible values in DataMiner (based on the enum options in DOM)
+			// the prompt used to do is this is consturctued using a text file stored under de documents folder in DataMiner
+			// the code will fill in placeholders dynamically
 			private static string MapValues(string json)
-			{
-				var satStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.SatelliteEnum>(SatellitefeedsIds.Enums.Satellite.ToValue).Select(s => "\"" + s + "\"");
-				var polarizationStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.DownlinkpolarizationEnum>(SatellitefeedsIds.Enums.Downlinkpolarization.ToValue).Select(s => "\"" + s + "\"");
-				var modStandardStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.ModulationstandardEnum>(SatellitefeedsIds.Enums.Modulationstandard.ToValue).Select(s => "\"" + s + "\"");
-				var rolloffStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.RolloffEnum>(SatellitefeedsIds.Enums.Rolloff.ToValue).Select(s => "\"" + s + "\"");
-				var fecStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.FECEnum>(SatellitefeedsIds.Enums.FEC	.ToValue).Select(s => "\"" + s + "\"");
+				{
+					var satStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.SatelliteEnum>(SatellitefeedsIds.Enums.Satellite.ToValue).Select(s => "\"" + s + "\"");
+					var polarizationStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.DownlinkpolarizationEnum>(SatellitefeedsIds.Enums.Downlinkpolarization.ToValue).Select(s => "\"" + s + "\"");
+					var modStandardStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.ModulationstandardEnum>(SatellitefeedsIds.Enums.Modulationstandard.ToValue).Select(s => "\"" + s + "\"");
+					var rolloffStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.RolloffEnum>(SatellitefeedsIds.Enums.Rolloff.ToValue).Select(s => "\"" + s + "\"");
+					var fecStringList = DOMExtensions.GetEnumDisplayValues<SatellitefeedsIds.Enums.FECEnum>(SatellitefeedsIds.Enums.FEC	.ToValue).Select(s => "\"" + s + "\"");
 
-			var history = new ChatHistory();
+					var history = new ChatHistory();
 
-			var systemMessage = @"You are an intelligent language model. Your task is to replace values in a given JSON object with values 
-                from a specified list of possible values and to change specific values into specified formats. Ensure that 
-                the replacements are contextually appropriate and maintain the integrity of the data structure. Fill in 
-                'NO MATCH' if no reasonable replacement could be found in the possible values. You are strictly forbidden 
-                from answering in a markdown json block! Here is the list of possible values: 
-                {
-				"
-				+ @"""provider"": [""Globecast"", ""Eutelsat"", ""Overon"", ""Associated Press"", ""Eurovision Services (EBU)"", ""SES"", ""Not found""]," + $"[{string.Join(", ", satStringList)}]" +
-				  @"""satellite_name"":" + $"[{string.Join(", ", satStringList)}], " +
-				  @"""polarization"":" + $"[{string.Join(", ", polarizationStringList)}], " +
-				  @"""modulation"":" + $"[{string.Join(", ", modStandardStringList)}], " +
-				  @"""roll_off"":" + $"[{string.Join(", ", rolloffStringList)}], " +
-				  @"""fecStringList"":" + $"[{string.Join(", ", fecStringList)}], " +
-					@"""encryption_type"": [""BISS-1"", ""BISS-CA"", ""BISS-E"", ""None"", ""Not found""],
-	                ""dolby_audio"": [""Yes"", ""No"", ""Not found""],
-	                ""description"": [""PGM English Stereo Left"", ""PGM English Stereo Right"", ""PGM English Mono"", ""Commentary Clean Language 1 Mono"", ""Commentary Clean Language 2 Mono"", ""International Sound Stereo Left"", ""International Sound Stereo Right"", ""International Sound MONO"", ""PGM Language 3 Mono"", ""PGM Language 4 Mono"", ""Dolby E Channel A"", ""Dolby E Channel B"", ""Not found""],
-	                ""video_format"": [""1080i50"", ""1080i60"", ""1080p50"", ""1080p60"", ""Not found""]
-                }
-                The required formats: 
-                    Date values should be formatted as dd/mm/yyyy hh:mm:ss. 
-                    Frequency values should be formatted in MHz with 6 digits and 3 decimals places (e.g., 123.567 MHz). 
-                    Symbol rate should be formatted in MSym/s with 8 decimals.
-				Additional information that might help with mapping:
-					for Satellites, you will see that the names are often an abbreviation of a Satellite provider (e.g. EUT) followed by numbers and letters (e.g. 7A), we're not interested in the letters so you can map ""EUT 7A-7E"" for example to ""EUT 7""
-					polarization is often indicated as X (equivalent to Horizontal) or Y polarization (equivalent to Vertical) 
-				";
+					// read prompt message from file
+					var promptString = File.ReadAllText(map_parameters_prompt);
+					// values that will replace placehodlers in the prompt (e.g. allowed satellite names based on what is defined in the system as possible enum values in DOM in this case)
+					var replacements = new Dictionary<string, string>
+					{
+						{ "satStringList", $"[{string.Join(", ", satStringList)}]" },
+						{ "polarizationStringList", $"[{string.Join(", ", polarizationStringList)}]" },
+						{ "modStandardStringList", $"[{string.Join(", ", modStandardStringList)}]" },
+						{ "rolloffStringList", $"[{string.Join(", ", rolloffStringList)}]" },
+						{ "fecStringList", $"[{string.Join(", ", fecStringList)}]" },
+					};
 
-			history.AddSystemMessage( systemMessage
-				);
-				IChatCompletionService chatCompletionService = _kernel.GetRequiredService<IChatCompletionService>();
-				history.AddUserMessage("Here is the JSON object: " + json);
-				var result = chatCompletionService.GetChatMessageContentAsync(history, kernel: _kernel).GetAwaiter().GetResult();
-				return result.Content;
-			}
+					// Replace placeholders
+					string systemMessage = Regex.Replace(promptString, @"\{\{(\w+)\}\}", match =>
+					{
+						string key = match.Groups[1].Value;
+						return replacements.TryGetValue(key, out string value) ? value : match.Value;
+					});
+
+						history.AddSystemMessage( systemMessage);
+						IChatCompletionService chatCompletionService = _kernel.GetRequiredService<IChatCompletionService>();
+						history.AddUserMessage("Here is the JSON object: " + json);
+						var result = chatCompletionService.GetChatMessageContentAsync(history, kernel: _kernel).GetAwaiter().GetResult();
+						return result.Content;
+				}
 		}
 	}
 
@@ -324,7 +282,7 @@ namespace TextAnalysis
 
 			public static AzureSecrets GetUserSecrets()
 			{
-				using (StreamReader r = new StreamReader("C:\\Skyline DataMiner\\Documents\\DMA_COMMON_DOCUMENTS\\Text Analysis PoC\\secrets.json"))
+				using (StreamReader r = new StreamReader("C:\\Skyline DataMiner\\AI-sample\\secrets\\secrets.json"))
 				{
 					string json = r.ReadToEnd();
 					return JsonConvert.DeserializeObject<AzureSecrets>(json);

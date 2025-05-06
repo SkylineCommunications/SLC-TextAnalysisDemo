@@ -5,7 +5,7 @@
 	<Type>Automation</Type>
 	<Author>WME</Author>
 	<CheckSets>FALSE</CheckSets>
-	<Folder></Folder>
+	<Folder>TextAnalysis</Folder>
 
 	<Protocols>
 	</Protocols>
