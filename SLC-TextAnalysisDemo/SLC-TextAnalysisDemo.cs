@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Elements;
-using Protocols;
 using Skyline.AppInstaller;
 using Skyline.DataMiner.Automation;
 using Skyline.DataMiner.Net.AppPackages;
@@ -29,8 +27,6 @@ internal class Script
             engine.GenerateInformation("Starting installation");
             var installer = new AppInstaller(Engine.SLNetRaw, context);
             installer.InstallDefaultContent();
-
-			engine.v
 
 			// string setupContentPath = installer.GetSetupContentDirectory();
 			_setupContentPath = installer.GetSetupContentDirectory();
