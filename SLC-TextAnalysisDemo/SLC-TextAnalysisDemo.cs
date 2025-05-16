@@ -43,14 +43,6 @@ internal class Script
 			{
 				throw new AggregateException(exceptions);
 			}
-
-			var protocolInstaller = new ProtocolInstaller(Engine.SLNetRaw, context, _setupContentPath, engine.GenerateInformation);
-			protocolInstaller.InstallDefaultContent();
-
-			var elementInstaller = new ElementInstaller(engine);
-			elementInstaller.InstallDefaultContent();
-
-			FixDllDependencies(engine);
 		}
         catch (Exception e)
         {
