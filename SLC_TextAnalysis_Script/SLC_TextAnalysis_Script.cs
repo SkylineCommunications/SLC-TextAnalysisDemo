@@ -174,9 +174,9 @@ namespace TextAnalysis
 				}
 				catch (Exception ex)
 				{
+					engine.GenerateInformation($"Exception: {ex}");
 					engine.ShowErrorDialog("Failed to create DOM instance with raw parameter values from LLM response.");
 				}
-
 
 				string mappedJson = null;
 				try
