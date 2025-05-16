@@ -30,12 +30,15 @@ The sample package uses a combintation of OCR (Optical Character Recognition) & 
 
 This is very basic app which allows the user to write any prompt and upload a file and have it processed by AI tools. It allows the user to write a prompt and upload a file and the tool will process the file and prompt together using the AI tools described [above](#combination-of-OCR-LLM-models).
 
-The fool can be used for any use-case, going from asking the tool to tell a joke, to uploading a document and ask the tool to get some data from the document (see the example below).
+The tool can be used for any use-case, going from asking the tool to tell a joke, to uploading a document and ask the tool to get some data from the document (see the example below).
 
+ ![Interactive File Prompt App](./images/pdf_processing_interactive_prompt_tool_prompt.png)
 
 ### Satellite Feed Ingest
 
 This app uses a predefined prompt in the background to process Satellite parameters from PDF documents. The user simply uploads a PDF file and the system will use the AI tools to process the information in the document and create a new Satellite Feed instance from it in [DOM](https://docs.dataminer.services/user-guide/Advanced_Modules/DOM/DOM.html?q=dataminer%20object%20mo). 
+
+![Satellite Feed Ingest App](./images/pdf_processing_AI_Satellite_Feed_Ingest.png)
 
 ## Prerequisites
 
