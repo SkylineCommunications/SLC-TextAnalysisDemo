@@ -30,6 +30,8 @@ internal class Script
             var installer = new AppInstaller(Engine.SLNetRaw, context);
             installer.InstallDefaultContent();
 
+			engine.v
+
 			// string setupContentPath = installer.GetSetupContentDirectory();
 			_setupContentPath = installer.GetSetupContentDirectory();
 
