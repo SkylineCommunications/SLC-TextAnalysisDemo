@@ -45,3 +45,15 @@ You are an intelligent text analysis tool. You will receive a document converted
                 minimal randomness in your response as possible.
 				Additional info:
 					When things that are represented in a list such as satellites and auio_channel_pattern are not found, just return an empty json array [] such as "audio_channel_pattern": [] and "satellites": []
+					When dates are not found, fill "2000-01-01T00:00:00Z"
+Example when non of the parameters are found: 
+{
+	"provider": "Not found",
+
+	"event": {
+		"event_name": "Not found",
+		"start_time": "2000-01-01T00:00:00Z",
+		"end_time": "2000-01-01T00:00:00Z"
+	},
+	"satellites": []
+}

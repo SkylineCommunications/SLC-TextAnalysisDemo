@@ -68,30 +68,34 @@ namespace Feeds
 				_engine.GenerateInformation($"Format Exception when reading Start Date: {feedJsonDeserialized.Event.StartTime} and End Date: {feedJsonDeserialized.Event.EndTime}");
 			}
 
-			Satellite satFeed = feedJsonDeserialized.Satellites.Single();
-
-			instance.MappedFeedParameters.Satellite = SatellitefeedsIds.Enums.Satellite.ToEnum(satelliteStringList.FirstOrDefault(s => s == satFeed.SatelliteName) ?? "Not found");
-
-			if (double.TryParse(satFeed.Uplink.Frequency.Replace(" MHz", ""), out double uplinkFreq))
+			if (feedJsonDeserialized.Satellites.Count > 0)
 			{
-				instance.MappedFeedParameters.UplinkFrequency = uplinkFreq;
-			}
-			if (double.TryParse(satFeed.Downlink.Frequency.Replace(" MHz", ""), out double downlinkFreq))
-			{
-				instance.MappedFeedParameters.DownlinkFrequency = downlinkFreq;
-			}
+				Satellite satFeed = feedJsonDeserialized.Satellites.Single();
 
-			instance.MappedFeedParameters.UplinkPolarization = SatellitefeedsIds.Enums.Uplinkpolarization.ToEnum(uplinkStringList.FirstOrDefault(s => s == satFeed.Uplink.Polarization) ?? "Not found");
-			instance.MappedFeedParameters.DownlinkPolarization = SatellitefeedsIds.Enums.Downlinkpolarization.ToEnum(downlinkStringList.FirstOrDefault(s => s == satFeed.Downlink.Polarization) ?? "Not found");
+				instance.MappedFeedParameters.Satellite = SatellitefeedsIds.Enums.Satellite.ToEnum(satelliteStringList.FirstOrDefault(s => s == satFeed.SatelliteName) ?? "Not found");
 
-			Parameters satParams = satFeed.Parameters;
-			instance.MappedFeedParameters.ModulationStandard = SatellitefeedsIds.Enums.Modulationstandard.ToEnum(modulationStringList.FirstOrDefault(s => s == satParams.ModulationStandard	) ?? "Not found");
-			if (double.TryParse(satFeed.Parameters.SymbolRate.Replace(" MSym/s", ""), out double symRate))
-			{
-				instance.MappedFeedParameters.SymbolRate = symRate;
+				if (double.TryParse(satFeed.Uplink.Frequency.Replace(" MHz", ""), out double uplinkFreq))
+				{
+					instance.MappedFeedParameters.UplinkFrequency = uplinkFreq;
+				}
+				if (double.TryParse(satFeed.Downlink.Frequency.Replace(" MHz", ""), out double downlinkFreq))
+				{
+					instance.MappedFeedParameters.DownlinkFrequency = downlinkFreq;
+				}
+
+				instance.MappedFeedParameters.UplinkPolarization = SatellitefeedsIds.Enums.Uplinkpolarization.ToEnum(uplinkStringList.FirstOrDefault(s => s == satFeed.Uplink.Polarization) ?? "Not found");
+				instance.MappedFeedParameters.DownlinkPolarization = SatellitefeedsIds.Enums.Downlinkpolarization.ToEnum(downlinkStringList.FirstOrDefault(s => s == satFeed.Downlink.Polarization) ?? "Not found");
+
+				Parameters satParams = satFeed.Parameters;
+				instance.MappedFeedParameters.ModulationStandard = SatellitefeedsIds.Enums.Modulationstandard.ToEnum(modulationStringList.FirstOrDefault(s => s == satParams.ModulationStandard) ?? "Not found");
+				if (double.TryParse(satFeed.Parameters.SymbolRate.Replace(" MSym/s", ""), out double symRate))
+				{
+					instance.MappedFeedParameters.SymbolRate = symRate;
+				}
+				instance.MappedFeedParameters.RollOff = SatellitefeedsIds.Enums.Rolloff.ToEnum(rollofFStringList.FirstOrDefault(s => s == satParams.RollOff) ?? "Not found");
+				instance.MappedFeedParameters.FEC = SatellitefeedsIds.Enums.FEC.ToEnum(fecStringList.FirstOrDefault(s => s == satParams.FEC) ?? "Not found");
 			}
-			instance.MappedFeedParameters.RollOff = SatellitefeedsIds.Enums.Rolloff.ToEnum(rollofFStringList.FirstOrDefault(s => s == satParams.RollOff) ?? "Not found");
-			instance.MappedFeedParameters.FEC = SatellitefeedsIds.Enums.FEC.ToEnum(fecStringList.FirstOrDefault(s => s == satParams.FEC) ?? "Not found");
+			
 
 			instance.MappingInfo.ExtractedFeedLink = ExtractedFeedGuid;
 			instance.MappingInfo.MappedFeedJSON = json;

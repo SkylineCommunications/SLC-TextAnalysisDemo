@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DMSScript options="272" xmlns="http://www.skyline.be/automation">
+	<Name>SLC_Popups</Name>
+	<Description></Description>
+	<Type>Automation</Type>
+	<Author>JKO</Author>
+	<CheckSets>FALSE</CheckSets>
+	<Folder>TextAnalysis</Folder>
+
+	<Protocols>
+	</Protocols>
+
+	<Memory>
+	</Memory>
+
+	<Parameters>
+	</Parameters>
+
+	<Script>
+		<Exe id="1" type="csharp">
+			<Value><![CDATA[[Project:SLC_Popups]]]></Value>
+			<!--<Param type="debug">true</Param>-->
+			<Param type="preCompile">true</Param>
+			<Param type="libraryName">SLC_Popups</Param>
+		</Exe>
+	</Script>
+</DMSScript>

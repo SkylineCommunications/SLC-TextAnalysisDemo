@@ -48,19 +48,22 @@ namespace Feeds
 			instance.ExtractedFeedEventInfo.StartDate = extractedFeedDeserialized.Event.StartTime;
 			instance.ExtractedFeedEventInfo.EndDate = extractedFeedDeserialized.Event.EndTime;
 
-			Satellite satFeed = extractedFeedDeserialized.Satellites.Single();
+			if (extractedFeedDeserialized.Satellites.Count > 0)
+			{
+				Satellite satFeed = extractedFeedDeserialized.Satellites.First();
 
-			instance.ExtractedFeedParameters.Satellite = satFeed.SatelliteName;
-			instance.ExtractedFeedParameters.UplinkFrequency = satFeed.Uplink.Frequency;
-			instance.ExtractedFeedParameters.DownlinkFrequency = satFeed.Downlink.Frequency;
-			instance.ExtractedFeedParameters.UplinkPolarization = satFeed.Uplink.Polarization;
-			instance.ExtractedFeedParameters.DownlinkPolarization = satFeed.Downlink.Polarization;
+				instance.ExtractedFeedParameters.Satellite = satFeed.SatelliteName;
+				instance.ExtractedFeedParameters.UplinkFrequency = satFeed.Uplink.Frequency;
+				instance.ExtractedFeedParameters.DownlinkFrequency = satFeed.Downlink.Frequency;
+				instance.ExtractedFeedParameters.UplinkPolarization = satFeed.Uplink.Polarization;
+				instance.ExtractedFeedParameters.DownlinkPolarization = satFeed.Downlink.Polarization;
 
-			Parameters satParams = satFeed.Parameters;
-			instance.ExtractedFeedParameters.ModulationStandard = satParams.ModulationStandard;
-			instance.ExtractedFeedParameters.SymbolRate = satParams.SymbolRate;
-			instance.ExtractedFeedParameters.RollOff = satParams.RollOff;
-			instance.ExtractedFeedParameters.FEC = satParams.FEC;
+				Parameters satParams = satFeed.Parameters;
+				instance.ExtractedFeedParameters.ModulationStandard = satParams.ModulationStandard;
+				instance.ExtractedFeedParameters.SymbolRate = satParams.SymbolRate;
+				instance.ExtractedFeedParameters.RollOff = satParams.RollOff;
+				instance.ExtractedFeedParameters.FEC = satParams.FEC;
+			}
 
 			instance.ExtractedFeedRawData.JSON = _json;
 			instance.ExtractedFeedRawData.FileName = FileName;

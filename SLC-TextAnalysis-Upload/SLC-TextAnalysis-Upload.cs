@@ -65,7 +65,7 @@ namespace SLCTextAnalysisUpload
 				// Use file to create Feed
 				var subscriptInfo = engine.PrepareSubScript("SLC_TextAnalysis_Script");
 
-				engine.GenerateInformation($"File path: {model.PathSavedFile}");
+				// engine.GenerateInformation($"File path: {model.PathSavedFile}");
 
 				subscriptInfo.SelectScriptParam("inputFile", model.PathSavedFile);
 				subscriptInfo.Synchronous = true;
@@ -79,7 +79,7 @@ namespace SLCTextAnalysisUpload
 			else
 			{
 				// Toggle OK button on again such that people can upload another file
-				engine.GenerateInformation("Upload did not succeed");
+				// engine.GenerateInformation("Upload did not succeed");
 				controller.ToggleOkButton();
 				//controller.Update();
 			}
