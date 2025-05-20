@@ -14,9 +14,6 @@ The package contains two **applications**:
 - **Interactive File Prompt Tool**: can be used to interact with the GPT model as you would do from the ChatGPT web interface but from within DataMiner. This shows the flexibility to use the LLM from within DataMiner for virutally any use-case.
 - **Satellite Feed Ingest**: uses a predefined prompt to read a set of parameters from PDF files containing satellite parameters.
 
-> [!CAUTION]
-> At the moment, the package will do some dll replacement in the back. This will not be the case in future releases. Proceed with caution and avoid to install this package on production systems. Ideally, you try this package on a standalone [DaaS System](https://docs.dataminer.services/user-guide/Getting_started/DaaS/Creating_a_DMS_on_dataminer_services.html).
-
 > [!NOTE]
 > The package relies on external AI services that need to be configured in your own cloud environment. After configuring the AI services, the necessary API keys need to be configured in DataMiner to enable the functionality of the sample package. More information can be found in our [Docs](https://docs.dataminer.services/index.html).
 
@@ -45,7 +42,7 @@ This app uses a predefined prompt in the background to process Satellite paramet
 
 ## Prerequisites
 
-- DataMiner version 10.5.7 or higher
+- DataMiner version 10.5.8 or higher
 
 ## Pricing
 
