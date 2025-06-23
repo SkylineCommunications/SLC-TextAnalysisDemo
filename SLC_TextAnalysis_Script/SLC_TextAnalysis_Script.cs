@@ -73,6 +73,9 @@ using DomHelpers.Satellitefeeds;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using SLC_Popups;
+using SLC_Popups.IAS.Extensions;
+using System.Web;
 
 //---------------------------------
 // TextAnalysis.cs
@@ -138,23 +141,68 @@ namespace TextAnalysis
 				string filename = engine.GetScriptParam("inputFile").Value;
 				var filenameOnly = Path.GetFileName(filename);
 
-				var markdown = ExtractFileContentAsMarkdown(filename, secrets);
-				engine.Log("Markdown content: " + markdown);
-				var json = ExtractJson(markdown);
-				engine.Log("JSON content: " + json);
-				engine.GenerateInformation("Extracted JSON content: " + json);
-				// Create DOM instance of the extracted parameters
-				var id = CreateExtractedFeed(json, filename);
+				string markdown = null;
 
-				var mappedJson = MapValues(json);
-				engine.Log("Mapped JSON content: " + mappedJson);
-				engine.GenerateInformation("Mapped JSON content: " + mappedJson);
-				CreateMappedFeed(id, mappedJson, filename);
-		}
+				try
+				{
+					markdown = ExtractFileContentAsMarkdown(filename, secrets);
+				}
+				catch (Exception ex)
+				{
+					engine.ShowErrorDialog($"Failed to extract markdown text from document. Exception: {ex}");
+				}
+
+				engine.Log("Markdown content: " + markdown);
+
+				string json = null;
+				try
+				{
+					json = ExtractJson(markdown);
+					engine.Log("JSON content: " + json);
+					engine.GenerateInformation("Extracted JSON content: " + json);
+				}
+				catch (Exception ex)
+				{
+					engine.ShowErrorDialog($"Failed to extract parameters from markdown text. Exception: {ex}");
+				}
+
+				// Create DOM instance from the extracted parameters
+				Guid id = Guid.Empty;
+				try
+				{
+					id = CreateExtractedFeed(json, filename);
+				}
+				catch (Exception ex)
+				{
+					engine.GenerateInformation($"Exception: {ex}");
+					engine.ShowErrorDialog("Failed to create DOM instance with raw parameter values from LLM response.");
+				}
+
+				string mappedJson = null;
+				try
+				{
+					mappedJson = MapValues(json);
+					engine.Log("Mapped JSON content: " + mappedJson);
+					engine.GenerateInformation("Mapped JSON content: " + mappedJson);
+				}
+				catch (Exception ex)
+				{
+					engine.ShowErrorDialog("Failed to map parameters found in document to predefined values.");
+				}
+
+				try
+				{
+					CreateMappedFeed(id, mappedJson, filename);
+				}
+				catch (Exception ex)
+				{
+					engine.ShowErrorDialog("Failed to create Satelltie Feed DOM instance from LLM response containing mapped parameters.");
+				}
+			}
 
 			private Guid CreateExtractedFeed(string json, string filename)
 			{
-			ExtractedFeed extractedFeed = new ExtractedFeed(_engine, json, filename);
+				ExtractedFeed extractedFeed = new ExtractedFeed(_engine, json, filename);
 
 				extractedFeed.CreateExtractedFeed();
 

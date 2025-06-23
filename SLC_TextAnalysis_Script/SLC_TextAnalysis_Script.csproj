@@ -23,5 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SLC-TextAnalyisDemo_Common\SLC-TextAnalyisDemo_Common.csproj" />
+    <ProjectReference Include="..\SLC_Popups\SLC_Popups.csproj" />
   </ItemGroup>
 </Project>
