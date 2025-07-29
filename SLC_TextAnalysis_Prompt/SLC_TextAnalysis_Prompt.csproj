@@ -14,6 +14,14 @@
   <ItemGroup>
     <PackageReference Include="Azure.AI.DocumentIntelligence" Version="1.0.0" />
     <PackageReference Include="Microsoft.SemanticKernel" Version="1.41.0" />
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" GeneratePathProperty="true" ExcludeAssets="Compile;Runtime;Build" />
+	<Reference Include="Microsoft.Extensions.DependencyInjection">
+		<HintPath>$(PkgMicrosoft_Extensions_DependencyInjection)\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+	</Reference>
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" GeneratePathProperty="true" ExcludeAssets="Compile;Runtime;Build" />
+	<Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+		<HintPath>$(PkgMicrosoft_Extensions_DependencyInjection_Abstractions)\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+	</Reference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Skyline.DataMiner.Dev.Automation" Version="10.5.3" />
     <PackageReference Include="Skyline.DataMiner.Utils.InteractiveAutomationScriptToolkit" Version="10.0.5" />

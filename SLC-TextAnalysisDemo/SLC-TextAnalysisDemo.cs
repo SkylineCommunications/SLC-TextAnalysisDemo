@@ -79,11 +79,4 @@ internal class Script
 		subScript.Synchronous = true;
 		subScript.StartScript();
 	}
-
-	private static void FixDllDependencies(IEngine engine)
-	{
-		var subScript = engine.PrepareSubScript("SLC_TextAnalysis_RenameDlls");
-		subScript.Synchronous = true;
-		subScript.StartScript();
-	}
 }
