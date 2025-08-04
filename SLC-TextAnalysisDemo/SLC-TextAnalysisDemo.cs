@@ -102,12 +102,12 @@ internal class Script
 
 			// Replace the DLL paths
 			dllRefs = dllRefs.Replace(
-						@"C:\Skyline DataMiner\ProtocolScripts\DllImport\microsoft.extensions.dependencyinjection.abstractions\8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-						@"C:\Skyline DataMiner\Files\Microsoft.Extensions.DependencyInjection.Abstractions.dll");
+						@"ProtocolScripts\DllImport\microsoft.extensions.dependencyinjection.abstractions\8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+						@"Files\Microsoft.Extensions.DependencyInjection.Abstractions.dll");
 
 			dllRefs = dllRefs.Replace(
-						@"C:\Skyline DataMiner\ProtocolScripts\DllImport\microsoft.extensions.dependencyinjection\8.0.1\lib\net462\Microsoft.Extensions.DependencyInjection.dll",
-						@"C:\Skyline DataMiner\Files\Microsoft.Extensions.DependencyInjection.dll");
+						@"ProtocolScripts\DllImport\microsoft.extensions.dependencyinjection\8.0.1\lib\net462\Microsoft.Extensions.DependencyInjection.dll",
+						@"Files\Microsoft.Extensions.DependencyInjection.dll");
 
 			exe.CSharpDllRefs = dllRefs;
 			Logger.Log($"Updated DLL references: {dllRefs}");
