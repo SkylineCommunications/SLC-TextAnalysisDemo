@@ -35,7 +35,7 @@ The sample package uses a combintation of OCR (Optical Character Recognition) & 
 
 ### Satellite Feed Ingest
 
-This app uses a predefined prompt in the background to process Satellite parameters from PDF documents. The user simply uploads a PDF file and the system will use the AI tools to process the information in the document and create a new Satellite Feed instance it in [DataMiner Object Models (DOM)](https://docs.dataminer.services/user-guide/Advanced_Modules/DOM/DOM.html?q=dataminer%20object%20mo) (visualized on the right). 
+This app uses a predefined prompt in the background to process Satellite parameters from PDF documents. The user simply uploads a PDF file and the system will use the AI tools to process the information in the document and create a new Satellite Feed instance it in [DataMiner Object Models (DOM)](aka.dataminer.services/DOM) (visualized on the right). 
 
 ![Satellite Feed Ingest App](./images/pdf_processing_AI_Satellite_Feed_Ingest.pNg)
 
@@ -56,7 +56,7 @@ The tool can be used for any use-case, going from simply asking the tool to tell
 
 ## Pricing
 
-The applications part of this package will consume DataMiner credits, based on the level of usage of the apps. The DataMiner credits will be deducted monthly based on the metered usage. More information about the pricing of DataMiner usage-based services can be found in the [DataMiner Pricing Overview](https://docs.dataminer.services/dataminer-overview/Pricing/Pricing_Usage_based_service.html). 
+The applications part of this package will consume DataMiner credits, based on the level of usage of the apps. The DataMiner credits will be deducted monthly based on the metered usage. More information about the pricing of DataMiner usage-based services can be found in the [DataMiner Pricing Overview](aka.dataminer.services/Pricing_Usage_Based). 
 
 ## Support
 
