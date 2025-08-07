@@ -92,8 +92,8 @@ namespace TextAnalysis
 
 			private static IEngine _engine;
 
-			private static readonly string extract_parameters_prompt = @"c:\Skyline DataMiner\Documents\dma_common_documents\Text Analysis PoC\extract_parameters_prompt.txt";
-			private static readonly string map_parameters_prompt = @"c:\Skyline DataMiner\Documents\dma_common_documents\Text Analysis PoC\map_parameters_prompt.txt";
+			private static readonly string extract_parameters_prompt = @"c:\Skyline DataMiner\Documents\dma_common_documents\AI-sample\extract_parameters_prompt.txt";
+			private static readonly string map_parameters_prompt = @"c:\Skyline DataMiner\Documents\dma_common_documents\AI-sample\map_parameters_prompt.txt";
 
 		/// <summary>
 		/// The script entry point.
