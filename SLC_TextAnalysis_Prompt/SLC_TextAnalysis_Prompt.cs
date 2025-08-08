@@ -57,6 +57,7 @@ using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Skyline.DataMiner.Automation;
 using Skyline.DataMiner.Utils.InteractiveAutomationScript;
+using SLC_Popups.IAS.Extensions;
 using System;
 using System.IO;
 using System.Text.Json;
@@ -132,10 +133,30 @@ namespace TextAnalysis
 			if (dialog == null)
 				throw new ArgumentException("Invalid sender type");
 
+			AzureSecrets secrets = new AzureSecrets();
 			try
 			{
-				var secrets = AzureSecrets.GetUserSecrets();
+				secrets = AzureSecrets.GetUserSecrets();
+			}
+			catch
+			{
+				app.Engine.ShowErrorDialog(@"Failed to load Azure secrets, please upload through configuration page of this app.
+For trial purposes, you can request secrets for preconfigured AI services by Skyline by sending a mail to team.product.marketing@skyline.be
+For production purposes, please take a look at our Docs: https://docs.dataminer.services/solutions/custom_solutions/Processing_pdf_documents_using_AI/Installing_pdf_documents_using_AI.html#setup-cloud-services-in-azure"
+			);
+			}
 
+			try
+			{
+				InitializeKernel(secrets);
+			}
+			catch
+			{
+				app.Engine.ShowErrorDialog(@"Failed to initialize Kernel. Please verify the configured secrets for the AI services used. In case of further problems, please contact Skyline team to further troubleshoot.");
+			}
+
+			try
+			{
 				string fileName = "";
 				if (!string.IsNullOrWhiteSpace(dialog.FilePath))
 				{
@@ -145,9 +166,9 @@ namespace TextAnalysis
 					fileName = Path.GetFileName(dialog.FilePath);
 					app.Engine.AddScriptOutput("FileName", fileName);
 				}
+
 				app.Engine.Log("File name: " + fileName);
 
-				InitializeKernel(secrets);
 				var output = ChatCompletion(dialog.Input, dialog.Prompt);
 				app.Engine.Log("TextAnalysisPrompt output: " + output);
 				app.Engine.AddScriptOutput("Output", output);

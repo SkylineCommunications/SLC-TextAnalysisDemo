@@ -52,7 +52,7 @@ The tool can be used for any use-case, going from simply asking the tool to tell
 - DataMiner version 10.5.8 or higher
 
 > [!NOTE]
-> The embedded PDF in the Satellite Parameter Extractor Low-Code application will only work on specific browsers (Firefox will work for example, Google Chrome and Edge typically will typically not work). This is due to a security feature blocking some pdf viewers from certai browsers when embedded in a Low-Code application. It is on the backlog for Low-Code applications to make whitelisting for these pdf viewers configurable. However, there is not commitment in terms of release date. For more information, please reach out to [Skyline Product Marketing](mailto:team.product.marketing@skyline.be).
+> The embedded PDF in the Satellite Parameter Extractor Low-Code application will only work on specific browsers (Firefox will work for example, Google Chrome and Edge typically will typically not work). This is due to a security feature blocking some pdf viewers from certain browsers when embedded in a Low-Code application. It is on the backlog for Low-Code applications to make whitelisting for these PDF viewers configurable. However, there is no commitment yet in terms of release date for this whitelisting feature. For more information, please reach out to [Skyline Product Marketing](mailto:team.product.marketing@skyline.be).
 
 ## Pricing
 

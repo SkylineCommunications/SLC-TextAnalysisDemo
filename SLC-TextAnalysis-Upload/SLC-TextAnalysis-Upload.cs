@@ -70,7 +70,14 @@ namespace SLCTextAnalysisUpload
 				subscriptInfo.SelectScriptParam("inputFile", model.PathSavedFile);
 				subscriptInfo.Synchronous = true;
 
-				subscriptInfo.StartScript();
+				try
+				{
+					subscriptInfo.StartScript();
+				}
+				catch (Exception)
+				{
+
+				}				
 
 				// engine.AddScriptOutput()
 
