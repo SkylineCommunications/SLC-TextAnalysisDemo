@@ -9,9 +9,16 @@ using DomHelpers.SlcWorkflow;
 using DomHelpers.Satellitefeeds;
 using Skyline.DataMiner.Utils.MediaOps.Helpers.Scheduling;
 using Skyline.DataMiner.Utils.MediaOps.Helpers.Workflows;
+using Skyline.DataMiner.Net.Profiles;
 using Newtonsoft.Json;
 using System.Linq;
 using SLC_Popups.IAS.Extensions;
+using Skyline.DataMiner.Net.Serialization;
+using Skyline.DataMiner.Net.Messages.SLDataGateway;
+using Skyline.DataMiner.Net;
+using DomIds;
+using Parameter = Skyline.DataMiner.Net.Profiles.Parameter;
+using Skyline.DataMiner.Analytics.RCA;
 
 namespace SLCGenerateDownlinkJob
 {
@@ -22,6 +29,8 @@ namespace SLCGenerateDownlinkJob
 	/// </summary>
 	public class Script
 	{
+		private ProfileHelper _profileHelper;
+
 		// helper class for MediaOps
 		private SchedulingHelper _schedulingHelper;
 
@@ -94,10 +103,18 @@ namespace SLCGenerateDownlinkJob
 
 			var instance = new MappedFeedInstance(domFeedInstance);
 
+			// general info from the satellite feed document
 			var eventName = instance.MappedFeedEventInfo.EventName;
 			var startDate = (DateTime)instance.MappedFeedEventInfo.StartDate;
 			var endDate = (DateTime)instance.MappedFeedEventInfo.EndDate;
+			// satellite parameters
+			var frequency = instance.MappedFeedParameters.DownlinkFrequency;
+			var modulationStandard = SatellitefeedsIds.Enums.Modulationstandard.ToValue(instance.MappedFeedParameters.ModulationStandard.Value);
+			var polarization = SatellitefeedsIds.Enums.Modulationstandard.ToValue(instance.MappedFeedParameters.ModulationStandard.Value);
+			var satellite = SatellitefeedsIds.Enums.Modulationstandard.ToValue(instance.MappedFeedParameters.ModulationStandard.Value);
+			var symbolrate = instance.MappedFeedParameters.SymbolRate;
 
+			// create job 
 			if (DateTime.Now > startDate && DateTime.Now > endDate)
 			{
 
@@ -116,7 +133,7 @@ namespace SLCGenerateDownlinkJob
 The job will be scheduled for the same time as in the document, but on tomorrow's date.
 
 Start time:		{startDate.ToString()}
-End time:		{endDate.ToString()}
+End time:			{endDate.ToString()}
 
 Do you want to proceed?");
 
@@ -131,15 +148,124 @@ Do you want to proceed?");
 			jobConfig.Name = eventName;
 			jobConfig.Start = startDate;
 			jobConfig.End = endDate;
+			jobConfig.DomWorkflowId = GetWorkflowId("Satellite Downlink");
 
 			var createdDomJobId = _schedulingHelper.CreateJob(jobConfig);
 
+			var jobInstance = GetJob(createdDomJobId);
+
+			var jobParamConfig = GetJobConfig(jobInstance);
+
+			SetConfig(jobParamConfig, instance.MappedFeedParameters);
+
+			// var job = _schedulingHelper.GetJob(createdDomJobId);
 			//Job job = _schedulingHelper.GetJob(createdDomJobId);
 			//job.ExecuteJobAction(JobAction.SaveAsTentative);
 
 			return;
 		}
 
+		private Guid GetWorkflowId(string workflowName)
+		{
+			var workflowFitler = DomInstanceExposers.FieldValues.DomInstanceField(DomIds.SlcWorkflow.Sections.WorkflowInfo.WorkflowName).Equal(workflowName);
+
+			DomInstance domWorkflowInstance;
+
+			try
+			{
+				domWorkflowInstance = _domHelperWorkflows.DomInstances.Read(workflowFitler).Single<DomInstance>();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"Failed to get Workflow instance with name : {workflowName}");
+			}
+
+			return domWorkflowInstance.ID.Id;
+		}
+
+		private JobsInstance GetJob(Guid domId)
+		{
+
+			var filter = DomInstanceExposers.Id.Equal(new DomInstanceId(domId));
+
+			DomInstance domJobdInstance;
+
+			try
+			{
+				domJobdInstance = _domHelperWorkflows.DomInstances.Read(filter).Single<DomInstance>();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"Failed to get Satellite Feed instance with ID : {domId.ToString()}");
+			}
+
+			return new JobsInstance(domJobdInstance);
+		}
+
+		ConfigurationInstance GetJobConfig(JobsInstance job)
+		{
+			var jobConfigId = job.JobExecution.JobConfiguration.Value;
+
+			var filter = DomInstanceExposers.Id.Equal(new DomInstanceId(jobConfigId));
+
+			DomInstance domConfigInstance;
+
+			try
+			{
+				domConfigInstance = _domHelperWorkflows.DomInstances.Read(filter).Single<DomInstance>();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"Failed to get Job Config with ID: {jobConfigId.ToString()} for Job instance with ID : {job.ID.Id.ToString()}");
+			}
+
+			return new ConfigurationInstance(domConfigInstance);
+		}
+
+		private void SetConfig(ConfigurationInstance config, MappedFeedParametersSection mappedParamsSection)
+		{
+			var mappedParams = new List<MappedParameters>() {
+				new MappedParameters { Name = "Downlink Frequecy", profileParam = _profileHelper.ProfileParameters.Read(ParameterExposers.Name.Equal("Downlink Frequency")).SingleOrDefault(), doubleValue = mappedParamsSection.DownlinkFrequency.Value},
+				new MappedParameters { Name = "Modulation Standard", profileParam = _profileHelper.ProfileParameters.Read(ParameterExposers.Name.Equal("Modulation Standard")).SingleOrDefault(), stringValue = SatellitefeedsIds.Enums.Modulationstandard.ToValue(mappedParamsSection.ModulationStandard.Value)}, 
+				new MappedParameters { Name = "Satellite", profileParam = _profileHelper.ProfileParameters.Read(ParameterExposers.Name.Equal("Satellite")).SingleOrDefault(), stringValue = SatellitefeedsIds.Enums.Satellite.ToValue(mappedParamsSection.Satellite.Value)},
+				new MappedParameters { Name = "Symbol Rate", profileParam = _profileHelper.ProfileParameters.Read(ParameterExposers.Name.Equal("Symbol Rate")).SingleOrDefault(), doubleValue = mappedParamsSection.SymbolRate.Value},
+				new MappedParameters { Name = "Polarization", profileParam = _profileHelper.ProfileParameters.Read(ParameterExposers.Name.Equal("Polarization")).SingleOrDefault(), stringValue = SatellitefeedsIds.Enums.Downlinkpolarization.ToValue(mappedParamsSection.DownlinkPolarization.Value)},
+			};
+
+			foreach (var mappedParam in mappedParams)
+			{
+				var parameter = config.ProfileParameterValues.FirstOrDefault(p => p.ProfileParameterID == mappedParam.profileParam.ID.ToString());
+
+				if (parameter != null)
+				{
+					if (mappedParam.profileParam.Type == Parameter.ParameterType.Number)
+					{
+						_engine.GenerateInformation("Set number parameter");
+						parameter.DoubleValue = (int)mappedParam.doubleValue;
+					}
+					else if (mappedParam.profileParam.Type == Parameter.ParameterType.Discrete)
+					{
+						_engine.GenerateInformation($"Set discrete parameter: value = {mappedParam.stringValue}");
+						parameter.StringValue = mappedParam.stringValue;
+					}
+					else
+					{
+						_engine.GenerateInformation("Parameter is no number or discrete and will hence not be handled");
+						continue;
+					}
+				}
+			}
+
+			config.Save(_domHelperWorkflows);
+		}
+
+		private class MappedParameters
+		{
+			public string Name { get; set; }
+			public Parameter profileParam { get; set; }
+			public double doubleValue { get; set; }
+			public string stringValue { get; set; }
+		}
 
 		private void Init()
 		{
@@ -148,6 +274,8 @@ Do you want to proceed?");
 			_domHelperWorkflows = new DomHelper(_engine.SendSLNetMessages, SlcWorkflowIds.ModuleId);
 
 			_domHelperFeeds = new DomHelper(_engine.SendSLNetMessages, SatellitefeedsIds.ModuleId);
+
+			_profileHelper = new ProfileHelper(_engine.SendSLNetMessages);
 		}
 	}
 }
