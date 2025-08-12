@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <DMSScript options="272" xmlns="http://www.skyline.be/automation">
-	<Name>SLC_TextAnalysis_RenameDlls</Name>
+	<Name>SLC-GenerateDownlinkJob</Name>
 	<Description></Description>
 	<Type>Automation</Type>
-	<Author>WME</Author>
+	<Author>JKO</Author>
 	<CheckSets>FALSE</CheckSets>
 	<Folder>TextAnalysis</Folder>
 
@@ -14,11 +14,14 @@
 	</Memory>
 
 	<Parameters>
+		<ScriptParameter id="2" type="string" values="">
+			<Description>Satellite Feed ID</Description>
+		</ScriptParameter>
 	</Parameters>
 
 	<Script>
 		<Exe id="1" type="csharp">
-			<Value><![CDATA[[Project:SLC_TextAnalysis_RenameDlls]]]></Value>
+			<Value><![CDATA[[Project:SLC-GenerateDownlinkJob]]]></Value>
 			<!--<Param type="debug">true</Param>-->
 			<Message></Message>
 		</Exe>
