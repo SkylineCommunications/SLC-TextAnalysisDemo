@@ -9,6 +9,7 @@ using DomHelpers.SlcWorkflow;
 using DomHelpers.Satellitefeeds;
 using Skyline.DataMiner.Utils.MediaOps.Helpers.Scheduling;
 using Skyline.DataMiner.Utils.MediaOps.Helpers.Workflows;
+using Skyline.DataMiner.Utils.MediaOps.Helpers.Relationships;
 using Skyline.DataMiner.Net.Profiles;
 using Newtonsoft.Json;
 using System.Linq;
@@ -19,6 +20,7 @@ using Skyline.DataMiner.Net;
 using DomIds;
 using Parameter = Skyline.DataMiner.Net.Profiles.Parameter;
 using Skyline.DataMiner.Analytics.RCA;
+using Skyline.DataMiner.Utils.MediaOps.Common.IOData.Relationships.Scripts.RelationshipHandler;
 
 namespace SLCGenerateDownlinkJob
 {
@@ -33,10 +35,13 @@ namespace SLCGenerateDownlinkJob
 
 		// helper class for MediaOps
 		private SchedulingHelper _schedulingHelper;
+		private RelationshipsHelper _relationshipsHelper;
+
 
 		// DomHelpers
 		private DomHelper _domHelperWorkflows;
 		private DomHelper _domHelperFeeds;
+		
 
 		private IEngine _engine;
 
@@ -153,6 +158,7 @@ Do you want to proceed?");
 			var createdDomJobId = _schedulingHelper.CreateJob(jobConfig);
 
 			var jobInstance = GetJob(createdDomJobId);
+			var jobId = jobInstance.JobInfo.JobID;
 
 			var jobParamConfig = GetJobConfig(jobInstance);
 
@@ -161,6 +167,9 @@ Do you want to proceed?");
 			// var job = _schedulingHelper.GetJob(createdDomJobId);
 			//Job job = _schedulingHelper.GetJob(createdDomJobId);
 			//job.ExecuteJobAction(JobAction.SaveAsTentative);
+
+			// creates relationship link between the mapped feed and the created job
+			CreateLink(instance, jobInstance);
 
 			return;
 		}
@@ -256,7 +265,43 @@ Do you want to proceed?");
 				}
 			}
 
+			// save job configurations to job configuration in (slc)workflow
 			config.Save(_domHelperWorkflows);
+		}
+
+		private bool CreateLink(MappedFeedInstance instance, JobsInstance jobInstance)
+		{
+			// add relationship between the job and the feed
+			var feedObjectType = _relationshipsHelper.GetObjectType("Satellite Feed");
+
+			if (feedObjectType == null)
+			{
+				var feedObjectTypeId = _relationshipsHelper.CreateObjectType(new ObjectTypeConfiguration() { Name = "Satellite Feed" });
+				feedObjectType = _relationshipsHelper.GetObjectType("Satellite Feed");
+			}
+
+			var jobObjectType = _relationshipsHelper.GetObjectType("Job");
+
+			if (jobObjectType == null)
+			{
+				var jobObjectTypeId = _relationshipsHelper.CreateObjectType(new ObjectTypeConfiguration() { Name = "Job" });
+				jobObjectType = _relationshipsHelper.GetObjectType("Job");
+			}
+
+			// create URL to link between job and mapped feeds
+			var jobLink = $@"/app/ab26de0d-b0d7-456c-9c7b-155008a5cbc9/Job View?object manager instances=(slc)workflow/{jobInstance.ID.Id.ToString()}#{{""actions"":[{{""__type"":""Skyline.DataMiner.Web.Common.v1.DMAApplicationPagePanelAction"",""AsOverlay"":true,""Draggable"":false,""Panel"":""d5d8c129-f72e-495f-b7aa-60f02aa284c3"",""Position"":""Right"",""PostActions"": null,""Type"":6,""Width"":75}}]}}";
+			// to do : make it select the actual feed in the app 
+			var mappedFeedLink = $@"/app/92da828f-cd3e-4442-bd61-835d90db15ba/Parameter%20Extractor";
+
+			var linkConfig = new LinkConfiguration()
+			{
+				Child = new LinkDetailsConfiguration() { DomObjectTypeId = feedObjectType.Id, ObjectId = instance.ID.Id.ToString(), ObjectName = instance.MappedFeedEventInfo.EventName, URL = mappedFeedLink },
+				Parent = new LinkDetailsConfiguration() { DomObjectTypeId = jobObjectType.Id, ObjectId = jobInstance.ID.Id.ToString(), ObjectName = jobInstance.JobInfo.JobID, URL = jobLink }
+			};
+
+			_relationshipsHelper.CreateLink(linkConfig);
+
+			return true;
 		}
 
 		private class MappedParameters
@@ -270,6 +315,8 @@ Do you want to proceed?");
 		private void Init()
 		{
 			_schedulingHelper = new SchedulingHelper(_engine);
+
+			_relationshipsHelper = new RelationshipsHelper(_engine);
 
 			_domHelperWorkflows = new DomHelper(_engine.SendSLNetMessages, SlcWorkflowIds.ModuleId);
 
