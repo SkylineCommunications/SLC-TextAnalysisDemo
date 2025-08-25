@@ -112,24 +112,26 @@ namespace SLCDeleteSatelliteFeed
 				throw new Exception($"Failed to get Raw Extracted Satellite Feed instance with ID : {instance.MappingInfo.ExtractedFeedLink.Value}");
 			}
 
-			// get relationships for mapped feed
-			//var links = _relationshipsHelper.GetLinks(new LinkFilter() { ObjectId = instance.ID.Id.ToString() });
-			//_engine.GenerateInformation($"delete links: no of linkes: {links.Count()}");
+
 			_engine.GenerateInformation("extracted feed");
 			// var extractedFeedInstance = new ExtractedFeedInstance(domExtactedFeedInstance);
 			//_engine.GenerateInformation("delete extracted feed");
 			//extractedFeedInstance.Delete(_domHelperFeeds);
 
 			// delete realtionships and the underlying jobs
-			//_engine.GenerateInformation("test");
-			//_engine.GenerateInformation($"delete links: no of linkes: {links.Count()}");
-			//_engine.GenerateInformation("'start delete links");
-			//foreach (var link in links)
-			//{
-			//	var relatedJob = link.ParentObjectId;
-			//	_schedulingHelper.DeleteJob(Guid.Parse(relatedJob));
-			//	link.Delete();
-			//}
+			// get relationships for mapped feed
+
+			var links = _relationshipsHelper.GetLinks(new LinkFilter() { ObjectId = instance.ID.Id.ToString() });
+			_engine.GenerateInformation("start count of no of links");
+			_engine.GenerateInformation($"delete links: no of links: {links.Count()}");
+			_engine.GenerateInformation("'start delete links");
+
+			foreach (var link in links)
+			{
+				var relatedJob = link.ParentObjectId;
+				_schedulingHelper.DeleteJob(Guid.Parse(relatedJob));
+				link.Delete();
+			}
 
 			// delete the mapped satellite feed instance
 			_engine.GenerateInformation("delete mapped feed");
