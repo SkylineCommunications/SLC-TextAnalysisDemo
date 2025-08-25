@@ -106,22 +106,22 @@ namespace TextAnalysis
 					_engine = engine;
 					RunSafe(engine);
 				}
-				catch (ScriptAbortException)
+				catch (ScriptAbortException e)
 				{
 					// Catch normal abort exceptions (engine.ExitFail or engine.ExitSuccess)
 					throw; // Comment if it should be treated as a normal exit of the script.
 				}
-				catch (ScriptForceAbortException)
+				catch (ScriptForceAbortException e)
 				{
 					// Catch forced abort exceptions, caused via external maintenance messages.
 					throw;
 				}
-				catch (ScriptTimeoutException)
+				catch (ScriptTimeoutException e)
 				{
 					// Catch timeout exceptions for when a script has been running for too long.
 					throw;
 				}
-				catch (InteractiveUserDetachedException)
+				catch (InteractiveUserDetachedException e)
 				{
 					// Catch a user detaching from the interactive script by closing the window.
 					// Only applicable for interactive scripts, can be removed for non-interactive scripts.
@@ -136,12 +136,34 @@ namespace TextAnalysis
 			private void RunSafe(IEngine engine)
 			{
 				// TODO: Define code here
-				var secrets = AzureSecrets.GetUserSecrets();
-				InitializeKernel(secrets);
+				AzureSecrets secrets = new AzureSecrets();
+				try
+				{
+					secrets = AzureSecrets.GetUserSecrets();
+				}
+				catch (Exception e)
+				{
+					engine.ShowErrorDialog(@"Failed to load Azure secrets, please upload through configuration page of this app.
+For trial purposes, you can request secrets for preconfigured AI services by Skyline by sending a mail to team.product.marketing@skyline.be
+For production purposes, please take a look at our Docs: https://docs.dataminer.services/solutions/custom_solutions/Processing_pdf_documents_using_AI/Installing_pdf_documents_using_AI.html#setup-cloud-services-in-azure"
+						);
+				}
+				
+
+
 				string filename = engine.GetScriptParam("inputFile").Value;
 				var filenameOnly = Path.GetFileName(filename);
 
 				string markdown = null;
+
+				try
+				{
+					InitializeKernel(secrets);
+				}
+				catch (Exception e)
+				{
+					engine.ShowErrorDialog(@"Failed to initialize Kernel. Please verify the configured secrets for the AI services used. In case of further problems, please contact Skyline team to further troubleshoot.");
+				}
 
 				try
 				{
