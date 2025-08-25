@@ -453,507 +453,52 @@ namespace DomHelpers
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace DomHelpers.Satellitefeeds
+namespace DomHelpers.SlcRelationships
 {
 	using System;
 	using System.ComponentModel;
 	using Skyline.DataMiner.Net.Apps.DataMinerObjectModel;
 	using Skyline.DataMiner.Net.Sections;
 
-	public static class SatellitefeedsIds
+	public static class SlcRelationshipsIds
 	{
-		public const string ModuleId = "satellitefeeds";
+		public const string ModuleId = "(slc)relationships";
 		public static class Enums
 		{
-			public static class Satellite
-			{
-				public const string ABS3 = "ABS 3";
-				public const string ASTRA1 = "ASTRA 1";
-				public const string ASTRA2 = "ASTRA 2";
-				public const string ASTRA3 = "ASTRA 3";
-				public const string EUT3 = "EUT 3";
-				public const string EUT7 = "EUT 7";
-				public const string EUT9 = "EUT 9";
-				public const string EUT10 = "EUT 10";
-				public const string EUT16 = "EUT 21";
-				public const string EUT33 = "EUT 33";
-				public const string HISPASAT30 = "HISPASAT 30";
-				public const string HOTBIRD13 = "HOTBIRD 13";
-				public const string SES4 = "SES 4";
-				public const string SES5 = "SES 5";
-				public const string NotFound = "Not found";
-				public static string ToValue(SatelliteEnum @enum)
-				{
-					switch (@enum)
-					{
-						case SatelliteEnum.ABS3:
-							return ABS3;
-						case SatelliteEnum.ASTRA1:
-							return ASTRA1;
-						case SatelliteEnum.ASTRA2:
-							return ASTRA2;
-						case SatelliteEnum.ASTRA3:
-							return ASTRA3;
-						case SatelliteEnum.EUT3:
-							return EUT3;
-						case SatelliteEnum.EUT7:
-							return EUT7;
-						case SatelliteEnum.EUT9:
-							return EUT9;
-						case SatelliteEnum.EUT10:
-							return EUT10;
-						case SatelliteEnum.EUT16:
-							return EUT16;
-						case SatelliteEnum.EUT33:
-							return EUT33;
-						case SatelliteEnum.HISPASAT30:
-							return HISPASAT30;
-						case SatelliteEnum.HOTBIRD13:
-							return HOTBIRD13;
-						case SatelliteEnum.SES4:
-							return SES4;
-						case SatelliteEnum.SES5:
-							return SES5;
-						case SatelliteEnum.NotFound:
-							return NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
-					}
-				}
-
-				public static SatelliteEnum ToEnum(string s)
-				{
-					switch (s)
-					{
-						case ABS3:
-							return SatelliteEnum.ABS3;
-						case ASTRA1:
-							return SatelliteEnum.ASTRA1;
-						case ASTRA2:
-							return SatelliteEnum.ASTRA2;
-						case ASTRA3:
-							return SatelliteEnum.ASTRA3;
-						case EUT3:
-							return SatelliteEnum.EUT3;
-						case EUT7:
-							return SatelliteEnum.EUT7;
-						case EUT9:
-							return SatelliteEnum.EUT9;
-						case EUT10:
-							return SatelliteEnum.EUT10;
-						case EUT16:
-							return SatelliteEnum.EUT16;
-						case EUT33:
-							return SatelliteEnum.EUT33;
-						case HISPASAT30:
-							return SatelliteEnum.HISPASAT30;
-						case HOTBIRD13:
-							return SatelliteEnum.HOTBIRD13;
-						case SES4:
-							return SatelliteEnum.SES4;
-						case SES5:
-							return SatelliteEnum.SES5;
-						case NotFound:
-							return SatelliteEnum.NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
-					}
-				}
-			}
-
-			public enum SatelliteEnum
-			{
-				ABS3,
-				ASTRA1,
-				ASTRA2,
-				ASTRA3,
-				EUT3,
-				EUT7,
-				EUT9,
-				EUT10,
-				EUT16,
-				EUT33,
-				HISPASAT30,
-				HOTBIRD13,
-				SES4,
-				SES5,
-				NotFound
-			}
-
-			public static class Uplinkpolarization
-			{
-				public const string Horizontal = "Horizontal";
-				public const string Vertical = "Vertical";
-				public const string NotFound = "Not found";
-				public static string ToValue(UplinkpolarizationEnum @enum)
-				{
-					switch (@enum)
-					{
-						case UplinkpolarizationEnum.Horizontal:
-							return Horizontal;
-						case UplinkpolarizationEnum.Vertical:
-							return Vertical;
-						case UplinkpolarizationEnum.NotFound:
-							return NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
-					}
-				}
-
-				public static UplinkpolarizationEnum ToEnum(string s)
-				{
-					switch (s)
-					{
-						case Horizontal:
-							return UplinkpolarizationEnum.Horizontal;
-						case Vertical:
-							return UplinkpolarizationEnum.Vertical;
-						case NotFound:
-							return UplinkpolarizationEnum.NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
-					}
-				}
-			}
-
-			public enum UplinkpolarizationEnum
-			{
-				Horizontal,
-				Vertical,
-				NotFound
-			}
-
-			public static class Downlinkpolarization
-			{
-				public const string Horizontal = "Horizontal";
-				public const string Vertical = "Vertical";
-				public const string NotFound = "Not found";
-				public static string ToValue(DownlinkpolarizationEnum @enum)
-				{
-					switch (@enum)
-					{
-						case DownlinkpolarizationEnum.Horizontal:
-							return Horizontal;
-						case DownlinkpolarizationEnum.Vertical:
-							return Vertical;
-						case DownlinkpolarizationEnum.NotFound:
-							return NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
-					}
-				}
-
-				public static DownlinkpolarizationEnum ToEnum(string s)
-				{
-					switch (s)
-					{
-						case Horizontal:
-							return DownlinkpolarizationEnum.Horizontal;
-						case Vertical:
-							return DownlinkpolarizationEnum.Vertical;
-						case NotFound:
-							return DownlinkpolarizationEnum.NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
-					}
-				}
-			}
-
-			public enum DownlinkpolarizationEnum
-			{
-				Horizontal,
-				Vertical,
-				NotFound
-			}
-
-			public static class Modulationstandard
-			{
-				public const string DVBS = "DVB-S";
-				public const string DVBS2 = "DVB-S2";
-				public const string DVBS2X = "DVB-S2X";
-				public const string NS3 = "NS3";
-				public const string NS4 = "NS4";
-				public const string NotFound = "Not found";
-				public static string ToValue(ModulationstandardEnum @enum)
-				{
-					switch (@enum)
-					{
-						case ModulationstandardEnum.DVBS:
-							return DVBS;
-						case ModulationstandardEnum.DVBS2:
-							return DVBS2;
-						case ModulationstandardEnum.DVBS2X:
-							return DVBS2X;
-						case ModulationstandardEnum.NS3:
-							return NS3;
-						case ModulationstandardEnum.NS4:
-							return NS4;
-						case ModulationstandardEnum.NotFound:
-							return NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
-					}
-				}
-
-				public static ModulationstandardEnum ToEnum(string s)
-				{
-					switch (s)
-					{
-						case DVBS:
-							return ModulationstandardEnum.DVBS;
-						case DVBS2:
-							return ModulationstandardEnum.DVBS2;
-						case DVBS2X:
-							return ModulationstandardEnum.DVBS2X;
-						case NS3:
-							return ModulationstandardEnum.NS3;
-						case NS4:
-							return ModulationstandardEnum.NS4;
-						case NotFound:
-							return ModulationstandardEnum.NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
-					}
-				}
-			}
-
-			public enum ModulationstandardEnum
-			{
-				DVBS,
-				DVBS2,
-				DVBS2X,
-				NS3,
-				NS4,
-				NotFound
-			}
-
-			public static class Rolloff
-			{
-				public const string _2 = "2%";
-				public const string _5 = "5%";
-				public const string _10 = "10%";
-				public const string _15 = "15%";
-				public const string _20 = "20%";
-				public const string _25 = "25%";
-				public const string _35 = "35%";
-				public const string NotFound = "Not found";
-				public static string ToValue(RolloffEnum @enum)
-				{
-					switch (@enum)
-					{
-						case RolloffEnum._2:
-							return _2;
-						case RolloffEnum._5:
-							return _5;
-						case RolloffEnum._10:
-							return _10;
-						case RolloffEnum._15:
-							return _15;
-						case RolloffEnum._20:
-							return _20;
-						case RolloffEnum._25:
-							return _25;
-						case RolloffEnum._35:
-							return _35;
-						case RolloffEnum.NotFound:
-							return NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
-					}
-				}
-
-				public static RolloffEnum ToEnum(string s)
-				{
-					switch (s)
-					{
-						case _2:
-							return RolloffEnum._2;
-						case _5:
-							return RolloffEnum._5;
-						case _10:
-							return RolloffEnum._10;
-						case _15:
-							return RolloffEnum._15;
-						case _20:
-							return RolloffEnum._20;
-						case _25:
-							return RolloffEnum._25;
-						case _35:
-							return RolloffEnum._35;
-						case NotFound:
-							return RolloffEnum.NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
-					}
-				}
-			}
-
-			public enum RolloffEnum
-			{
-				_2,
-				_5,
-				_10,
-				_15,
-				_20,
-				_25,
-				_35,
-				NotFound
-			}
-
-			public static class FEC
-			{
-				public const string _12 = "1/2";
-				public const string _23 = "2/3";
-				public const string _34 = "3/4";
-				public const string _35 = "3/5";
-				public const string _45 = "4/5";
-				public const string _56 = "5/6";
-				public const string _78 = "7/8";
-				public const string _910 = "9/10";
-				public const string NotFound = "Not found";
-				public static string ToValue(FECEnum @enum)
-				{
-					switch (@enum)
-					{
-						case FECEnum._12:
-							return _12;
-						case FECEnum._23:
-							return _23;
-						case FECEnum._34:
-							return _34;
-						case FECEnum._35:
-							return _35;
-						case FECEnum._45:
-							return _45;
-						case FECEnum._56:
-							return _56;
-						case FECEnum._78:
-							return _78;
-						case FECEnum._910:
-							return _910;
-						case FECEnum.NotFound:
-							return NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
-					}
-				}
-
-				public static FECEnum ToEnum(string s)
-				{
-					switch (s)
-					{
-						case _12:
-							return FECEnum._12;
-						case _23:
-							return FECEnum._23;
-						case _34:
-							return FECEnum._34;
-						case _35:
-							return FECEnum._35;
-						case _45:
-							return FECEnum._45;
-						case _56:
-							return FECEnum._56;
-						case _78:
-							return FECEnum._78;
-						case _910:
-							return FECEnum._910;
-						case NotFound:
-							return FECEnum.NotFound;
-						default:
-							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
-					}
-				}
-			}
-
-			public enum FECEnum
-			{
-				_12,
-				_23,
-				_34,
-				_35,
-				_45,
-				_56,
-				_78,
-				_910,
-				NotFound
-			}
 		}
 
 		public static class Sections
 		{
-			public static class ExtractedFeedEventInfo
+			public static class LinkInfo
 			{
-				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("6eb9f75e-d090-4745-95e0-3c0c812e4ff3"))
-				{ ModuleId = "satellitefeeds" };
-				public static FieldDescriptorID EventName { get; } = new FieldDescriptorID(new Guid("9dc6785b-83fc-4d4a-a2aa-5c5e318959e5"));
-				public static FieldDescriptorID StartDate { get; } = new FieldDescriptorID(new Guid("2952ab59-a7a0-49f0-949c-850ae32ad783"));
-				public static FieldDescriptorID EndDate { get; } = new FieldDescriptorID(new Guid("1e2747d7-6d35-469a-b273-e9e778cbf37c"));
+				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("f903f60d-bfdf-4316-b138-22b5a1c9c890"))
+				{ ModuleId = "(slc)relationships" };
+				public static FieldDescriptorID ChildObjectType { get; } = new FieldDescriptorID(new Guid("e359e9c1-82a2-400c-9957-c963e4c040f5"));
+				public static FieldDescriptorID ChildObjectID { get; } = new FieldDescriptorID(new Guid("f4d694f6-4e7a-4ef6-a3d8-10ddc4ace5ed"));
+				public static FieldDescriptorID ChildObjectName { get; } = new FieldDescriptorID(new Guid("b00c48f4-221c-4ab8-acea-63d5399d9ace"));
+				public static FieldDescriptorID ChildURL { get; } = new FieldDescriptorID(new Guid("cfc72fba-0ced-40c3-ba38-41319db01c59"));
+				public static FieldDescriptorID ChildOrder { get; } = new FieldDescriptorID(new Guid("58fdbd84-8a6a-4ea2-97d0-d78fd01ad34f"));
+				public static FieldDescriptorID ParentObjectType { get; } = new FieldDescriptorID(new Guid("51a442a4-e77d-417e-80e3-4e343008e540"));
+				public static FieldDescriptorID ParentObjectID { get; } = new FieldDescriptorID(new Guid("43429e53-9f24-4a35-955d-8f15ba7781c8"));
+				public static FieldDescriptorID ParentObjectName { get; } = new FieldDescriptorID(new Guid("a528ed39-f0e5-452c-a5f8-d97c12b995e3"));
+				public static FieldDescriptorID ParentURL { get; } = new FieldDescriptorID(new Guid("acf0f927-9e61-4ffb-b1f5-41a779a69b51"));
+				public static FieldDescriptorID ParentOrder { get; } = new FieldDescriptorID(new Guid("80cf017b-07b0-4215-8b1e-ffecaa4f25d9"));
 			}
 
-			public static class MappedFeedParameters
+			public static class ObjectTypeInfo
 			{
-				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("26131715-09fa-4051-9609-387a12bfe8bb"))
-				{ ModuleId = "satellitefeeds" };
-				public static FieldDescriptorID Satellite { get; } = new FieldDescriptorID(new Guid("83775d5e-835b-4543-92f2-120139a32cb5"));
-				public static FieldDescriptorID UplinkPolarization { get; } = new FieldDescriptorID(new Guid("fe66fa93-4bb7-4080-9100-04f520ad01b3"));
-				public static FieldDescriptorID DownlinkPolarization { get; } = new FieldDescriptorID(new Guid("bce0d209-5c79-4dad-a545-a1b0d15b631a"));
-				public static FieldDescriptorID ModulationStandard { get; } = new FieldDescriptorID(new Guid("1ccd3510-dabe-4aea-ba82-9e99aabbfcc1"));
-				public static FieldDescriptorID UplinkFrequency { get; } = new FieldDescriptorID(new Guid("2e5c1263-5649-4f0e-bf2a-b77ed2bfc250"));
-				public static FieldDescriptorID DownlinkFrequency { get; } = new FieldDescriptorID(new Guid("835efe15-3d31-4a2e-b269-8023b1282be1"));
-				public static FieldDescriptorID SymbolRate { get; } = new FieldDescriptorID(new Guid("0dae5a84-a056-4a23-86e8-1ccef203160c"));
-				public static FieldDescriptorID RollOff { get; } = new FieldDescriptorID(new Guid("2716c5f2-a058-47c6-8d4f-e0cd614b7572"));
-				public static FieldDescriptorID FEC { get; } = new FieldDescriptorID(new Guid("99dab6a5-121f-42d6-a5e8-7fbb92920db8"));
-			}
-
-			public static class MappingInfo
-			{
-				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("c2082747-988b-42cf-9363-9f6d52c4b49e"))
-				{ ModuleId = "satellitefeeds" };
-				public static FieldDescriptorID ExtractedFeedLink { get; } = new FieldDescriptorID(new Guid("210ef69d-5518-420a-a88d-50dde296b884"));
-				public static FieldDescriptorID MappedFeedJSON { get; } = new FieldDescriptorID(new Guid("a76df14a-217a-446c-9d35-c4bcc8168e41"));
-				public static FieldDescriptorID FileName { get; } = new FieldDescriptorID(new Guid("b09252b3-64df-4213-9e9c-a958cf6585ac"));
-			}
-
-			public static class MappedFeedEventInfo
-			{
-				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("53e9b878-9b57-4563-a0cd-a4984b781796"))
-				{ ModuleId = "satellitefeeds" };
-				public static FieldDescriptorID EventName { get; } = new FieldDescriptorID(new Guid("9ff099fa-eed1-4fe9-b694-14951fdaeda5"));
-				public static FieldDescriptorID StartDate { get; } = new FieldDescriptorID(new Guid("349bf2b4-9b99-4034-8c6f-4127968388f1"));
-				public static FieldDescriptorID EndDate { get; } = new FieldDescriptorID(new Guid("1c945ab8-f7fe-45e6-8d42-60fd30c1e108"));
-			}
-
-			public static class ExtractedFeedParameters
-			{
-				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("45006ff6-a6d8-4695-a04d-7ed0db101085"))
-				{ ModuleId = "satellitefeeds" };
-				public static FieldDescriptorID Satellite { get; } = new FieldDescriptorID(new Guid("4fd62805-e315-462d-81cd-10a5b094e722"));
-				public static FieldDescriptorID UplinkPolarization { get; } = new FieldDescriptorID(new Guid("df405de4-27a7-446d-9935-a038a7c435ee"));
-				public static FieldDescriptorID DownlinkPolarization { get; } = new FieldDescriptorID(new Guid("c51da1e2-16b8-47e0-92b5-ce4bd1c680e4"));
-				public static FieldDescriptorID ModulationStandard { get; } = new FieldDescriptorID(new Guid("902c44de-b510-49f2-9abe-f261cafc057b"));
-				public static FieldDescriptorID UplinkFrequency { get; } = new FieldDescriptorID(new Guid("6ff7468f-ca19-45ff-8956-97a704c0942b"));
-				public static FieldDescriptorID DownlinkFrequency { get; } = new FieldDescriptorID(new Guid("961d050f-60d5-44d2-bdfe-5e5650325a7e"));
-				public static FieldDescriptorID SymbolRate { get; } = new FieldDescriptorID(new Guid("8c8cbb18-41d1-4846-b622-15370bd2afa4"));
-				public static FieldDescriptorID RollOff { get; } = new FieldDescriptorID(new Guid("e36fb8ad-865a-4387-a98c-ddc4a44e5d63"));
-				public static FieldDescriptorID FEC { get; } = new FieldDescriptorID(new Guid("872c1386-3bbf-473b-a30f-799546f4f56b"));
-			}
-
-			public static class ExtractedFeedRawData
-			{
-				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("dabfe777-1d6d-4420-a371-e750122de220"))
-				{ ModuleId = "satellitefeeds" };
-				public static FieldDescriptorID JSON { get; } = new FieldDescriptorID(new Guid("fa85ce33-1341-4b55-bbcc-b2781056d03f"));
-				public static FieldDescriptorID FileName { get; } = new FieldDescriptorID(new Guid("9c7b410b-f527-4fed-baf3-da109bc21dc1"));
+				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("ac97c003-884e-48d7-9ff3-e84b13a349be"))
+				{ ModuleId = "(slc)relationships" };
+				public static FieldDescriptorID ObjectName { get; } = new FieldDescriptorID(new Guid("fd6b00c0-0f16-4025-8f13-f9b18f9e2fe0"));
 			}
 		}
 
 		public static class Definitions
 		{
-			public static DomDefinitionId MappedFeed { get; } = new DomDefinitionId(new Guid("1662f8a4-534d-424f-819d-35da80ebe5ee"))
-			{ ModuleId = "satellitefeeds" };
-			public static DomDefinitionId ExtractedFeed { get; } = new DomDefinitionId(new Guid("d1c2bbb1-2986-47ed-a2b4-e1bf1f9e6a30"))
-			{ ModuleId = "satellitefeeds" };
+			public static DomDefinitionId ObjectTypes { get; } = new DomDefinitionId(new Guid("7ab57219-6b21-4abb-83a4-f5c22de38f20"))
+			{ ModuleId = "(slc)relationships" };
+			public static DomDefinitionId Links { get; } = new DomDefinitionId(new Guid("fcedb769-e515-414b-8e64-7093104f6d66"))
+			{ ModuleId = "(slc)relationships" };
 		}
 
 		public static class Behaviors
@@ -967,7 +512,7 @@ namespace DomHelpers.Satellitefeeds
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace DomHelpers.Satellitefeeds
+namespace DomHelpers.SlcRelationships
 {
 	using System;
 	using System.Collections.Generic;
@@ -976,68 +521,56 @@ namespace DomHelpers.Satellitefeeds
 	using Skyline.DataMiner.Net.Messages;
 
 	/// <summary>
-	/// Represents a wrapper class for accessing a MappedFeedInstance DOM instance.
-	/// The <see cref="MappedFeedInstance"/> class provides simplified access to the data and functionality of the underlying DOM instance, allowing for easier manipulation and retrieval of data from DOM.
+	/// Represents a wrapper class for accessing a ObjectTypesInstance DOM instance.
+	/// The <see cref="ObjectTypesInstance"/> class provides simplified access to the data and functionality of the underlying DOM instance, allowing for easier manipulation and retrieval of data from DOM.
 	/// </summary>
-	public partial class MappedFeedInstance : DomInstanceBase
+	public partial class ObjectTypesInstance : DomInstanceBase
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MappedFeedInstance"/> class. Creates an empty <see cref="MappedFeedInstance"/> instance with default settings.
+		/// Initializes a new instance of the <see cref="ObjectTypesInstance"/> class. Creates an empty <see cref="ObjectTypesInstance"/> instance with default settings.
 		/// </summary>
-		public MappedFeedInstance() : base(SatellitefeedsIds.Definitions.MappedFeed)
+		public ObjectTypesInstance() : base(SlcRelationshipsIds.Definitions.ObjectTypes)
 		{
 			InitializeProperties();
 			AfterLoad();
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MappedFeedInstance"/> class. Creates an empty <see cref="MappedFeedInstance"/> instance with default settings and a specific ID.
+		/// Initializes a new instance of the <see cref="ObjectTypesInstance"/> class. Creates an empty <see cref="ObjectTypesInstance"/> instance with default settings and a specific ID.
 		/// </summary>
-		public MappedFeedInstance(Guid id) : base(SatellitefeedsIds.Definitions.MappedFeed, id)
+		public ObjectTypesInstance(Guid id) : base(SlcRelationshipsIds.Definitions.ObjectTypes, id)
 		{
 			InitializeProperties();
 			AfterLoad();
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MappedFeedInstance"/> class using the specified <paramref name="domInstance"/> for initializing the object.
+		/// Initializes a new instance of the <see cref="ObjectTypesInstance"/> class using the specified <paramref name="domInstance"/> for initializing the object.
 		/// </summary>
-		/// <param name="domInstance">The <see cref="DomInstance"/> object that provides data for initializing the <see cref="MappedFeedInstance"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
-		public MappedFeedInstance(DomInstance domInstance) : base(domInstance)
+		/// <param name="domInstance">The <see cref="DomInstance"/> object that provides data for initializing the <see cref="ObjectTypesInstance"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public ObjectTypesInstance(DomInstance domInstance) : base(domInstance)
 		{
-			if (!domInstance.DomDefinitionId.Equals(SatellitefeedsIds.Definitions.MappedFeed))
-				throw new ArgumentException($"The given domInstance, is not of type '{nameof(SatellitefeedsIds.Definitions.MappedFeed)}'", nameof(domInstance));
+			if (!domInstance.DomDefinitionId.Equals(SlcRelationshipsIds.Definitions.ObjectTypes))
+				throw new ArgumentException($"The given domInstance, is not of type '{nameof(SlcRelationshipsIds.Definitions.ObjectTypes)}'", nameof(domInstance));
 			InitializeProperties();
 			AfterLoad();
 		}
 
 		/// <summary>
-		/// Gets or sets the MappedFeedParameters section of the DOM Instance.
+		/// Gets or sets the ObjectTypeInfo section of the DOM Instance.
 		/// </summary>
-		public MappedFeedParametersSection MappedFeedParameters { get; set; }
+		public ObjectTypeInfoSection ObjectTypeInfo { get; set; }
 
-		/// <summary>
-		/// Gets or sets the MappingInfo section of the DOM Instance.
-		/// </summary>
-		public MappingInfoSection MappingInfo { get; set; }
-
-		/// <summary>
-		/// Gets or sets the MappedFeedEventInfo section of the DOM Instance.
-		/// </summary>
-		public MappedFeedEventInfoSection MappedFeedEventInfo { get; set; }
-
-		public static explicit operator MappedFeedInstance(DomInstance instance)
+		public static explicit operator ObjectTypesInstance(DomInstance instance)
 		{
-			return new MappedFeedInstance(instance);
+			return new ObjectTypesInstance(instance);
 		}
 
 		/// <inheritdoc />
 		protected override DomInstance InternalToInstance()
 		{
 			domInstance.Sections.Clear();
-			domInstance.Sections.Add(MappedFeedParameters.ToSection());
-			domInstance.Sections.Add(MappingInfo.ToSection());
-			domInstance.Sections.Add(MappedFeedEventInfo.ToSection());
+			domInstance.Sections.Add(ObjectTypeInfo.ToSection());
 			return domInstance;
 		}
 
@@ -1058,101 +591,69 @@ namespace DomHelpers.Satellitefeeds
 
 		protected override void InitializeProperties()
 		{
-			var _mappedFeedParameters = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.MappedFeedParameters.Id));
-			if (_mappedFeedParameters is null)
+			var _objectTypeInfo = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SlcRelationshipsIds.Sections.ObjectTypeInfo.Id));
+			if (_objectTypeInfo is null)
 			{
-				MappedFeedParameters = new MappedFeedParametersSection();
+				ObjectTypeInfo = new ObjectTypeInfoSection();
 			}
 			else
 			{
-				MappedFeedParameters = new MappedFeedParametersSection(_mappedFeedParameters);
-			}
-
-			var _mappingInfo = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.MappingInfo.Id));
-			if (_mappingInfo is null)
-			{
-				MappingInfo = new MappingInfoSection();
-			}
-			else
-			{
-				MappingInfo = new MappingInfoSection(_mappingInfo);
-			}
-
-			var _mappedFeedEventInfo = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.MappedFeedEventInfo.Id));
-			if (_mappedFeedEventInfo is null)
-			{
-				MappedFeedEventInfo = new MappedFeedEventInfoSection();
-			}
-			else
-			{
-				MappedFeedEventInfo = new MappedFeedEventInfoSection(_mappedFeedEventInfo);
+				ObjectTypeInfo = new ObjectTypeInfoSection(_objectTypeInfo);
 			}
 		}
 	}
 
 	/// <summary>
-	/// Represents a wrapper class for accessing a ExtractedFeedInstance DOM instance.
-	/// The <see cref="ExtractedFeedInstance"/> class provides simplified access to the data and functionality of the underlying DOM instance, allowing for easier manipulation and retrieval of data from DOM.
+	/// Represents a wrapper class for accessing a LinksInstance DOM instance.
+	/// The <see cref="LinksInstance"/> class provides simplified access to the data and functionality of the underlying DOM instance, allowing for easier manipulation and retrieval of data from DOM.
 	/// </summary>
-	public partial class ExtractedFeedInstance : DomInstanceBase
+	public partial class LinksInstance : DomInstanceBase
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ExtractedFeedInstance"/> class. Creates an empty <see cref="ExtractedFeedInstance"/> instance with default settings.
+		/// Initializes a new instance of the <see cref="LinksInstance"/> class. Creates an empty <see cref="LinksInstance"/> instance with default settings.
 		/// </summary>
-		public ExtractedFeedInstance() : base(SatellitefeedsIds.Definitions.ExtractedFeed)
+		public LinksInstance() : base(SlcRelationshipsIds.Definitions.Links)
 		{
 			InitializeProperties();
 			AfterLoad();
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ExtractedFeedInstance"/> class. Creates an empty <see cref="ExtractedFeedInstance"/> instance with default settings and a specific ID.
+		/// Initializes a new instance of the <see cref="LinksInstance"/> class. Creates an empty <see cref="LinksInstance"/> instance with default settings and a specific ID.
 		/// </summary>
-		public ExtractedFeedInstance(Guid id) : base(SatellitefeedsIds.Definitions.ExtractedFeed, id)
+		public LinksInstance(Guid id) : base(SlcRelationshipsIds.Definitions.Links, id)
 		{
 			InitializeProperties();
 			AfterLoad();
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ExtractedFeedInstance"/> class using the specified <paramref name="domInstance"/> for initializing the object.
+		/// Initializes a new instance of the <see cref="LinksInstance"/> class using the specified <paramref name="domInstance"/> for initializing the object.
 		/// </summary>
-		/// <param name="domInstance">The <see cref="DomInstance"/> object that provides data for initializing the <see cref="ExtractedFeedInstance"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
-		public ExtractedFeedInstance(DomInstance domInstance) : base(domInstance)
+		/// <param name="domInstance">The <see cref="DomInstance"/> object that provides data for initializing the <see cref="LinksInstance"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public LinksInstance(DomInstance domInstance) : base(domInstance)
 		{
-			if (!domInstance.DomDefinitionId.Equals(SatellitefeedsIds.Definitions.ExtractedFeed))
-				throw new ArgumentException($"The given domInstance, is not of type '{nameof(SatellitefeedsIds.Definitions.ExtractedFeed)}'", nameof(domInstance));
+			if (!domInstance.DomDefinitionId.Equals(SlcRelationshipsIds.Definitions.Links))
+				throw new ArgumentException($"The given domInstance, is not of type '{nameof(SlcRelationshipsIds.Definitions.Links)}'", nameof(domInstance));
 			InitializeProperties();
 			AfterLoad();
 		}
 
 		/// <summary>
-		/// Gets or sets the ExtractedFeedEventInfo section of the DOM Instance.
+		/// Gets or sets the LinkInfo section of the DOM Instance.
 		/// </summary>
-		public ExtractedFeedEventInfoSection ExtractedFeedEventInfo { get; set; }
+		public LinkInfoSection LinkInfo { get; set; }
 
-		/// <summary>
-		/// Gets or sets the ExtractedFeedParameters section of the DOM Instance.
-		/// </summary>
-		public ExtractedFeedParametersSection ExtractedFeedParameters { get; set; }
-
-		/// <summary>
-		/// Gets or sets the ExtractedFeedRawData section of the DOM Instance.
-		/// </summary>
-		public ExtractedFeedRawDataSection ExtractedFeedRawData { get; set; }
-
-		public static explicit operator ExtractedFeedInstance(DomInstance instance)
+		public static explicit operator LinksInstance(DomInstance instance)
 		{
-			return new ExtractedFeedInstance(instance);
+			return new LinksInstance(instance);
 		}
 
 		/// <inheritdoc />
 		protected override DomInstance InternalToInstance()
 		{
 			domInstance.Sections.Clear();
-			domInstance.Sections.Add(ExtractedFeedEventInfo.ToSection());
-			domInstance.Sections.Add(ExtractedFeedParameters.ToSection());
-			domInstance.Sections.Add(ExtractedFeedRawData.ToSection());
+			domInstance.Sections.Add(LinkInfo.ToSection());
 			return domInstance;
 		}
 
@@ -1173,34 +674,14 @@ namespace DomHelpers.Satellitefeeds
 
 		protected override void InitializeProperties()
 		{
-			var _extractedFeedEventInfo = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.Id));
-			if (_extractedFeedEventInfo is null)
+			var _linkInfo = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SlcRelationshipsIds.Sections.LinkInfo.Id));
+			if (_linkInfo is null)
 			{
-				ExtractedFeedEventInfo = new ExtractedFeedEventInfoSection();
+				LinkInfo = new LinkInfoSection();
 			}
 			else
 			{
-				ExtractedFeedEventInfo = new ExtractedFeedEventInfoSection(_extractedFeedEventInfo);
-			}
-
-			var _extractedFeedParameters = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.ExtractedFeedParameters.Id));
-			if (_extractedFeedParameters is null)
-			{
-				ExtractedFeedParameters = new ExtractedFeedParametersSection();
-			}
-			else
-			{
-				ExtractedFeedParameters = new ExtractedFeedParametersSection(_extractedFeedParameters);
-			}
-
-			var _extractedFeedRawData = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.ExtractedFeedRawData.Id));
-			if (_extractedFeedRawData is null)
-			{
-				ExtractedFeedRawData = new ExtractedFeedRawDataSection();
-			}
-			else
-			{
-				ExtractedFeedRawData = new ExtractedFeedRawDataSection(_extractedFeedRawData);
+				LinkInfo = new LinkInfoSection(_linkInfo);
 			}
 		}
 	}
@@ -1211,7 +692,7 @@ namespace DomHelpers.Satellitefeeds
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace DomHelpers.Satellitefeeds
+namespace DomHelpers.SlcRelationships
 {
 	using System;
 	using System.Collections.Generic;
@@ -1223,28 +704,28 @@ namespace DomHelpers.Satellitefeeds
 	using Skyline.DataMiner.Net.Sections;
 
 	/// <summary>
-	/// Represents a wrapper class for accessing a ExtractedFeedEventInfoSection section.
-	/// The <see cref="ExtractedFeedEventInfoSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
+	/// Represents a wrapper class for accessing a LinkInfoSection section.
+	/// The <see cref="LinkInfoSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
 	/// </summary>
-	public partial class ExtractedFeedEventInfoSection : DomSectionBase
+	public partial class LinkInfoSection : DomSectionBase
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ExtractedFeedEventInfoSection"/> class. Creates an empty <see cref="ExtractedFeedEventInfoSection"/> object with default settings.
+		/// Initializes a new instance of the <see cref="LinkInfoSection"/> class. Creates an empty <see cref="LinkInfoSection"/> object with default settings.
 		/// </summary>
-		public ExtractedFeedEventInfoSection() : base(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.Id)
+		public LinkInfoSection() : base(SlcRelationshipsIds.Sections.LinkInfo.Id)
 		{
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ExtractedFeedEventInfoSection"/> class using the specified <paramref name="section"/> for initializing the object.
+		/// Initializes a new instance of the <see cref="LinkInfoSection"/> class using the specified <paramref name="section"/> for initializing the object.
 		/// </summary>
-		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="ExtractedFeedEventInfoSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
-		public ExtractedFeedEventInfoSection(Section section) : base(section, SatellitefeedsIds.Sections.ExtractedFeedEventInfo.Id)
+		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="LinkInfoSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public LinkInfoSection(Section section) : base(section, SlcRelationshipsIds.Sections.LinkInfo.Id)
 		{
 		}
 
 		/// <summary>
-		/// Gets or sets the EventName field of the DOM Instance.
+		/// Gets or sets the ChildObjectType field of the DOM Instance.
 		/// </summary>
 		/// <remarks>
 		/// When retrieving the value:
@@ -1258,571 +739,11 @@ namespace DomHelpers.Satellitefeeds
 		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
 		/// </list>
 		/// </remarks>
-		public String EventName
+		public Guid? ChildObjectType
 		{
 			get
 			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EventName);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EventName);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EventName, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the StartDate field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String StartDate
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.StartDate);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.StartDate);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.StartDate, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the EndDate field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String EndDate
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EndDate);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EndDate);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EndDate, (String)value);
-				}
-			}
-		}
-	}
-
-	/// <summary>
-	/// Represents a wrapper class for accessing a MappedFeedParametersSection section.
-	/// The <see cref="MappedFeedParametersSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
-	/// </summary>
-	public partial class MappedFeedParametersSection : DomSectionBase
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="MappedFeedParametersSection"/> class. Creates an empty <see cref="MappedFeedParametersSection"/> object with default settings.
-		/// </summary>
-		public MappedFeedParametersSection() : base(SatellitefeedsIds.Sections.MappedFeedParameters.Id)
-		{
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="MappedFeedParametersSection"/> class using the specified <paramref name="section"/> for initializing the object.
-		/// </summary>
-		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="MappedFeedParametersSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
-		public MappedFeedParametersSection(Section section) : base(section, SatellitefeedsIds.Sections.MappedFeedParameters.Id)
-		{
-		}
-
-		/// <summary>
-		/// Gets or sets the Satellite field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public SatellitefeedsIds.Enums.SatelliteEnum? Satellite
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.Satellite);
-				if (wrapper != null)
-				{
-					return (SatellitefeedsIds.Enums.SatelliteEnum?)SatellitefeedsIds.Enums.Satellite.ToEnum(wrapper.Value);
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.Satellite);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.Satellite, SatellitefeedsIds.Enums.Satellite.ToValue((SatellitefeedsIds.Enums.SatelliteEnum)value));
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the UplinkPolarization field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public SatellitefeedsIds.Enums.UplinkpolarizationEnum? UplinkPolarization
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkPolarization);
-				if (wrapper != null)
-				{
-					return (SatellitefeedsIds.Enums.UplinkpolarizationEnum?)SatellitefeedsIds.Enums.Uplinkpolarization.ToEnum(wrapper.Value);
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkPolarization);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkPolarization, SatellitefeedsIds.Enums.Uplinkpolarization.ToValue((SatellitefeedsIds.Enums.UplinkpolarizationEnum)value));
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the DownlinkPolarization field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public SatellitefeedsIds.Enums.DownlinkpolarizationEnum? DownlinkPolarization
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkPolarization);
-				if (wrapper != null)
-				{
-					return (SatellitefeedsIds.Enums.DownlinkpolarizationEnum?)SatellitefeedsIds.Enums.Downlinkpolarization.ToEnum(wrapper.Value);
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkPolarization);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkPolarization, SatellitefeedsIds.Enums.Downlinkpolarization.ToValue((SatellitefeedsIds.Enums.DownlinkpolarizationEnum)value));
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the ModulationStandard field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public SatellitefeedsIds.Enums.ModulationstandardEnum? ModulationStandard
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.ModulationStandard);
-				if (wrapper != null)
-				{
-					return (SatellitefeedsIds.Enums.ModulationstandardEnum?)SatellitefeedsIds.Enums.Modulationstandard.ToEnum(wrapper.Value);
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.ModulationStandard);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.ModulationStandard, SatellitefeedsIds.Enums.Modulationstandard.ToValue((SatellitefeedsIds.Enums.ModulationstandardEnum)value));
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the UplinkFrequency field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public Double? UplinkFrequency
-		{
-			get
-			{
-				var wrapper = section.GetValue<Double>(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkFrequency);
-				if (wrapper != null)
-				{
-					return (Double?)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkFrequency);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkFrequency, (Double)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the DownlinkFrequency field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public Double? DownlinkFrequency
-		{
-			get
-			{
-				var wrapper = section.GetValue<Double>(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkFrequency);
-				if (wrapper != null)
-				{
-					return (Double?)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkFrequency);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkFrequency, (Double)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the SymbolRate field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public Double? SymbolRate
-		{
-			get
-			{
-				var wrapper = section.GetValue<Double>(SatellitefeedsIds.Sections.MappedFeedParameters.SymbolRate);
-				if (wrapper != null)
-				{
-					return (Double?)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.SymbolRate);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.SymbolRate, (Double)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the RollOff field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public SatellitefeedsIds.Enums.RolloffEnum? RollOff
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.RollOff);
-				if (wrapper != null)
-				{
-					return (SatellitefeedsIds.Enums.RolloffEnum?)SatellitefeedsIds.Enums.Rolloff.ToEnum(wrapper.Value);
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.RollOff);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.RollOff, SatellitefeedsIds.Enums.Rolloff.ToValue((SatellitefeedsIds.Enums.RolloffEnum)value));
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the FEC field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public SatellitefeedsIds.Enums.FECEnum? FEC
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.FEC);
-				if (wrapper != null)
-				{
-					return (SatellitefeedsIds.Enums.FECEnum?)SatellitefeedsIds.Enums.FEC.ToEnum(wrapper.Value);
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.FEC);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.FEC, SatellitefeedsIds.Enums.FEC.ToValue((SatellitefeedsIds.Enums.FECEnum)value));
-				}
-			}
-		}
-	}
-
-	/// <summary>
-	/// Represents a wrapper class for accessing a MappingInfoSection section.
-	/// The <see cref="MappingInfoSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
-	/// </summary>
-	public partial class MappingInfoSection : DomSectionBase
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="MappingInfoSection"/> class. Creates an empty <see cref="MappingInfoSection"/> object with default settings.
-		/// </summary>
-		public MappingInfoSection() : base(SatellitefeedsIds.Sections.MappingInfo.Id)
-		{
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="MappingInfoSection"/> class using the specified <paramref name="section"/> for initializing the object.
-		/// </summary>
-		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="MappingInfoSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
-		public MappingInfoSection(Section section) : base(section, SatellitefeedsIds.Sections.MappingInfo.Id)
-		{
-		}
-
-		/// <summary>
-		/// Gets or sets the ExtractedFeedLink field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public Guid? ExtractedFeedLink
-		{
-			get
-			{
-				var wrapper = section.GetValue<Guid>(SatellitefeedsIds.Sections.MappingInfo.ExtractedFeedLink);
+				var wrapper = section.GetValue<Guid>(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectType);
 				if (wrapper != null)
 				{
 					return (Guid?)wrapper.Value;
@@ -1837,17 +758,17 @@ namespace DomHelpers.Satellitefeeds
 			{
 				if (value == null)
 				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappingInfo.ExtractedFeedLink);
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectType);
 				}
 				else
 				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappingInfo.ExtractedFeedLink, (Guid)value);
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectType, (Guid)value);
 				}
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the MappedFeedJSON field of the DOM Instance.
+		/// Gets or sets the ChildObjectID field of the DOM Instance.
 		/// </summary>
 		/// <remarks>
 		/// When retrieving the value:
@@ -1861,11 +782,11 @@ namespace DomHelpers.Satellitefeeds
 		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
 		/// </list>
 		/// </remarks>
-		public String MappedFeedJSON
+		public String ChildObjectID
 		{
 			get
 			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappingInfo.MappedFeedJSON);
+				var wrapper = section.GetValue<String>(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectID);
 				if (wrapper != null)
 				{
 					return (String)wrapper.Value;
@@ -1880,17 +801,17 @@ namespace DomHelpers.Satellitefeeds
 			{
 				if (value == null)
 				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappingInfo.MappedFeedJSON);
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectID);
 				}
 				else
 				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappingInfo.MappedFeedJSON, (String)value);
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectID, (String)value);
 				}
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the FileName field of the DOM Instance.
+		/// Gets or sets the ChildObjectName field of the DOM Instance.
 		/// </summary>
 		/// <remarks>
 		/// When retrieving the value:
@@ -1904,11 +825,11 @@ namespace DomHelpers.Satellitefeeds
 		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
 		/// </list>
 		/// </remarks>
-		public String FileName
+		public String ChildObjectName
 		{
 			get
 			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappingInfo.FileName);
+				var wrapper = section.GetValue<String>(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectName);
 				if (wrapper != null)
 				{
 					return (String)wrapper.Value;
@@ -1923,39 +844,350 @@ namespace DomHelpers.Satellitefeeds
 			{
 				if (value == null)
 				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappingInfo.FileName);
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectName);
 				}
 				else
 				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappingInfo.FileName, (String)value);
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectName, (String)value);
 				}
 			}
+		}
+
+		/// <summary>
+		/// Gets or sets the ChildURL field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String ChildURL
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SlcRelationshipsIds.Sections.LinkInfo.ChildURL);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ChildURL);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ChildURL, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the ChildOrder field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public Int64? ChildOrder
+		{
+			get
+			{
+				var wrapper = section.GetValue<Int64>(SlcRelationshipsIds.Sections.LinkInfo.ChildOrder);
+				if (wrapper != null)
+				{
+					return (Int64?)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ChildOrder);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ChildOrder, (Int64)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the ParentObjectType field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public Guid? ParentObjectType
+		{
+			get
+			{
+				var wrapper = section.GetValue<Guid>(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectType);
+				if (wrapper != null)
+				{
+					return (Guid?)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectType);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectType, (Guid)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the ParentObjectID field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String ParentObjectID
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectID);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectID);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectID, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the ParentObjectName field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String ParentObjectName
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectName);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectName);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectName, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the ParentURL field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String ParentURL
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SlcRelationshipsIds.Sections.LinkInfo.ParentURL);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ParentURL);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ParentURL, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the ParentOrder field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public Int64? ParentOrder
+		{
+			get
+			{
+				var wrapper = section.GetValue<Int64>(SlcRelationshipsIds.Sections.LinkInfo.ParentOrder);
+				if (wrapper != null)
+				{
+					return (Int64?)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.LinkInfo.ParentOrder);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.LinkInfo.ParentOrder, (Int64)value);
+				}
+			}
+		}
+
+		/// <inheritdoc />
+		protected override Section InternalToSection()
+		{
+			if (section.GetValue<Guid>(SlcRelationshipsIds.Sections.LinkInfo.ChildObjectType) == null)
+				throw new InvalidOperationException("'ChildObjectType' is required. Please fill it in before saving, or mark it as optional with the DOM Editor.");
+			if (section.GetValue<Guid>(SlcRelationshipsIds.Sections.LinkInfo.ParentObjectType) == null)
+				throw new InvalidOperationException("'ParentObjectType' is required. Please fill it in before saving, or mark it as optional with the DOM Editor.");
+			return section;
 		}
 	}
 
 	/// <summary>
-	/// Represents a wrapper class for accessing a MappedFeedEventInfoSection section.
-	/// The <see cref="MappedFeedEventInfoSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
+	/// Represents a wrapper class for accessing a ObjectTypeInfoSection section.
+	/// The <see cref="ObjectTypeInfoSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
 	/// </summary>
-	public partial class MappedFeedEventInfoSection : DomSectionBase
+	public partial class ObjectTypeInfoSection : DomSectionBase
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MappedFeedEventInfoSection"/> class. Creates an empty <see cref="MappedFeedEventInfoSection"/> object with default settings.
+		/// Initializes a new instance of the <see cref="ObjectTypeInfoSection"/> class. Creates an empty <see cref="ObjectTypeInfoSection"/> object with default settings.
 		/// </summary>
-		public MappedFeedEventInfoSection() : base(SatellitefeedsIds.Sections.MappedFeedEventInfo.Id)
+		public ObjectTypeInfoSection() : base(SlcRelationshipsIds.Sections.ObjectTypeInfo.Id)
 		{
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MappedFeedEventInfoSection"/> class using the specified <paramref name="section"/> for initializing the object.
+		/// Initializes a new instance of the <see cref="ObjectTypeInfoSection"/> class using the specified <paramref name="section"/> for initializing the object.
 		/// </summary>
-		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="MappedFeedEventInfoSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
-		public MappedFeedEventInfoSection(Section section) : base(section, SatellitefeedsIds.Sections.MappedFeedEventInfo.Id)
+		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="ObjectTypeInfoSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public ObjectTypeInfoSection(Section section) : base(section, SlcRelationshipsIds.Sections.ObjectTypeInfo.Id)
 		{
 		}
 
 		/// <summary>
-		/// Gets or sets the EventName field of the DOM Instance.
+		/// Gets or sets the ObjectName field of the DOM Instance.
 		/// </summary>
 		/// <remarks>
 		/// When retrieving the value:
@@ -1969,11 +1201,11 @@ namespace DomHelpers.Satellitefeeds
 		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
 		/// </list>
 		/// </remarks>
-		public String EventName
+		public String ObjectName
 		{
 			get
 			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedEventInfo.EventName);
+				var wrapper = section.GetValue<String>(SlcRelationshipsIds.Sections.ObjectTypeInfo.ObjectName);
 				if (wrapper != null)
 				{
 					return (String)wrapper.Value;
@@ -1988,621 +1220,30 @@ namespace DomHelpers.Satellitefeeds
 			{
 				if (value == null)
 				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedEventInfo.EventName);
+					section.RemoveFieldValueById(SlcRelationshipsIds.Sections.ObjectTypeInfo.ObjectName);
 				}
 				else
 				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedEventInfo.EventName, (String)value);
+					section.AddOrUpdateValue(SlcRelationshipsIds.Sections.ObjectTypeInfo.ObjectName, (String)value);
 				}
 			}
 		}
 
-		/// <summary>
-		/// Gets or sets the StartDate field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public DateTime? StartDate
+		/// <inheritdoc />
+		protected override Section InternalToSection()
 		{
-			get
-			{
-				var wrapper = section.GetValue<DateTime>(SatellitefeedsIds.Sections.MappedFeedEventInfo.StartDate);
-				if (wrapper != null)
-				{
-					return (DateTime?)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedEventInfo.StartDate);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedEventInfo.StartDate, (DateTime)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the EndDate field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public DateTime? EndDate
-		{
-			get
-			{
-				var wrapper = section.GetValue<DateTime>(SatellitefeedsIds.Sections.MappedFeedEventInfo.EndDate);
-				if (wrapper != null)
-				{
-					return (DateTime?)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedEventInfo.EndDate);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedEventInfo.EndDate, (DateTime)value);
-				}
-			}
-		}
-	}
-
-	/// <summary>
-	/// Represents a wrapper class for accessing a ExtractedFeedParametersSection section.
-	/// The <see cref="ExtractedFeedParametersSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
-	/// </summary>
-	public partial class ExtractedFeedParametersSection : DomSectionBase
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ExtractedFeedParametersSection"/> class. Creates an empty <see cref="ExtractedFeedParametersSection"/> object with default settings.
-		/// </summary>
-		public ExtractedFeedParametersSection() : base(SatellitefeedsIds.Sections.ExtractedFeedParameters.Id)
-		{
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ExtractedFeedParametersSection"/> class using the specified <paramref name="section"/> for initializing the object.
-		/// </summary>
-		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="ExtractedFeedParametersSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
-		public ExtractedFeedParametersSection(Section section) : base(section, SatellitefeedsIds.Sections.ExtractedFeedParameters.Id)
-		{
-		}
-
-		/// <summary>
-		/// Gets or sets the Satellite field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String Satellite
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.Satellite);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.Satellite);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.Satellite, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the UplinkPolarization field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String UplinkPolarization
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkPolarization);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkPolarization);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkPolarization, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the DownlinkPolarization field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String DownlinkPolarization
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkPolarization);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkPolarization);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkPolarization, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the ModulationStandard field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String ModulationStandard
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.ModulationStandard);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.ModulationStandard);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.ModulationStandard, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the UplinkFrequency field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String UplinkFrequency
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkFrequency);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkFrequency);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkFrequency, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the DownlinkFrequency field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String DownlinkFrequency
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkFrequency);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkFrequency);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkFrequency, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the SymbolRate field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String SymbolRate
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.SymbolRate);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.SymbolRate);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.SymbolRate, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the RollOff field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String RollOff
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.RollOff);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.RollOff);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.RollOff, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the FEC field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String FEC
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.FEC);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.FEC);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.FEC, (String)value);
-				}
-			}
-		}
-	}
-
-	/// <summary>
-	/// Represents a wrapper class for accessing a ExtractedFeedRawDataSection section.
-	/// The <see cref="ExtractedFeedRawDataSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
-	/// </summary>
-	public partial class ExtractedFeedRawDataSection : DomSectionBase
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ExtractedFeedRawDataSection"/> class. Creates an empty <see cref="ExtractedFeedRawDataSection"/> object with default settings.
-		/// </summary>
-		public ExtractedFeedRawDataSection() : base(SatellitefeedsIds.Sections.ExtractedFeedRawData.Id)
-		{
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ExtractedFeedRawDataSection"/> class using the specified <paramref name="section"/> for initializing the object.
-		/// </summary>
-		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="ExtractedFeedRawDataSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
-		public ExtractedFeedRawDataSection(Section section) : base(section, SatellitefeedsIds.Sections.ExtractedFeedRawData.Id)
-		{
-		}
-
-		/// <summary>
-		/// Gets or sets the JSON field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String JSON
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedRawData.JSON);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedRawData.JSON);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedRawData.JSON, (String)value);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the FileName field of the DOM Instance.
-		/// </summary>
-		/// <remarks>
-		/// When retrieving the value:
-		/// <list type="bullet">
-		/// <item>If the field has been set, it will return the value.</item>
-		/// <item>If the field is not set it will return <see langword="null"/>.</item>
-		/// </list>
-		/// When setting the value:
-		/// <list type="bullet">
-		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
-		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
-		/// </list>
-		/// </remarks>
-		public String FileName
-		{
-			get
-			{
-				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedRawData.FileName);
-				if (wrapper != null)
-				{
-					return (String)wrapper.Value;
-				}
-				else
-				{
-					return null;
-				}
-			}
-
-			set
-			{
-				if (value == null)
-				{
-					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedRawData.FileName);
-				}
-				else
-				{
-					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedRawData.FileName, (String)value);
-				}
-			}
+			if (section.GetValue<String>(SlcRelationshipsIds.Sections.ObjectTypeInfo.ObjectName) == null)
+				throw new InvalidOperationException("'ObjectName' is required. Please fill it in before saving, or mark it as optional with the DOM Editor.");
+			return section;
 		}
 	}
 }
-
-
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by the Dom Editor automation script.
+//     Changes to this file will be lost if the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
 namespace DomHelpers.SlcWorkflow
 {
 	using System;
@@ -10611,4 +9252,2157 @@ namespace DomHelpers.SlcWorkflow
 		}
 	}
 }
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by the Dom Editor automation script.
+//     Changes to this file will be lost if the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+namespace DomHelpers.Satellitefeeds
+{
+	using System;
+	using System.ComponentModel;
+	using Skyline.DataMiner.Net.Apps.DataMinerObjectModel;
+	using Skyline.DataMiner.Net.Sections;
 
+	public static class SatellitefeedsIds
+	{
+		public const string ModuleId = "satellitefeeds";
+		public static class Enums
+		{
+			public static class Satellite
+			{
+				public const string ABS3 = "ABS 3";
+				public const string ASTRA1 = "ASTRA 1";
+				public const string ASTRA2 = "ASTRA 2";
+				public const string ASTRA3 = "ASTRA 3";
+				public const string EUT3 = "EUT 3";
+				public const string EUT7 = "EUT 7";
+				public const string EUT9 = "EUT 9";
+				public const string EUT10 = "EUT 10";
+				public const string EUT16 = "EUT 21";
+				public const string EUT33 = "EUT 33";
+				public const string HISPASAT30 = "HISPASAT 30";
+				public const string HOTBIRD13 = "HOTBIRD 13";
+				public const string SES4 = "SES 4";
+				public const string SES5 = "SES 5";
+				public const string NotFound = "Not found";
+				public static string ToValue(SatelliteEnum @enum)
+				{
+					switch (@enum)
+					{
+						case SatelliteEnum.ABS3:
+							return ABS3;
+						case SatelliteEnum.ASTRA1:
+							return ASTRA1;
+						case SatelliteEnum.ASTRA2:
+							return ASTRA2;
+						case SatelliteEnum.ASTRA3:
+							return ASTRA3;
+						case SatelliteEnum.EUT3:
+							return EUT3;
+						case SatelliteEnum.EUT7:
+							return EUT7;
+						case SatelliteEnum.EUT9:
+							return EUT9;
+						case SatelliteEnum.EUT10:
+							return EUT10;
+						case SatelliteEnum.EUT16:
+							return EUT16;
+						case SatelliteEnum.EUT33:
+							return EUT33;
+						case SatelliteEnum.HISPASAT30:
+							return HISPASAT30;
+						case SatelliteEnum.HOTBIRD13:
+							return HOTBIRD13;
+						case SatelliteEnum.SES4:
+							return SES4;
+						case SatelliteEnum.SES5:
+							return SES5;
+						case SatelliteEnum.NotFound:
+							return NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
+					}
+				}
+
+				public static SatelliteEnum ToEnum(string s)
+				{
+					switch (s)
+					{
+						case ABS3:
+							return SatelliteEnum.ABS3;
+						case ASTRA1:
+							return SatelliteEnum.ASTRA1;
+						case ASTRA2:
+							return SatelliteEnum.ASTRA2;
+						case ASTRA3:
+							return SatelliteEnum.ASTRA3;
+						case EUT3:
+							return SatelliteEnum.EUT3;
+						case EUT7:
+							return SatelliteEnum.EUT7;
+						case EUT9:
+							return SatelliteEnum.EUT9;
+						case EUT10:
+							return SatelliteEnum.EUT10;
+						case EUT16:
+							return SatelliteEnum.EUT16;
+						case EUT33:
+							return SatelliteEnum.EUT33;
+						case HISPASAT30:
+							return SatelliteEnum.HISPASAT30;
+						case HOTBIRD13:
+							return SatelliteEnum.HOTBIRD13;
+						case SES4:
+							return SatelliteEnum.SES4;
+						case SES5:
+							return SatelliteEnum.SES5;
+						case NotFound:
+							return SatelliteEnum.NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
+					}
+				}
+			}
+
+			public enum SatelliteEnum
+			{
+				ABS3,
+				ASTRA1,
+				ASTRA2,
+				ASTRA3,
+				EUT3,
+				EUT7,
+				EUT9,
+				EUT10,
+				EUT16,
+				EUT33,
+				HISPASAT30,
+				HOTBIRD13,
+				SES4,
+				SES5,
+				NotFound
+			}
+
+			public static class Uplinkpolarization
+			{
+				public const string Horizontal = "Horizontal";
+				public const string Vertical = "Vertical";
+				public const string NotFound = "Not found";
+				public static string ToValue(UplinkpolarizationEnum @enum)
+				{
+					switch (@enum)
+					{
+						case UplinkpolarizationEnum.Horizontal:
+							return Horizontal;
+						case UplinkpolarizationEnum.Vertical:
+							return Vertical;
+						case UplinkpolarizationEnum.NotFound:
+							return NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
+					}
+				}
+
+				public static UplinkpolarizationEnum ToEnum(string s)
+				{
+					switch (s)
+					{
+						case Horizontal:
+							return UplinkpolarizationEnum.Horizontal;
+						case Vertical:
+							return UplinkpolarizationEnum.Vertical;
+						case NotFound:
+							return UplinkpolarizationEnum.NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
+					}
+				}
+			}
+
+			public enum UplinkpolarizationEnum
+			{
+				Horizontal,
+				Vertical,
+				NotFound
+			}
+
+			public static class Downlinkpolarization
+			{
+				public const string Horizontal = "Horizontal";
+				public const string Vertical = "Vertical";
+				public const string NotFound = "Not found";
+				public static string ToValue(DownlinkpolarizationEnum @enum)
+				{
+					switch (@enum)
+					{
+						case DownlinkpolarizationEnum.Horizontal:
+							return Horizontal;
+						case DownlinkpolarizationEnum.Vertical:
+							return Vertical;
+						case DownlinkpolarizationEnum.NotFound:
+							return NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
+					}
+				}
+
+				public static DownlinkpolarizationEnum ToEnum(string s)
+				{
+					switch (s)
+					{
+						case Horizontal:
+							return DownlinkpolarizationEnum.Horizontal;
+						case Vertical:
+							return DownlinkpolarizationEnum.Vertical;
+						case NotFound:
+							return DownlinkpolarizationEnum.NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
+					}
+				}
+			}
+
+			public enum DownlinkpolarizationEnum
+			{
+				Horizontal,
+				Vertical,
+				NotFound
+			}
+
+			public static class Modulationstandard
+			{
+				public const string DVBS = "DVB-S";
+				public const string DVBS2 = "DVB-S2";
+				public const string DVBS2X = "DVB-S2X";
+				public const string NS3 = "NS3";
+				public const string NS4 = "NS4";
+				public const string NotFound = "Not found";
+				public static string ToValue(ModulationstandardEnum @enum)
+				{
+					switch (@enum)
+					{
+						case ModulationstandardEnum.DVBS:
+							return DVBS;
+						case ModulationstandardEnum.DVBS2:
+							return DVBS2;
+						case ModulationstandardEnum.DVBS2X:
+							return DVBS2X;
+						case ModulationstandardEnum.NS3:
+							return NS3;
+						case ModulationstandardEnum.NS4:
+							return NS4;
+						case ModulationstandardEnum.NotFound:
+							return NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
+					}
+				}
+
+				public static ModulationstandardEnum ToEnum(string s)
+				{
+					switch (s)
+					{
+						case DVBS:
+							return ModulationstandardEnum.DVBS;
+						case DVBS2:
+							return ModulationstandardEnum.DVBS2;
+						case DVBS2X:
+							return ModulationstandardEnum.DVBS2X;
+						case NS3:
+							return ModulationstandardEnum.NS3;
+						case NS4:
+							return ModulationstandardEnum.NS4;
+						case NotFound:
+							return ModulationstandardEnum.NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
+					}
+				}
+			}
+
+			public enum ModulationstandardEnum
+			{
+				DVBS,
+				DVBS2,
+				DVBS2X,
+				NS3,
+				NS4,
+				NotFound
+			}
+
+			public static class Rolloff
+			{
+				public const string _2 = "2%";
+				public const string _5 = "5%";
+				public const string _10 = "10%";
+				public const string _15 = "15%";
+				public const string _20 = "20%";
+				public const string _25 = "25%";
+				public const string _35 = "35%";
+				public const string NotFound = "Not found";
+				public static string ToValue(RolloffEnum @enum)
+				{
+					switch (@enum)
+					{
+						case RolloffEnum._2:
+							return _2;
+						case RolloffEnum._5:
+							return _5;
+						case RolloffEnum._10:
+							return _10;
+						case RolloffEnum._15:
+							return _15;
+						case RolloffEnum._20:
+							return _20;
+						case RolloffEnum._25:
+							return _25;
+						case RolloffEnum._35:
+							return _35;
+						case RolloffEnum.NotFound:
+							return NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
+					}
+				}
+
+				public static RolloffEnum ToEnum(string s)
+				{
+					switch (s)
+					{
+						case _2:
+							return RolloffEnum._2;
+						case _5:
+							return RolloffEnum._5;
+						case _10:
+							return RolloffEnum._10;
+						case _15:
+							return RolloffEnum._15;
+						case _20:
+							return RolloffEnum._20;
+						case _25:
+							return RolloffEnum._25;
+						case _35:
+							return RolloffEnum._35;
+						case NotFound:
+							return RolloffEnum.NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
+					}
+				}
+			}
+
+			public enum RolloffEnum
+			{
+				_2,
+				_5,
+				_10,
+				_15,
+				_20,
+				_25,
+				_35,
+				NotFound
+			}
+
+			public static class FEC
+			{
+				public const string _12 = "1/2";
+				public const string _23 = "2/3";
+				public const string _34 = "3/4";
+				public const string _35 = "3/5";
+				public const string _45 = "4/5";
+				public const string _56 = "5/6";
+				public const string _78 = "7/8";
+				public const string _910 = "9/10";
+				public const string NotFound = "Not found";
+				public static string ToValue(FECEnum @enum)
+				{
+					switch (@enum)
+					{
+						case FECEnum._12:
+							return _12;
+						case FECEnum._23:
+							return _23;
+						case FECEnum._34:
+							return _34;
+						case FECEnum._35:
+							return _35;
+						case FECEnum._45:
+							return _45;
+						case FECEnum._56:
+							return _56;
+						case FECEnum._78:
+							return _78;
+						case FECEnum._910:
+							return _910;
+						case FECEnum.NotFound:
+							return NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(@enum), @enum, "Invalid value.");
+					}
+				}
+
+				public static FECEnum ToEnum(string s)
+				{
+					switch (s)
+					{
+						case _12:
+							return FECEnum._12;
+						case _23:
+							return FECEnum._23;
+						case _34:
+							return FECEnum._34;
+						case _35:
+							return FECEnum._35;
+						case _45:
+							return FECEnum._45;
+						case _56:
+							return FECEnum._56;
+						case _78:
+							return FECEnum._78;
+						case _910:
+							return FECEnum._910;
+						case NotFound:
+							return FECEnum.NotFound;
+						default:
+							throw new ArgumentOutOfRangeException(nameof(s), s, "Invalid value.");
+					}
+				}
+			}
+
+			public enum FECEnum
+			{
+				_12,
+				_23,
+				_34,
+				_35,
+				_45,
+				_56,
+				_78,
+				_910,
+				NotFound
+			}
+		}
+
+		public static class Sections
+		{
+			public static class ExtractedFeedEventInfo
+			{
+				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("6eb9f75e-d090-4745-95e0-3c0c812e4ff3"))
+				{ ModuleId = "satellitefeeds" };
+				public static FieldDescriptorID EventName { get; } = new FieldDescriptorID(new Guid("9dc6785b-83fc-4d4a-a2aa-5c5e318959e5"));
+				public static FieldDescriptorID StartDate { get; } = new FieldDescriptorID(new Guid("2952ab59-a7a0-49f0-949c-850ae32ad783"));
+				public static FieldDescriptorID EndDate { get; } = new FieldDescriptorID(new Guid("1e2747d7-6d35-469a-b273-e9e778cbf37c"));
+			}
+
+			public static class MappedFeedParameters
+			{
+				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("26131715-09fa-4051-9609-387a12bfe8bb"))
+				{ ModuleId = "satellitefeeds" };
+				public static FieldDescriptorID Satellite { get; } = new FieldDescriptorID(new Guid("83775d5e-835b-4543-92f2-120139a32cb5"));
+				public static FieldDescriptorID UplinkPolarization { get; } = new FieldDescriptorID(new Guid("fe66fa93-4bb7-4080-9100-04f520ad01b3"));
+				public static FieldDescriptorID DownlinkPolarization { get; } = new FieldDescriptorID(new Guid("bce0d209-5c79-4dad-a545-a1b0d15b631a"));
+				public static FieldDescriptorID ModulationStandard { get; } = new FieldDescriptorID(new Guid("1ccd3510-dabe-4aea-ba82-9e99aabbfcc1"));
+				public static FieldDescriptorID UplinkFrequency { get; } = new FieldDescriptorID(new Guid("2e5c1263-5649-4f0e-bf2a-b77ed2bfc250"));
+				public static FieldDescriptorID DownlinkFrequency { get; } = new FieldDescriptorID(new Guid("835efe15-3d31-4a2e-b269-8023b1282be1"));
+				public static FieldDescriptorID SymbolRate { get; } = new FieldDescriptorID(new Guid("0dae5a84-a056-4a23-86e8-1ccef203160c"));
+				public static FieldDescriptorID RollOff { get; } = new FieldDescriptorID(new Guid("2716c5f2-a058-47c6-8d4f-e0cd614b7572"));
+				public static FieldDescriptorID FEC { get; } = new FieldDescriptorID(new Guid("99dab6a5-121f-42d6-a5e8-7fbb92920db8"));
+			}
+
+			public static class MappingInfo
+			{
+				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("c2082747-988b-42cf-9363-9f6d52c4b49e"))
+				{ ModuleId = "satellitefeeds" };
+				public static FieldDescriptorID ExtractedFeedLink { get; } = new FieldDescriptorID(new Guid("210ef69d-5518-420a-a88d-50dde296b884"));
+				public static FieldDescriptorID MappedFeedJSON { get; } = new FieldDescriptorID(new Guid("a76df14a-217a-446c-9d35-c4bcc8168e41"));
+				public static FieldDescriptorID FileName { get; } = new FieldDescriptorID(new Guid("b09252b3-64df-4213-9e9c-a958cf6585ac"));
+			}
+
+			public static class MappedFeedEventInfo
+			{
+				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("53e9b878-9b57-4563-a0cd-a4984b781796"))
+				{ ModuleId = "satellitefeeds" };
+				public static FieldDescriptorID EventName { get; } = new FieldDescriptorID(new Guid("9ff099fa-eed1-4fe9-b694-14951fdaeda5"));
+				public static FieldDescriptorID StartDate { get; } = new FieldDescriptorID(new Guid("349bf2b4-9b99-4034-8c6f-4127968388f1"));
+				public static FieldDescriptorID EndDate { get; } = new FieldDescriptorID(new Guid("1c945ab8-f7fe-45e6-8d42-60fd30c1e108"));
+			}
+
+			public static class ExtractedFeedParameters
+			{
+				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("45006ff6-a6d8-4695-a04d-7ed0db101085"))
+				{ ModuleId = "satellitefeeds" };
+				public static FieldDescriptorID Satellite { get; } = new FieldDescriptorID(new Guid("4fd62805-e315-462d-81cd-10a5b094e722"));
+				public static FieldDescriptorID UplinkPolarization { get; } = new FieldDescriptorID(new Guid("df405de4-27a7-446d-9935-a038a7c435ee"));
+				public static FieldDescriptorID DownlinkPolarization { get; } = new FieldDescriptorID(new Guid("c51da1e2-16b8-47e0-92b5-ce4bd1c680e4"));
+				public static FieldDescriptorID ModulationStandard { get; } = new FieldDescriptorID(new Guid("902c44de-b510-49f2-9abe-f261cafc057b"));
+				public static FieldDescriptorID UplinkFrequency { get; } = new FieldDescriptorID(new Guid("6ff7468f-ca19-45ff-8956-97a704c0942b"));
+				public static FieldDescriptorID DownlinkFrequency { get; } = new FieldDescriptorID(new Guid("961d050f-60d5-44d2-bdfe-5e5650325a7e"));
+				public static FieldDescriptorID SymbolRate { get; } = new FieldDescriptorID(new Guid("8c8cbb18-41d1-4846-b622-15370bd2afa4"));
+				public static FieldDescriptorID RollOff { get; } = new FieldDescriptorID(new Guid("e36fb8ad-865a-4387-a98c-ddc4a44e5d63"));
+				public static FieldDescriptorID FEC { get; } = new FieldDescriptorID(new Guid("872c1386-3bbf-473b-a30f-799546f4f56b"));
+			}
+
+			public static class ExtractedFeedRawData
+			{
+				public static SectionDefinitionID Id { get; } = new SectionDefinitionID(new Guid("dabfe777-1d6d-4420-a371-e750122de220"))
+				{ ModuleId = "satellitefeeds" };
+				public static FieldDescriptorID JSON { get; } = new FieldDescriptorID(new Guid("fa85ce33-1341-4b55-bbcc-b2781056d03f"));
+				public static FieldDescriptorID FileName { get; } = new FieldDescriptorID(new Guid("9c7b410b-f527-4fed-baf3-da109bc21dc1"));
+			}
+		}
+
+		public static class Definitions
+		{
+			public static DomDefinitionId MappedFeed { get; } = new DomDefinitionId(new Guid("1662f8a4-534d-424f-819d-35da80ebe5ee"))
+			{ ModuleId = "satellitefeeds" };
+			public static DomDefinitionId ExtractedFeed { get; } = new DomDefinitionId(new Guid("d1c2bbb1-2986-47ed-a2b4-e1bf1f9e6a30"))
+			{ ModuleId = "satellitefeeds" };
+		}
+
+		public static class Behaviors
+		{
+		}
+	}
+}
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by the Dom Code Generator automation script.
+//     Changes to this file will be lost if the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+namespace DomHelpers.Satellitefeeds
+{
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using Skyline.DataMiner.Net.Apps.DataMinerObjectModel;
+	using Skyline.DataMiner.Net.Messages;
+
+	/// <summary>
+	/// Represents a wrapper class for accessing a MappedFeedInstance DOM instance.
+	/// The <see cref="MappedFeedInstance"/> class provides simplified access to the data and functionality of the underlying DOM instance, allowing for easier manipulation and retrieval of data from DOM.
+	/// </summary>
+	public partial class MappedFeedInstance : DomInstanceBase
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MappedFeedInstance"/> class. Creates an empty <see cref="MappedFeedInstance"/> instance with default settings.
+		/// </summary>
+		public MappedFeedInstance() : base(SatellitefeedsIds.Definitions.MappedFeed)
+		{
+			InitializeProperties();
+			AfterLoad();
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MappedFeedInstance"/> class. Creates an empty <see cref="MappedFeedInstance"/> instance with default settings and a specific ID.
+		/// </summary>
+		public MappedFeedInstance(Guid id) : base(SatellitefeedsIds.Definitions.MappedFeed, id)
+		{
+			InitializeProperties();
+			AfterLoad();
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MappedFeedInstance"/> class using the specified <paramref name="domInstance"/> for initializing the object.
+		/// </summary>
+		/// <param name="domInstance">The <see cref="DomInstance"/> object that provides data for initializing the <see cref="MappedFeedInstance"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public MappedFeedInstance(DomInstance domInstance) : base(domInstance)
+		{
+			if (!domInstance.DomDefinitionId.Equals(SatellitefeedsIds.Definitions.MappedFeed))
+				throw new ArgumentException($"The given domInstance, is not of type '{nameof(SatellitefeedsIds.Definitions.MappedFeed)}'", nameof(domInstance));
+			InitializeProperties();
+			AfterLoad();
+		}
+
+		/// <summary>
+		/// Gets or sets the MappedFeedParameters section of the DOM Instance.
+		/// </summary>
+		public MappedFeedParametersSection MappedFeedParameters { get; set; }
+
+		/// <summary>
+		/// Gets or sets the MappingInfo section of the DOM Instance.
+		/// </summary>
+		public MappingInfoSection MappingInfo { get; set; }
+
+		/// <summary>
+		/// Gets or sets the MappedFeedEventInfo section of the DOM Instance.
+		/// </summary>
+		public MappedFeedEventInfoSection MappedFeedEventInfo { get; set; }
+
+		public static explicit operator MappedFeedInstance(DomInstance instance)
+		{
+			return new MappedFeedInstance(instance);
+		}
+
+		/// <inheritdoc />
+		protected override DomInstance InternalToInstance()
+		{
+			domInstance.Sections.Clear();
+			domInstance.Sections.Add(MappedFeedParameters.ToSection());
+			domInstance.Sections.Add(MappingInfo.ToSection());
+			domInstance.Sections.Add(MappedFeedEventInfo.ToSection());
+			return domInstance;
+		}
+
+		/// <inheritdoc />
+		public override void Save(DomHelper helper)
+		{
+			var exist = helper.DomInstances.Read(DomInstanceExposers.Id.Equal(domInstance.ID)).FirstOrDefault();
+			var instance = ToInstance();
+			if (exist == null)
+			{
+				domInstance = helper.DomInstances.Create(instance);
+			}
+			else
+			{
+				domInstance = helper.DomInstances.Update(instance);
+			}
+		}
+
+		protected override void InitializeProperties()
+		{
+			var _mappedFeedParameters = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.MappedFeedParameters.Id));
+			if (_mappedFeedParameters is null)
+			{
+				MappedFeedParameters = new MappedFeedParametersSection();
+			}
+			else
+			{
+				MappedFeedParameters = new MappedFeedParametersSection(_mappedFeedParameters);
+			}
+
+			var _mappingInfo = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.MappingInfo.Id));
+			if (_mappingInfo is null)
+			{
+				MappingInfo = new MappingInfoSection();
+			}
+			else
+			{
+				MappingInfo = new MappingInfoSection(_mappingInfo);
+			}
+
+			var _mappedFeedEventInfo = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.MappedFeedEventInfo.Id));
+			if (_mappedFeedEventInfo is null)
+			{
+				MappedFeedEventInfo = new MappedFeedEventInfoSection();
+			}
+			else
+			{
+				MappedFeedEventInfo = new MappedFeedEventInfoSection(_mappedFeedEventInfo);
+			}
+		}
+	}
+
+	/// <summary>
+	/// Represents a wrapper class for accessing a ExtractedFeedInstance DOM instance.
+	/// The <see cref="ExtractedFeedInstance"/> class provides simplified access to the data and functionality of the underlying DOM instance, allowing for easier manipulation and retrieval of data from DOM.
+	/// </summary>
+	public partial class ExtractedFeedInstance : DomInstanceBase
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExtractedFeedInstance"/> class. Creates an empty <see cref="ExtractedFeedInstance"/> instance with default settings.
+		/// </summary>
+		public ExtractedFeedInstance() : base(SatellitefeedsIds.Definitions.ExtractedFeed)
+		{
+			InitializeProperties();
+			AfterLoad();
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExtractedFeedInstance"/> class. Creates an empty <see cref="ExtractedFeedInstance"/> instance with default settings and a specific ID.
+		/// </summary>
+		public ExtractedFeedInstance(Guid id) : base(SatellitefeedsIds.Definitions.ExtractedFeed, id)
+		{
+			InitializeProperties();
+			AfterLoad();
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExtractedFeedInstance"/> class using the specified <paramref name="domInstance"/> for initializing the object.
+		/// </summary>
+		/// <param name="domInstance">The <see cref="DomInstance"/> object that provides data for initializing the <see cref="ExtractedFeedInstance"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public ExtractedFeedInstance(DomInstance domInstance) : base(domInstance)
+		{
+			if (!domInstance.DomDefinitionId.Equals(SatellitefeedsIds.Definitions.ExtractedFeed))
+				throw new ArgumentException($"The given domInstance, is not of type '{nameof(SatellitefeedsIds.Definitions.ExtractedFeed)}'", nameof(domInstance));
+			InitializeProperties();
+			AfterLoad();
+		}
+
+		/// <summary>
+		/// Gets or sets the ExtractedFeedEventInfo section of the DOM Instance.
+		/// </summary>
+		public ExtractedFeedEventInfoSection ExtractedFeedEventInfo { get; set; }
+
+		/// <summary>
+		/// Gets or sets the ExtractedFeedParameters section of the DOM Instance.
+		/// </summary>
+		public ExtractedFeedParametersSection ExtractedFeedParameters { get; set; }
+
+		/// <summary>
+		/// Gets or sets the ExtractedFeedRawData section of the DOM Instance.
+		/// </summary>
+		public ExtractedFeedRawDataSection ExtractedFeedRawData { get; set; }
+
+		public static explicit operator ExtractedFeedInstance(DomInstance instance)
+		{
+			return new ExtractedFeedInstance(instance);
+		}
+
+		/// <inheritdoc />
+		protected override DomInstance InternalToInstance()
+		{
+			domInstance.Sections.Clear();
+			domInstance.Sections.Add(ExtractedFeedEventInfo.ToSection());
+			domInstance.Sections.Add(ExtractedFeedParameters.ToSection());
+			domInstance.Sections.Add(ExtractedFeedRawData.ToSection());
+			return domInstance;
+		}
+
+		/// <inheritdoc />
+		public override void Save(DomHelper helper)
+		{
+			var exist = helper.DomInstances.Read(DomInstanceExposers.Id.Equal(domInstance.ID)).FirstOrDefault();
+			var instance = ToInstance();
+			if (exist == null)
+			{
+				domInstance = helper.DomInstances.Create(instance);
+			}
+			else
+			{
+				domInstance = helper.DomInstances.Update(instance);
+			}
+		}
+
+		protected override void InitializeProperties()
+		{
+			var _extractedFeedEventInfo = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.Id));
+			if (_extractedFeedEventInfo is null)
+			{
+				ExtractedFeedEventInfo = new ExtractedFeedEventInfoSection();
+			}
+			else
+			{
+				ExtractedFeedEventInfo = new ExtractedFeedEventInfoSection(_extractedFeedEventInfo);
+			}
+
+			var _extractedFeedParameters = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.ExtractedFeedParameters.Id));
+			if (_extractedFeedParameters is null)
+			{
+				ExtractedFeedParameters = new ExtractedFeedParametersSection();
+			}
+			else
+			{
+				ExtractedFeedParameters = new ExtractedFeedParametersSection(_extractedFeedParameters);
+			}
+
+			var _extractedFeedRawData = domInstance.Sections.FirstOrDefault(section => section.SectionDefinitionID.Equals(SatellitefeedsIds.Sections.ExtractedFeedRawData.Id));
+			if (_extractedFeedRawData is null)
+			{
+				ExtractedFeedRawData = new ExtractedFeedRawDataSection();
+			}
+			else
+			{
+				ExtractedFeedRawData = new ExtractedFeedRawDataSection(_extractedFeedRawData);
+			}
+		}
+	}
+}
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by the DOM Code Generator automation script.
+//     Changes to this file will be lost if the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+namespace DomHelpers.Satellitefeeds
+{
+	using System;
+	using System.Collections.Generic;
+	using System.Collections.ObjectModel;
+	using System.Linq;
+	using Skyline.DataMiner.Net.Apps.DataMinerObjectModel;
+	using Skyline.DataMiner.Net.Apps.Sections.Sections;
+	using Skyline.DataMiner.Net.Messages;
+	using Skyline.DataMiner.Net.Sections;
+
+	/// <summary>
+	/// Represents a wrapper class for accessing a ExtractedFeedEventInfoSection section.
+	/// The <see cref="ExtractedFeedEventInfoSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
+	/// </summary>
+	public partial class ExtractedFeedEventInfoSection : DomSectionBase
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExtractedFeedEventInfoSection"/> class. Creates an empty <see cref="ExtractedFeedEventInfoSection"/> object with default settings.
+		/// </summary>
+		public ExtractedFeedEventInfoSection() : base(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.Id)
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExtractedFeedEventInfoSection"/> class using the specified <paramref name="section"/> for initializing the object.
+		/// </summary>
+		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="ExtractedFeedEventInfoSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public ExtractedFeedEventInfoSection(Section section) : base(section, SatellitefeedsIds.Sections.ExtractedFeedEventInfo.Id)
+		{
+		}
+
+		/// <summary>
+		/// Gets or sets the EventName field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String EventName
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EventName);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EventName);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EventName, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the StartDate field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String StartDate
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.StartDate);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.StartDate);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.StartDate, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the EndDate field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String EndDate
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EndDate);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EndDate);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedEventInfo.EndDate, (String)value);
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// Represents a wrapper class for accessing a MappedFeedParametersSection section.
+	/// The <see cref="MappedFeedParametersSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
+	/// </summary>
+	public partial class MappedFeedParametersSection : DomSectionBase
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MappedFeedParametersSection"/> class. Creates an empty <see cref="MappedFeedParametersSection"/> object with default settings.
+		/// </summary>
+		public MappedFeedParametersSection() : base(SatellitefeedsIds.Sections.MappedFeedParameters.Id)
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MappedFeedParametersSection"/> class using the specified <paramref name="section"/> for initializing the object.
+		/// </summary>
+		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="MappedFeedParametersSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public MappedFeedParametersSection(Section section) : base(section, SatellitefeedsIds.Sections.MappedFeedParameters.Id)
+		{
+		}
+
+		/// <summary>
+		/// Gets or sets the Satellite field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public SatellitefeedsIds.Enums.SatelliteEnum? Satellite
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.Satellite);
+				if (wrapper != null)
+				{
+					return (SatellitefeedsIds.Enums.SatelliteEnum?)SatellitefeedsIds.Enums.Satellite.ToEnum(wrapper.Value);
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.Satellite);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.Satellite, SatellitefeedsIds.Enums.Satellite.ToValue((SatellitefeedsIds.Enums.SatelliteEnum)value));
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the UplinkPolarization field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public SatellitefeedsIds.Enums.UplinkpolarizationEnum? UplinkPolarization
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkPolarization);
+				if (wrapper != null)
+				{
+					return (SatellitefeedsIds.Enums.UplinkpolarizationEnum?)SatellitefeedsIds.Enums.Uplinkpolarization.ToEnum(wrapper.Value);
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkPolarization);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkPolarization, SatellitefeedsIds.Enums.Uplinkpolarization.ToValue((SatellitefeedsIds.Enums.UplinkpolarizationEnum)value));
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the DownlinkPolarization field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public SatellitefeedsIds.Enums.DownlinkpolarizationEnum? DownlinkPolarization
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkPolarization);
+				if (wrapper != null)
+				{
+					return (SatellitefeedsIds.Enums.DownlinkpolarizationEnum?)SatellitefeedsIds.Enums.Downlinkpolarization.ToEnum(wrapper.Value);
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkPolarization);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkPolarization, SatellitefeedsIds.Enums.Downlinkpolarization.ToValue((SatellitefeedsIds.Enums.DownlinkpolarizationEnum)value));
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the ModulationStandard field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public SatellitefeedsIds.Enums.ModulationstandardEnum? ModulationStandard
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.ModulationStandard);
+				if (wrapper != null)
+				{
+					return (SatellitefeedsIds.Enums.ModulationstandardEnum?)SatellitefeedsIds.Enums.Modulationstandard.ToEnum(wrapper.Value);
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.ModulationStandard);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.ModulationStandard, SatellitefeedsIds.Enums.Modulationstandard.ToValue((SatellitefeedsIds.Enums.ModulationstandardEnum)value));
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the UplinkFrequency field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public Double? UplinkFrequency
+		{
+			get
+			{
+				var wrapper = section.GetValue<Double>(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkFrequency);
+				if (wrapper != null)
+				{
+					return (Double?)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkFrequency);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.UplinkFrequency, (Double)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the DownlinkFrequency field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public Double? DownlinkFrequency
+		{
+			get
+			{
+				var wrapper = section.GetValue<Double>(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkFrequency);
+				if (wrapper != null)
+				{
+					return (Double?)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkFrequency);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.DownlinkFrequency, (Double)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the SymbolRate field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public Double? SymbolRate
+		{
+			get
+			{
+				var wrapper = section.GetValue<Double>(SatellitefeedsIds.Sections.MappedFeedParameters.SymbolRate);
+				if (wrapper != null)
+				{
+					return (Double?)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.SymbolRate);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.SymbolRate, (Double)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the RollOff field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public SatellitefeedsIds.Enums.RolloffEnum? RollOff
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.RollOff);
+				if (wrapper != null)
+				{
+					return (SatellitefeedsIds.Enums.RolloffEnum?)SatellitefeedsIds.Enums.Rolloff.ToEnum(wrapper.Value);
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.RollOff);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.RollOff, SatellitefeedsIds.Enums.Rolloff.ToValue((SatellitefeedsIds.Enums.RolloffEnum)value));
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the FEC field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public SatellitefeedsIds.Enums.FECEnum? FEC
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedParameters.FEC);
+				if (wrapper != null)
+				{
+					return (SatellitefeedsIds.Enums.FECEnum?)SatellitefeedsIds.Enums.FEC.ToEnum(wrapper.Value);
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedParameters.FEC);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedParameters.FEC, SatellitefeedsIds.Enums.FEC.ToValue((SatellitefeedsIds.Enums.FECEnum)value));
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// Represents a wrapper class for accessing a MappingInfoSection section.
+	/// The <see cref="MappingInfoSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
+	/// </summary>
+	public partial class MappingInfoSection : DomSectionBase
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MappingInfoSection"/> class. Creates an empty <see cref="MappingInfoSection"/> object with default settings.
+		/// </summary>
+		public MappingInfoSection() : base(SatellitefeedsIds.Sections.MappingInfo.Id)
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MappingInfoSection"/> class using the specified <paramref name="section"/> for initializing the object.
+		/// </summary>
+		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="MappingInfoSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public MappingInfoSection(Section section) : base(section, SatellitefeedsIds.Sections.MappingInfo.Id)
+		{
+		}
+
+		/// <summary>
+		/// Gets or sets the ExtractedFeedLink field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public Guid? ExtractedFeedLink
+		{
+			get
+			{
+				var wrapper = section.GetValue<Guid>(SatellitefeedsIds.Sections.MappingInfo.ExtractedFeedLink);
+				if (wrapper != null)
+				{
+					return (Guid?)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappingInfo.ExtractedFeedLink);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappingInfo.ExtractedFeedLink, (Guid)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the MappedFeedJSON field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String MappedFeedJSON
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappingInfo.MappedFeedJSON);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappingInfo.MappedFeedJSON);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappingInfo.MappedFeedJSON, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the FileName field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String FileName
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappingInfo.FileName);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappingInfo.FileName);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappingInfo.FileName, (String)value);
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// Represents a wrapper class for accessing a MappedFeedEventInfoSection section.
+	/// The <see cref="MappedFeedEventInfoSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
+	/// </summary>
+	public partial class MappedFeedEventInfoSection : DomSectionBase
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MappedFeedEventInfoSection"/> class. Creates an empty <see cref="MappedFeedEventInfoSection"/> object with default settings.
+		/// </summary>
+		public MappedFeedEventInfoSection() : base(SatellitefeedsIds.Sections.MappedFeedEventInfo.Id)
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MappedFeedEventInfoSection"/> class using the specified <paramref name="section"/> for initializing the object.
+		/// </summary>
+		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="MappedFeedEventInfoSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public MappedFeedEventInfoSection(Section section) : base(section, SatellitefeedsIds.Sections.MappedFeedEventInfo.Id)
+		{
+		}
+
+		/// <summary>
+		/// Gets or sets the EventName field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String EventName
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.MappedFeedEventInfo.EventName);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedEventInfo.EventName);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedEventInfo.EventName, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the StartDate field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public DateTime? StartDate
+		{
+			get
+			{
+				var wrapper = section.GetValue<DateTime>(SatellitefeedsIds.Sections.MappedFeedEventInfo.StartDate);
+				if (wrapper != null)
+				{
+					return (DateTime?)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedEventInfo.StartDate);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedEventInfo.StartDate, (DateTime)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the EndDate field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public DateTime? EndDate
+		{
+			get
+			{
+				var wrapper = section.GetValue<DateTime>(SatellitefeedsIds.Sections.MappedFeedEventInfo.EndDate);
+				if (wrapper != null)
+				{
+					return (DateTime?)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.MappedFeedEventInfo.EndDate);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.MappedFeedEventInfo.EndDate, (DateTime)value);
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// Represents a wrapper class for accessing a ExtractedFeedParametersSection section.
+	/// The <see cref="ExtractedFeedParametersSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
+	/// </summary>
+	public partial class ExtractedFeedParametersSection : DomSectionBase
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExtractedFeedParametersSection"/> class. Creates an empty <see cref="ExtractedFeedParametersSection"/> object with default settings.
+		/// </summary>
+		public ExtractedFeedParametersSection() : base(SatellitefeedsIds.Sections.ExtractedFeedParameters.Id)
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExtractedFeedParametersSection"/> class using the specified <paramref name="section"/> for initializing the object.
+		/// </summary>
+		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="ExtractedFeedParametersSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public ExtractedFeedParametersSection(Section section) : base(section, SatellitefeedsIds.Sections.ExtractedFeedParameters.Id)
+		{
+		}
+
+		/// <summary>
+		/// Gets or sets the Satellite field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String Satellite
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.Satellite);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.Satellite);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.Satellite, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the UplinkPolarization field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String UplinkPolarization
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkPolarization);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkPolarization);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkPolarization, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the DownlinkPolarization field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String DownlinkPolarization
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkPolarization);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkPolarization);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkPolarization, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the ModulationStandard field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String ModulationStandard
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.ModulationStandard);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.ModulationStandard);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.ModulationStandard, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the UplinkFrequency field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String UplinkFrequency
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkFrequency);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkFrequency);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.UplinkFrequency, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the DownlinkFrequency field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String DownlinkFrequency
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkFrequency);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkFrequency);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.DownlinkFrequency, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the SymbolRate field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String SymbolRate
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.SymbolRate);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.SymbolRate);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.SymbolRate, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the RollOff field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String RollOff
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.RollOff);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.RollOff);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.RollOff, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the FEC field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String FEC
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedParameters.FEC);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedParameters.FEC);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedParameters.FEC, (String)value);
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// Represents a wrapper class for accessing a ExtractedFeedRawDataSection section.
+	/// The <see cref="ExtractedFeedRawDataSection"/> class provides simplified access to the data and functionality of the underlying DOM section, allowing for easier manipulation and retrieval of data from DOM.
+	/// </summary>
+	public partial class ExtractedFeedRawDataSection : DomSectionBase
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExtractedFeedRawDataSection"/> class. Creates an empty <see cref="ExtractedFeedRawDataSection"/> object with default settings.
+		/// </summary>
+		public ExtractedFeedRawDataSection() : base(SatellitefeedsIds.Sections.ExtractedFeedRawData.Id)
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExtractedFeedRawDataSection"/> class using the specified <paramref name="section"/> for initializing the object.
+		/// </summary>
+		/// <param name="section">The <see cref="Section"/> object that provides data for initializing the <see cref="ExtractedFeedRawDataSection"/>. If the section is <c>null</c>, the constructor will not perform any initialization.</param>
+		public ExtractedFeedRawDataSection(Section section) : base(section, SatellitefeedsIds.Sections.ExtractedFeedRawData.Id)
+		{
+		}
+
+		/// <summary>
+		/// Gets or sets the JSON field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String JSON
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedRawData.JSON);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedRawData.JSON);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedRawData.JSON, (String)value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the FileName field of the DOM Instance.
+		/// </summary>
+		/// <remarks>
+		/// When retrieving the value:
+		/// <list type="bullet">
+		/// <item>If the field has been set, it will return the value.</item>
+		/// <item>If the field is not set it will return <see langword="null"/>.</item>
+		/// </list>
+		/// When setting the value:
+		/// <list type="bullet">
+		/// <item>- If <see langword="null"/> is assigned, the field will be removed from the section.</item>
+		/// <item>- If a valid value is assigned, the field value will be added or updated in the section.</item>
+		/// </list>
+		/// </remarks>
+		public String FileName
+		{
+			get
+			{
+				var wrapper = section.GetValue<String>(SatellitefeedsIds.Sections.ExtractedFeedRawData.FileName);
+				if (wrapper != null)
+				{
+					return (String)wrapper.Value;
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+			set
+			{
+				if (value == null)
+				{
+					section.RemoveFieldValueById(SatellitefeedsIds.Sections.ExtractedFeedRawData.FileName);
+				}
+				else
+				{
+					section.AddOrUpdateValue(SatellitefeedsIds.Sections.ExtractedFeedRawData.FileName, (String)value);
+				}
+			}
+		}
+	}
+}

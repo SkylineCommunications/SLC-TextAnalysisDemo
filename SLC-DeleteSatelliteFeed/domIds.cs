@@ -10,6 +10,128 @@ namespace DomIds
 	using Skyline.DataMiner.Net.Apps.DataMinerObjectModel;
 	using Skyline.DataMiner.Net.Sections;
 
+
+	  public static class SlcRelationships
+    {
+        public const string ModuleId = "(slc)relationships";
+        public static class Enums
+        {
+        }
+
+        public static class Sections
+        {
+            public static class LinkInfo
+            {
+                public static SectionDefinitionID Id
+                {
+                    get;
+                }
+
+                = new SectionDefinitionID(new Guid("f903f60d-bfdf-4316-b138-22b5a1c9c890"))
+                {ModuleId = "(slc)relationships"};
+                public static FieldDescriptorID ChildObjectType
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("e359e9c1-82a2-400c-9957-c963e4c040f5"));
+                public static FieldDescriptorID ChildObjectID
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("f4d694f6-4e7a-4ef6-a3d8-10ddc4ace5ed"));
+                public static FieldDescriptorID ChildObjectName
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("b00c48f4-221c-4ab8-acea-63d5399d9ace"));
+                public static FieldDescriptorID ChildURL
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("cfc72fba-0ced-40c3-ba38-41319db01c59"));
+                public static FieldDescriptorID ChildOrder
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("58fdbd84-8a6a-4ea2-97d0-d78fd01ad34f"));
+                public static FieldDescriptorID ParentObjectType
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("51a442a4-e77d-417e-80e3-4e343008e540"));
+                public static FieldDescriptorID ParentObjectID
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("43429e53-9f24-4a35-955d-8f15ba7781c8"));
+                public static FieldDescriptorID ParentObjectName
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("a528ed39-f0e5-452c-a5f8-d97c12b995e3"));
+                public static FieldDescriptorID ParentURL
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("acf0f927-9e61-4ffb-b1f5-41a779a69b51"));
+                public static FieldDescriptorID ParentOrder
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("80cf017b-07b0-4215-8b1e-ffecaa4f25d9"));
+            }
+
+            public static class ObjectTypeInfo
+            {
+                public static SectionDefinitionID Id
+                {
+                    get;
+                }
+
+                = new SectionDefinitionID(new Guid("ac97c003-884e-48d7-9ff3-e84b13a349be"))
+                {ModuleId = "(slc)relationships"};
+                public static FieldDescriptorID ObjectName
+                {
+                    get;
+                }
+
+                = new FieldDescriptorID(new Guid("fd6b00c0-0f16-4025-8f13-f9b18f9e2fe0"));
+            }
+        }
+
+        public static class Definitions
+        {
+            public static DomDefinitionId ObjectTypes
+            {
+                get;
+            }
+
+            = new DomDefinitionId(new Guid("7ab57219-6b21-4abb-83a4-f5c22de38f20"))
+            {ModuleId = "(slc)relationships"};
+            public static DomDefinitionId Links
+            {
+                get;
+            }
+
+            = new DomDefinitionId(new Guid("fcedb769-e515-414b-8e64-7093104f6d66"))
+            {ModuleId = "(slc)relationships"};
+        }
+
+        public static class Behaviors
+        {
+        }
+    }
+
 	public static class SlcWorkflow
 	{
 		public const string ModuleId = "(slc)workflow";
