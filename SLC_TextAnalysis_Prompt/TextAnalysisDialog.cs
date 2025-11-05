@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Azure;
-using Skyline.DataMiner.Automation;
+﻿using Skyline.DataMiner.Automation;
 using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 using System;
 using System.Linq;

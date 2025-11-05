@@ -1,4 +1,4 @@
-/*
+﻿/*
 ****************************************************************************
 *  Copyright (c) 2025,  Skyline Communications NV  All Rights Reserved.    *
 ****************************************************************************
@@ -45,22 +45,18 @@ Revision History:
 
 DATE		VERSION		AUTHOR			COMMENTS
 
-13/03/2025	1.0.0.1		Willem M�lange, Skyline	Initial version
+13/03/2025	1.0.0.1		Willem Mélange, Skyline	Initial version
+07/11/2025	2.0.0.0		Willem Mélange, Using DataMiner Assistant DxM
 ****************************************************************************
 */
 
-using Azure;
-using Azure.AI.DocumentIntelligence;
-using Azure.AI.OpenAI;
-using Azure.Core;
-using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.ChatCompletion;
-using Skyline.DataMiner.Automation;
-using Skyline.DataMiner.Utils.InteractiveAutomationScript;
-using SLC_Popups.IAS.Extensions;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
+using Skyline.DataMiner.Automation;
+//using Skyline.DataMiner.Net.Apps.DocumentIntelligence;
+//using Skyline.DataMiner.Net.Apps.DocumentIntelligence.Objects;
+using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 using TextAnalysisPrompt;
 
 namespace TextAnalysis
@@ -70,7 +66,7 @@ namespace TextAnalysis
 	/// </summary>
 	public class Script
 	{
-		private static Kernel _kernel;
+		private IEngine _engine;
 		private InteractiveController app;
 
 		/// <summary>
@@ -88,6 +84,7 @@ namespace TextAnalysis
 
 			try
 			{
+				_engine = engine;
 				app = new InteractiveController(engine);
 
 				var dialog = new TextAnalysisDialog(engine);
@@ -122,6 +119,7 @@ namespace TextAnalysis
 				engine.ExitFail("Run|Something went wrong: " + e);
 			}
 		}
+
 		private void Dialog_Cancelled(object sender, EventArgs e)
 		{
 			app.Engine.ExitSuccess("Running prompt cancelled.");
@@ -133,45 +131,21 @@ namespace TextAnalysis
 			if (dialog == null)
 				throw new ArgumentException("Invalid sender type");
 
-			AzureSecrets secrets = new AzureSecrets();
 			try
 			{
-				secrets = AzureSecrets.GetUserSecrets();
-			}
-			catch
-			{
-				app.Engine.ShowErrorDialog(@"Failed to load Azure secrets, please upload through configuration page of this app.
-For trial purposes, you can request secrets for preconfigured AI services by Skyline by sending a mail to team.product.marketing@skyline.be
-For production purposes, please take a look at our Docs: https://docs.dataminer.services/solutions/custom_solutions/Processing_pdf_documents_using_AI/Installing_pdf_documents_using_AI.html#setup-cloud-services-in-azure"
-			);
-			}
-
-			try
-			{
-				InitializeKernel(secrets);
-			}
-			catch
-			{
-				app.Engine.ShowErrorDialog(@"Failed to initialize Kernel. Please verify the configured secrets for the AI services used. In case of further problems, please contact Skyline team to further troubleshoot.");
-			}
-
-			try
-			{
-				string fileName = "";
 				if (!string.IsNullOrWhiteSpace(dialog.FilePath))
 				{
-					var markdown = ExtractFileContentAsMarkdown(dialog.FilePath, secrets);
-					dialog.Input = "Here is the markdown text: " + markdown;
+					var fileBytes = File.ReadAllBytes(dialog.FilePath);
+					var fileName = Path.GetFileName(dialog.FilePath);
+					//var docIntelHelper = new DocumentIntelligenceHelper(_engine.SendSLNetMessages);
+					//var output = docIntelHelper.AnalyzeDocuments(dialog.Prompt, new List<Document>() { new Document() { Name = fileName, Content = fileBytes } });
+					var output = "output";
 
-					fileName = Path.GetFileName(dialog.FilePath);
 					app.Engine.AddScriptOutput("FileName", fileName);
+					app.Engine.Log("File name: " + fileName);
+					app.Engine.Log("TextAnalysisPrompt output: " + output);
+					app.Engine.AddScriptOutput("Output", output);
 				}
-
-				app.Engine.Log("File name: " + fileName);
-
-				var output = ChatCompletion(dialog.Input, dialog.Prompt);
-				app.Engine.Log("TextAnalysisPrompt output: " + output);
-				app.Engine.AddScriptOutput("Output", output);
 			}
 			catch (Exception ex)
 			{
@@ -183,50 +157,6 @@ For production purposes, please take a look at our Docs: https://docs.dataminer.
 			app.Engine.ExitSuccess("Successfully run prompt");
 		}
 
-		private static string ExtractFileContentAsMarkdown(string filePath, AzureSecrets secrets)
-		{
-			using (var stream = new FileStream(filePath, FileMode.Open))
-			{
-				using (var memoryStream = new MemoryStream())
-				{
-					stream.CopyTo(memoryStream);
-					string base64Content = Convert.ToBase64String(memoryStream.ToArray());
-
-					var client = new DocumentIntelligenceClient(new Uri(secrets.DocumentIntelligenceEndpoint), new AzureKeyCredential(secrets.DocumentIntelligenceKey));
-					using (RequestContent content = RequestContent.Create(new { base64Source = base64Content }))
-					{
-						var operation = client.AnalyzeDocument(WaitUntil.Completed, "prebuilt-layout", content, outputContentFormat: "markdown");
-						BinaryData responseData = operation.Value;
-
-						JsonElement result = JsonDocument.Parse(responseData.ToStream()).RootElement;
-						var analyzeResult = result.GetProperty("analyzeResult");
-						return analyzeResult.GetProperty("content").ToString();
-					}
-				}
-			}
-		}
-
-		private static void InitializeKernel(AzureSecrets secrets)
-		{
-			if (_kernel == null)
-			{
-				AzureOpenAIClient openAIClient = new AzureOpenAIClient(new Uri(secrets.AzureOpenAIEndpoint), new AzureKeyCredential(secrets.AzureOpenAIKey));
-				IKernelBuilder builder = Kernel.CreateBuilder();
-				builder.Services.AddAzureOpenAIChatCompletion(secrets.ModelDeploymentName, openAIClient);
-				_kernel = builder.Build();
-			}
-		}
-
-		private static string ChatCompletion(string input, string prompt)
-		{
-			ChatHistory history = new ChatHistory();
-			history.AddSystemMessage(prompt);
-			IChatCompletionService chatCompletionService = _kernel.GetRequiredService<IChatCompletionService>();
-			if (!string.IsNullOrWhiteSpace(input))
-				history.AddUserMessage(input);
-			var result = chatCompletionService.GetChatMessageContentAsync(history, kernel: _kernel).GetAwaiter().GetResult();
-			return result.Content;
-		}
 		public static void ShowExceptionDialog(InteractiveController app, string title, Exception ex)
 		{
 			var exceptionDialog = new ExceptionDialog(app.Engine, ex);
