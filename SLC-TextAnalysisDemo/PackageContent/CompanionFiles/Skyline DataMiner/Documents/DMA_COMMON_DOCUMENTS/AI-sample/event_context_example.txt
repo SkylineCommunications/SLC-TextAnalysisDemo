@@ -57,7 +57,7 @@ Frequency values should be formatted in MHz with 6 digits and 3 decimals places 
 Symbol rate should be formatted in MSym/s with 3 decimals.
 
 ADDITIONAL INFORMATION:
-When things that are represented in a list such as satellites and auio_channel_pattern are not found, just return an empty json array [] such as "audio_channel_pattern": [] and "satellites": []
+When things that are represented in a list such as satellites and audio_channel_pattern are not found, just return an empty json array [] such as "audio_channel_pattern": [] and "satellites": []
 For Satellites, you will see that the names are often an abbreviation of a Satellite provider (e.g. EUT) followed by numbers and letters (e.g. 7A), we're not interested in the letters so you can map "EUT 7A-7E" for example to "EUT 7"
 Polarization is often indicated as X (equivalent to Horizontal) or Y polarization (equivalent to Vertical)
 If a document contains a schedule with multiple segments (e.g., tests, line-ups, transmissions), the event start_time should be the earliest segment start time, and the event end_time should be the latest segment end time.
