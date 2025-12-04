@@ -1,0 +1,63 @@
+﻿EXAMPLE OUTPUT:
+{
+	"provider": "Skyline",
+
+	"event": {
+		"event_name": "Skyline Communications Empower event",
+		"start_time": "19/03/2025 10:00:00",
+		"end_time": "21/03/2025 17:30:00"
+	},
+	"satellites": [
+		{
+			"satellite_name": "SKY3B-3E",
+			"uplink": {
+				"frequency": "13062.5 MHz",
+				"polarization": "Horizontal"
+			},
+			"downlink": {
+				"frequency": "11262.5 MHz",
+				"polarization": "Vertical"
+			},
+			"parameters": {
+				"modulation_standard": "NS4",
+				"symbol_rate": "35.294 MSym/s",
+				"fec": "7/8",
+				"roll_off": "2%"
+				"video_format": "1080i50",
+                "encryption_type": "BISS-1",
+                "dolby_audio": "No"
+            },
+            "audio_channel_pattern": [
+                { "channel": 1, "description": "PGM ENGLISH STEREO LEFT" },
+                { "channel": 2, "description": "PGM ENGLISH STEREO RIGHT" },
+                { "channel": 3, "description": "INTERNATIONAL SOUND STEREO LEFT" },
+                { "channel": 4, "description": "INTERNATIONAL SOUND STEREO RIGHT" },
+                { "channel": 8, "description": "OTHER" }
+            ]
+			}
+		}
+	]
+}
+
+POSSIBLE VALUES:
+"provider": ["Globecast", "Eutelsat", "Overon", "Associated Press", "Eurovision Services (EBU)", "SES", "Not found"],
+"satellite_name": {{satStringList}},
+"polarization":" {{polarizationStringList}},
+"modulation_standard": {{modStandardStringList}},
+"roll_off":{{rolloffStringList}}
+"fec": {{fecStringList}}
+"encryption_type": ["BISS-1", "BISS-CA", "BISS-E", "None", "Not found"],
+"dolby_audio": ["Yes", "No", "Not found"],
+"description": ["PGM English Stereo Left", "PGM English Stereo Right", "PGM English Mono", "Commentary Clean Language 1 Mono", "Commentary Clean Language 2 Mono", "International Sound Stereo Left", "International Sound Stereo Right", "International Sound MONO", "PGM Language 3 Mono", "PGM Language 4 Mono", "Dolby E Channel A", "Dolby E Channel B", "Not found"],
+"video_format": ["1080i50", "1080i60", "1080p50", "1080p60", "Not found"]
+
+REQUIRED FORMATS:
+Date values should be formatted as dd/mm/yyyy hh:mm:ss.
+Frequency values should be formatted in MHz with 6 digits and 3 decimals places (e.g., 123.567 MHz). 
+Symbol rate should be formatted in MSym/s with 3 decimals.
+
+ADDITIONAL INFORMATION:
+When things that are represented in a list such as satellites and audio_channel_pattern are not found, just return an empty json array [] such as "audio_channel_pattern": [] and "satellites": []
+For Satellites, you will see that the names are often an abbreviation of a Satellite provider (e.g. EUT) followed by numbers and letters (e.g. 7A), we're not interested in the letters so you can map "EUT 7A-7E" for example to "EUT 7"
+Polarization is often indicated as X (equivalent to Horizontal) or Y polarization (equivalent to Vertical)
+If a document contains a schedule with multiple segments (e.g., tests, line-ups, transmissions), the event start_time should be the earliest segment start time, and the event end_time should be the latest segment end time.

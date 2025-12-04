@@ -2,57 +2,55 @@
 
 ## About
 
-This sample package shows how **AI services**, such as OCR (Optical Character Recognition) & LLM (Large Lanaguage Models, e.g. GPT-4o) can be integrated with DataMiner to automate steps in a DataMiner powered operational workflow. This allows to facilitate any use-case where you want to interpret unstructured text in an automated way. Examples of **use-cases** are the following:
+The DataMiner Assistant module is available as a DataMiner Extension Module (DxM) and is responsible for bringing conversational AI into DataMiner.
+This sample package shows how DataMiner Assistant can be integrated to automate steps in a DataMiner powered operational workflow by interpreting unstructured text in an automated way. This is a valuable and efficient approach for a great lot of **use-cases**. For example:
 - **Process PDF documents** to extract parameters from it (implemented in this example)
 - Processing order information from unstructured text such as emails
 - Processing incident information from unstructured text
 - ... (feel free to contact us with use-cases)
 
-
-
 The package contains two **applications**:
 - **Satellite Parameter Extractor**: uses a predefined prompt to read a set of satellite parameters from PDF files.
-- **Interactive File Prompt Tool**: can be used to interact with the LLM model as you would do from the ChatGPT web interface but from within DataMiner. This shows the flexibility to use the LLM from anywhere within DataMiner for virutally any use-case.
+- **Interactive File Prompt Tool**: can be used to interact with the LLM model as you would do from any commercially available LLM web interface without having to leave the DataMiner environment. This demonstrates the potential to use an LLM from anywhere within DataMiner for virtually any use-case.
 
-
-> [!NOTE]
-> The package relies on external AI services that need to be configured in your own cloud environment. After configuring the AI services, the necessary API keys need to be configured in DataMiner to enable the functionality of the sample package. More information can be found in our [Docs](https://docs.dataminer.services/index.html).
-
-> [!NOTE]
-> For non-productions trials, feel free to contact [Skyline Product Marketing](mailto:team.product.marketing@skyline.be) to get secrets to connect to pre-configured AI services by Skyline.
-
-> [!NOTE]
-> Skyline is planning to make LLM models available out-of-the-box for any cloud connected DataMiner system. However, release date for this is yet to be determined. For more information, please reach out to [Skyline Product Marketing](mailto:team.product.marketing@skyline.be).
+> [!IMPORTANT]
+> **Data Processing via Azure AI Services**
+> 
+> This package uses **Azure Document Intelligence Service** and **Azure OpenAI Service**. Important considerations:
+> - **Azure Document Intelligence Service**: Extracts text from PDF documents via Azure cloud infrastructure
+> - **Azure OpenAI Service (Global Standard Deployment)**: Processes prompts and extracted text using LLM models (e.g., GPT-4o) through a globally distributed service
+> - Data is transmitted to Microsoft Azure endpoints for processing. All data is encrypted while in transit. Azure AI Services process data in accordance with Microsoft's data handling policies. 
+> - When data is sent to the Document Intelligence Service, both input data and analysis results may be temporarily encrypted and stored in an Azure Storage for a maximum of 24h after the operation has completed. Data is guaranteed to never leave the services's region. For the time being, this will be Western Europe for any user.
+> - The global standard deployment of Azure OpenAI ensures the highest availability and lowest costs by processing data across Azure's global infrastructure: while temporarily stored data should never leave the designated region, prompts and responses **might be processed in any geographic area**. In this case, the service's region currently is Sweden for every user.
+> - It is the user's responsibility to ensure that the uploaded content complies with their organization's data handling policies, security requirements, and applicable regulations (e.g., GDPR, CCPA)
+> - It is highly recommended to review the [Azure Document Intelligence data privacy documentation](https://learn.microsoft.com/en-us/legal/cognitive-services/document-intelligence/data-privacy-security) and the [Azure OpenAI data privacy and security documentation](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy).
 
 
 ## Key Features
 
-### Combination of OCR & LLM models
+### Combination of OCR & LLMs
 
-The sample package uses a combintation of OCR (Optical Character Recognition) & LLM (Large Lanaguage Models, e.g. GPT-4o) for the applications described in more detail in the following sections. When a file is uploaded by the user, an automation script will first process the document using OCR and will send the plain text extracted from the file to an LLM together with a prompt for further interpretation. The main reason for this two-step approach is that the APIs for the LLMs are not yet supporting sending over PDF documents as a whole.
+DataMiner Assistant uses a combination of OCR (Optical Character Recognition) & LLMs (Large Language Models, e.g. GPT-4o). When a file is uploaded by the user, an automation script will pick the document up and make it available for the DataMiner Assistant. The DxM will process the document, extract the necessary information via an OCR tool, and forward it to an LLM together with the appropriate prompt for further interpretation. The main reason for this two-step approach is that the APIs for the LLMs are not yet supporting sending documents over as a whole.
 
-![Combination OCR and LLM](./images/AI_processing_archtiecture_hihglevel.png)
+![Combination OCR and LLM](./images/AI_processing_architecture_highlevel.png)
 
 ### Satellite Feed Ingest
 
-This app uses a predefined prompt in the background to process Satellite parameters from PDF documents. The user simply uploads a PDF file and the system will use the AI tools to process the information in the document and create a new Satellite Feed instance it in [DataMiner Object Models (DOM)](aka.dataminer.services/DOM) (visualized on the right). 
+This app uses a predefined prompt in the background to process Satellite parameters from PDF documents. The user simply uploads a PDF file and the system will use the AI tools to process the information in the document and create a new Satellite Feed instance in [DataMiner Object Models (DOM)](aka.dataminer.services/DOM) (visualized on the right). 
 
-![Satellite Feed Ingest App](./images/pdf_processing_AI_Satellite_Feed_Ingest.pNg)
+![Satellite Feed Ingest App](./images/pdf_processing_AI_Satellite_Feed_Ingest.png)
 
 ### Interactive File Prompt App
 
-This is very basic app which allows the user to write any prompt and upload a file and have it processed by the underlying AI tools. It allows the user to write a prompt and upload a file and the tool will process the file and prompt together using the AI tools described [above](#combination-of-OCR-LLM-models).
+This basic app allows a user to upload a file and have it processed by the DataMiner Assistant according to their own instructions. The custom instructions need to be provided as a prompt, which will be included in the context sent to the LLM, as described [above](#combination-of-OCR-LLM-models).
 
-The tool can be used for any use-case, going from simply asking the tool to tell a joke, to uploading a document and asking the tool to get some data from the document (see the example below).
+The provided tool can be used for virtually any use-case, from just asking the LLM to tell a joke, to more complex scenarios involving uploading a document and requesting the extraction of specific data from it (see the example below).
 
  ![Interactive File Prompt App](./images/pdf_processing_interactive_prompt_tool_prompt.png)
 
 ## Prerequisites
 
-- DataMiner version 10.5.8 or higher
-
-> [!NOTE]
-> The embedded PDF in the Satellite Parameter Extractor Low-Code application will only work on specific browsers (Firefox will work for example, Google Chrome and Edge typically will typically not work). This is due to a security feature blocking some pdf viewers from certain browsers when embedded in a Low-Code application. It is on the backlog for Low-Code applications to make whitelisting for these PDF viewers configurable. However, there is no commitment yet in terms of release date for this whitelisting feature. For more information, please reach out to [Skyline Product Marketing](mailto:team.product.marketing@skyline.be).
+- DataMiner version 10.6.1 or higher
 
 ## Pricing
 
