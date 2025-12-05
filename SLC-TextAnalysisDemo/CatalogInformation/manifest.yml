@@ -40,7 +40,7 @@ title: Processing PDF documents using AI
 # [Optional]
 # General information about the Catalog item.
 #   Max length: 100,000 characters
-short_description: This is a sample applications. Also note that it requires additional setup of external cloud AI services. 
+short_description: This is a sample applications for the DataMiner Document Intelligence functionality 
 
 # [Optional]
 # A valid URL that points to the source code.
@@ -69,7 +69,6 @@ owners:
 #   Cannot contain newlines.
 #   Cannot contain leading or trailing whitespace characters.
 tags:
-  - 'Text Analysis'
   - 'LLM'
   - 'AI'
   - 'Satellite'
