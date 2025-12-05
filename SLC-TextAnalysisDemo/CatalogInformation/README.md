@@ -2,59 +2,52 @@
 
 ## About
 
-The DataMiner Assistant module is available as a DataMiner Extension Module (DxM) and is responsible for bringing conversational AI into DataMiner.
-This sample package shows how DataMiner Assistant can be integrated to automate steps in a DataMiner powered operational workflow by interpreting unstructured text in an automated way. This is a valuable and efficient approach for a great lot of **use-cases**. For example:
-- **Process PDF documents** to extract parameters from it (implemented in this example)
-- Processing order information from unstructured text such as emails
-- Processing incident information from unstructured text
-- ... (feel free to contact us with use-cases)
+This sample package shows how the **DataMiner Document Intelligence** functionality from the DataMiner Assistant can be used in DataMiner Automation to **process unstructured text from documents**, in this case PDFs (see Docs for more information). By integrating this in automation scripts, the user has full flexibility on how to integrate this in their DataMiner powered operational workflow.
 
-The package contains two **applications**:
-- **Satellite Parameter Extractor**: uses a predefined prompt to read a set of satellite parameters from PDF files.
-- **Interactive File Prompt Tool**: can be used to interact with the LLM model as you would do from any commercially available LLM web interface without having to leave the DataMiner environment. This demonstrates the potential to use an LLM from anywhere within DataMiner for virtually any use-case.
+> [!NOTE]
+> The DataMiner Assistant module is available as a DataMiner Extension Module (DxM) and is responsible for bringing conversational AI into DataMiner. The functionality from the DataMiner Assistant is currently restricted to cloud connected systems only. Next to the cloud connection to dataminer.services cloud, using the DataMiner Document Intelligence features does not require any additional setup. 
+
+> [!NOTE]
+> The documents are stored locally on the DataMiner web server in the Webpages folder. There are other options available in DataMiner to store this on a network drive using [DOM attachments](https://docs.dataminer.services/dataminer/Functions/DOM/DOM_DevOps/DOM_Editor/DOM_editor_attachments_networkshare.html?q=DOM%20ATTACHments) which might be preferred in terms of scalability. Other features are also on the roadmap to store documents in external online drives such as Sharepoint and Google Drive.  
 
 > [!IMPORTANT]
 > **Data Processing via Azure AI Services**
 > 
-> This package uses **Azure Document Intelligence Service** and **Azure OpenAI Service**. Important considerations:
-> - **Azure Document Intelligence Service**: Extracts text from PDF documents via Azure cloud infrastructure
-> - **Azure OpenAI Service (Global Standard Deployment)**: Processes prompts and extracted text using LLM models (e.g., GPT-4o) through a globally distributed service
-> - Data is transmitted to Microsoft Azure endpoints for processing. All data is encrypted while in transit. Azure AI Services process data in accordance with Microsoft's data handling policies. 
-> - When data is sent to the Document Intelligence Service, both input data and analysis results may be temporarily encrypted and stored in an Azure Storage for a maximum of 24h after the operation has completed. Data is guaranteed to never leave the services's region. For the time being, this will be Western Europe for any user.
-> - The global standard deployment of Azure OpenAI ensures the highest availability and lowest costs by processing data across Azure's global infrastructure: while temporarily stored data should never leave the designated region, prompts and responses **might be processed in any geographic area**. In this case, the service's region currently is Sweden for every user.
-> - It is the user's responsibility to ensure that the uploaded content complies with their organization's data handling policies, security requirements, and applicable regulations (e.g., GDPR, CCPA)
-> - It is highly recommended to review the [Azure Document Intelligence data privacy documentation](https://learn.microsoft.com/en-us/legal/cognitive-services/document-intelligence/data-privacy-security) and the [Azure OpenAI data privacy and security documentation](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy).
+> The DataMiner Document Intelligence functionality used in this package uses **Azure Document Intelligence Service** and **Azure OpenAI Service** in the background. Please consult the [DataMiner Document Intelligence docs](https://docs.dataminer.services/index.html) for more information on data privacy. 
 
 
 ## Key Features
 
-### Combination of OCR & LLMs
+### Satellite Parameter Extractor
 
-DataMiner Assistant uses a combination of OCR (Optical Character Recognition) & LLMs (Large Language Models, e.g. GPT-4o). When a file is uploaded by the user, an automation script will pick the document up and make it available for the DataMiner Assistant. The DxM will process the document, extract the necessary information via an OCR tool, and forward it to an LLM together with the appropriate prompt for further interpretation. The main reason for this two-step approach is that the APIs for the LLMs are not yet supporting sending documents over as a whole.
 
-![Combination OCR and LLM](./images/AI_processing_architecture_highlevel.png)
+The app **Satellite Parameter Extractor** in the package shows an example of a user interface that makes use of DataMiner Document Intelligence in the background. The app allows to upload a document and the automation scripts will use the Document Intelligence API from the DataMiner Assistant to intelligently find the parameters in the document and map them to the possible values. These are then automatically filled in the DOM ([DataMiner Object Modelling](aka.dataminer.services/DOM)) object representing a Satellite Feed by the automation script. The app uses a predefined prompt in the background to process the Satellite parameters from the PDF documents.
 
-### Satellite Feed Ingest
+The app shows a list of uploaded documents on the left and the selected PDF is displayed in the middle of the screen. On the right of the screen, the extracted parameters from the document are shown. The Low-Code app could be tailored to a use-case by adding an initial button to automatically create an SRM booking or Job in the scheduling app to downlink the satellite feed. 
 
-This app uses a predefined prompt in the background to process Satellite parameters from PDF documents. The user simply uploads a PDF file and the system will use the AI tools to process the information in the document and create a new Satellite Feed instance in [DataMiner Object Models (DOM)](aka.dataminer.services/DOM) (visualized on the right). 
 
 ![Satellite Feed Ingest App](./images/pdf_processing_AI_Satellite_Feed_Ingest.png)
 
-### Interactive File Prompt App
+### Automation scripts
 
-This basic app allows a user to upload a file and have it processed by the DataMiner Assistant according to their own instructions. The custom instructions need to be provided as a prompt, which will be included in the context sent to the LLM, as described [above](#combination-of-OCR-LLM-models).
+In the Automation App in DataMiner Cube, you can find the automation scripts used in the sample application:
 
-The provided tool can be used for virtually any use-case, from just asking the LLM to tell a joke, to more complex scenarios involving uploading a document and requesting the extraction of specific data from it (see the example below).
+- *SLC-TextAnalysis-Upload*: interactive automation scripts that will show the popup dialog to upload the document and store the document on the server. This script will call *SLC_TextAnalysis_Script*
+- *SLC_TextAnalysis_Script*: script that uses the file and contacts the DataMiner Document Intelligence API to extract the parameters from the document and create the DOM instance
 
- ![Interactive File Prompt App](./images/pdf_processing_interactive_prompt_tool_prompt.png)
+### Prompt and sample document
+
+In the DataMiner Documents App in DataMiner Cube, you can find the prompt/context that is used in the automation script and a sample document to upload in the App.
+
+![Cube Documents](./images/AI_processing_cubedocuments.png)
 
 ## Prerequisites
 
-- DataMiner version 10.6.1 or higher
+- DataMiner version 10.6.1 or higher (includes the DataMiner Assistant DxM required for DataMiner Document Intelligence)
 
 ## Pricing
 
-The applications part of this package will consume DataMiner credits, based on the level of usage of the apps. The DataMiner credits will be deducted monthly based on the metered usage. More information about the pricing of DataMiner usage-based services can be found in the [DataMiner Pricing Overview](aka.dataminer.services/Pricing_Usage_Based). 
+The applications that are part of this package will consume DataMiner credits because the apps use the DataMiner Document Intellence API in the background. The consumption will depend on the level of usage of the apps. The DataMiner credits will be deducted monthly based on the metered usage. More information about the pricing of DataMiner usage-based services can be found in the [DataMiner Pricing Overview](aka.dataminer.services/Pricing_Usage_Based). 
 
 ## Support
 
