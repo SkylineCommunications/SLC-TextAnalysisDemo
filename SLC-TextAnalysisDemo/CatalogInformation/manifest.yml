@@ -40,7 +40,7 @@ title: Processing PDF documents using AI
 # [Optional]
 # General information about the Catalog item.
 #   Max length: 100,000 characters
-short_description: This is a sample applications for the DataMiner Document Intelligence functionality 
+short_description: This is a sample application for the DataMiner Document Intelligence functionality. The app uses the functionality to convert PDF files to satellite feeds modelled in DataMiner Object Modelling (DOM).
 
 # [Optional]
 # A valid URL that points to the source code.
