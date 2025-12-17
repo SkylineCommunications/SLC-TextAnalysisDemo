@@ -63,8 +63,8 @@ using DomHelpers.Satellitefeeds;
 using ExtensionsNamespace;
 using Feeds;
 using Skyline.DataMiner.Automation;
-//using Skyline.DataMiner.Net.Apps.DocumentIntelligence;
-//using Skyline.DataMiner.Net.Apps.DocumentIntelligence.Objects;
+using Skyline.DataMiner.Net.Apps.DocumentIntelligence;
+using Skyline.DataMiner.Net.Apps.DocumentIntelligence.Objects;
 using SLC_Popups.IAS.Extensions;
 
 //---------------------------------
@@ -159,9 +159,9 @@ namespace TextAnalysis
 		{
 			var fileBytes = File.ReadAllBytes(filepath);
 			var fileName = Path.GetFileName(filepath);
-			//var docIntelHelper = new DocumentIntelligenceHelper(_engine.SendSLNetMessages);
-			//var output = docIntelHelper.AnalyzeDocuments(GetContext(), new List<Document>() { new Document() { Name = fileName, Content = fileBytes } });
-			var output = "output from LLM or Document Intelligence API";
+			var docIntelHelper = new DocumentIntelligenceHelper(_engine.SendSLNetMessages);
+			var output = docIntelHelper.AnalyzeDocuments(GetContext(), new List<Document>() { new Document() { Name = fileName, Content = fileBytes } });
+			// var output = "output from LLM or Document Intelligence API";
 			return output;
 		}
 
