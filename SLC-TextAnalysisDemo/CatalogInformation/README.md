@@ -46,7 +46,7 @@ In the DataMiner Documents App in DataMiner Cube, you can find the prompt/contex
 
 ## Pricing
 
-The applications that are part of this package will consume DataMiner credits because the apps use the DataMiner Document Intelligence API in the background. The consumption will depend on the level of usage of the apps. The DataMiner credits will be deducted monthly based on the metered usage. More information about the pricing of DataMiner usage-based services can be found in the [DataMiner Pricing Overview](https://aka.dataminer.services/Pricing_Usage_Based).
+The Document Intelligence functionality will be metered and billed based on your consumption while limited (non-production) use of the functionality using this package is free. Please contact your account manager for more information if you want to integrate the functionality into your operations. More information about the pricing of DataMiner usage-based services can be found in the [DataMiner Pricing Overview](https://aka.dataminer.services/Pricing_Usage_Based).
 
 ## Support
 
