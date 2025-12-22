@@ -26,6 +26,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PackageContent\CompanionFiles\Skyline DataMiner\Webpages\" />
     <Folder Include="SetupContent\DOMImportExport\satellitefeeds\DomBehaviorDefinitions\" />
   </ItemGroup>
 </Project>
