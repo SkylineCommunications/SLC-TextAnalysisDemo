@@ -17,13 +17,14 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="Skyline.DataMiner.Core.AppPackageInstaller" Version="3.0.2" />
-    <PackageReference Include="Skyline.DataMiner.Core.DataMinerSystem.Automation" Version="1.1.3.5" />
+    <PackageReference Include="Skyline.DataMiner.Core.AppPackageInstaller" Version="4.3.0" />
+    <PackageReference Include="Skyline.DataMiner.Core.DataMinerSystem.Automation" Version="1.2.1.2" />
     <PackageReference Include="Skyline.DataMiner.Dev.Automation" Version="10.6.1" />
-    <PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="2.1.0">
+    <PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.Text.Json" Version="10.0.14" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PackageContent\CompanionFiles\Skyline DataMiner\Webpages\" />
